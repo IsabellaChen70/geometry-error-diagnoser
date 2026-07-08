@@ -1,0 +1,347 @@
+{
+  "meta": {
+    "kind": "Brainlift",
+    "title": "Geometric transformations",
+    "owner": "Isabella Chen",
+    "ownerRole": "Primary Owner",
+    "standard": "Common Core 8.G",
+    "compiled": "Jul 2026",
+    "sourceCount": 12,
+    "expertCount": 6
+  },
+  "purpose": "Fine-tune a small open model to reliably diagnose student errors on composed geometric transformation problems (e.g. “translated, then rotated” vs. “reflected, then rotated”), returning a single strict JSON object (target quantity, correct answer, misconception label, evidence span, hint) without ever leaking the final answer.",
+  "scope": {
+    "inScope": [
+      "Two-step composed rigid-motion problems (translate+rotate, reflect+rotate, translate+reflect, rotate+translate) presented as coordinate-grid diagrams, matching the Common Core 8.G composition-of-transformations standard.",
+      "A pipeline: diagram → structured text description → solve from text → JSON misconception diagnosis, mirroring the earlier probability-misconception-diagnoser project’s architecture.",
+      "A misconception label taxonomy that must be **constructed and empirically validated**."
+    ],
+    "outOfScope": ["TBD"]
+  },
+  "spov": {
+    "claim": "For diagnosing errors on two-step composed geometric transformations, a small open model fine-tuned on a purpose-built, validated dataset will outperform Claude Opus 4.8 on this task, because this is a narrow, text-reducible, data-scarce skill where frontier scale buys nothing the task actually rewards.",
+    "whySpiky": "The default reflex in the field is to treat any hard reasoning problem as a reason to reach for the biggest frontier model. This claim inverts that reflex. For a bounded, compositional, pretraining-absent skill, bigger is not better, and scale is arguably a liability here (higher inference cost, weaker control over output format, and answer-leakage risk) while still failing the task.",
+    "argument": "Chain insights 1 through 6. The deficit is narrow and structural (1); scale and prompting already fail to fix it (2); the pipeline removes the vision axis where scale wins (3); the dataset is an asset the frontier model has never seen (4); the task is learnable with a clean, isolated eval (5); and the specialist additionally wins on output control (6). Taken together, these mean a small specialist should meet or beat Opus 4.8 on the composed condition.",
+    "bet": "On a held-out set of two-step composed transformation problems, a roughly 7 to 8 billion parameter open model, fine-tuned on the project’s dataset and fed the pipeline’s structured text, will exceed Claude Opus 4.8 on misconception-diagnosis accuracy and JSON validity, at a fraction of the inference cost. This is the hypothesis the eval harness must test, not something already shown; until that harness runs on held-out data, the outperformance claim stays an open bet.",
+    "changeMind": "The bet fails if composition failure turns out to be a symptom of general reasoning limits (question 1.2 argues against this), if prompting or scale actually closes the gap (LEGO-Puzzles argues against this), or if the diagram-to-text stage loses too much signal to recover downstream. The load-bearing risk is stage-one fidelity, given PGDP5K’s 66.07% F1 parsing ceiling and TALENT’s finding that decomposition only helps when the intermediate text is rich, so first-stage description quality, not the core thesis, is the most likely place for this to break."
+  },
+  "insights": [
+    {
+      "n": 1,
+      "title": "The deficit is narrow and structural, the ideal shape for fine-tuning",
+      "body": "The failure is concentrated on the composed condition, not on geometry in general. Humans barely register a composition penalty (in Mind’s Eye they score 82% on composed sequences versus 81% on single transformations), yet models that still recognize a transformed shape at 98.65% in TangramPuzzle collapse to between 0% and 22.60% once they must produce the two-step sequence, DORI models fall to roughly 49% on compound rotation, and LEGO-Puzzles shows the same multi-step cliff. Question 1.2 confirms that mainstream geometry-QA benchmarks do not even isolate this condition, so the weakness is specific rather than a sign of weak geometry overall. Models are not missing general ability; they are missing one bounded behavior, carrying state across a two-step rigid-motion sequence, and bounded on-distribution gaps are exactly what supervised fine-tuning closes efficiently, so a small model only has to learn this one behavior rather than general intelligence.",
+      "drawsOn": "Mind’s Eye, DORI, TangramPuzzle, LEGO-Puzzles, and question 1.2."
+    },
+    {
+      "n": 2,
+      "title": "Scale and prompting, the frontier model’s core advantages, already fail to move this",
+      "body": "LEGO-Puzzles reports that chain-of-thought prompting gives only limited help, with the benefit diminishing beyond two steps, so prompt-time reasoning does not rescue the composed case. TangramPuzzle shows the same at the top of the parameter range: full-composition success is 22.60% for Gemini3-Pro, 0.15% for Claude-Sonnet-4.5, and 0% for GPT-5.2. The two levers that make a frontier model like Opus 4.8 strong, parameter scale and prompt-time reasoning, do not convert into composition reliability, so the frontier premium is neutralized on exactly this task.",
+      "drawsOn": "LEGO-Puzzles, TangramPuzzle."
+    },
+    {
+      "n": 3,
+      "title": "The pipeline moves the problem onto the axis where small models are competitive",
+      "body": "DFE-GPS shows that a raw diagram actually decreases accuracy (QwenVL drops from 19.90% to 9.05%), while formalizing the diagram into symbolic form first reverses that and improves further. Symbolic Grounding shows end-to-end vision stuck at chance (50% to 51%) against reasoning over symbolic descriptions at up to 96.2%, and TALENT shows a rich decomposition beating end-to-end vision models. Converting diagram to structured text and then solving from text removes raw multimodal perception, the one axis where frontier scale dominates, and reframes the task as text reasoning, where a small fine-tuned model sits much closer to parity. The architecture is deliberately chosen to sidestep Opus 4.8’s biggest advantage.",
+      "drawsOn": "DFE-GPS, Symbolic Grounding, TALENT."
+    },
+    {
+      "n": 4,
+      "title": "A good dataset is a moat the frontier labs do not have",
+      "body": "ETS RR-19-01, a report built specifically to be a comprehensive misconception catalog, contains zero composition-specific misconceptions, and the only verified composition misconception in the literature (Hegg and Fukawa-Connelly) is a proof-context conflation, the “one move” view of isometries, rather than the computed-answer errors this project targets. A curated, validated dataset of composed-transformation errors therefore does not exist in any pretraining corpus, so no amount of scale gives Opus 4.8 access to this signal. Constructing and empirically validating the taxonomy creates supervised signal the frontier model has never seen, which is the mechanism by which a small model plus a good dataset can beat a big model that has no such data.",
+      "drawsOn": "ETS RR-19-01, Hegg and Fukawa-Connelly."
+    },
+    {
+      "n": 5,
+      "title": "The task is provably learnable, with a high ceiling and a ready-made eval",
+      "body": "Human baselines sit high across these benchmarks (Mind’s Eye 82%, TangramPuzzle 72.67%, DORI 86%, LEGO-Puzzles 93.6%) while models sit near random, which means the signal is clean and teachable rather than irreducible noise. Mind’s Eye and TangramPuzzle also isolate composition as its own measured axis with a human baseline, giving a credible pre-built harness for demonstrating a small specialist beating Opus 4.8 on exactly the composed condition.",
+      "drawsOn": "Mind’s Eye, TangramPuzzle, DORI, LEGO-Puzzles."
+    },
+    {
+      "n": 6,
+      "title": "Beyond accuracy, control favors the specialist",
+      "body": "The project’s success metric is a single strict JSON object that never leaks the final answer, not merely a correct label. A fine-tuned small model can be held to that output contract far more dependably than a general model prompted to comply, so the specialist wins on a second axis, format reliability and answer-hiding, on top of raw accuracy.",
+      "drawsOn": "the Primary Purpose (the strict-JSON, no-answer-leak contract)."
+    }
+  ],
+  "knowledgeTree": {
+    "label": "DOK 2",
+    "questions": [
+      {
+        "n": "1",
+        "id": "q1",
+        "title": "Does AI actually fail at composed transformations? (the litmus-test check)",
+        "subnodes": [
+          {
+            "n": "1.1",
+            "title": "Composition collapse across independent benchmarks",
+            "sources": [
+              {
+                "authors": "Sinha, Kanade, Kancheti, Balasubramanian, Ganu.",
+                "title": "Mind’s Eye: A Benchmark of Visual Abstraction, Transformation and Composition for Multimodal LLMs.",
+                "venue": "arXiv 2026",
+                "institution": "IIT Hyderabad + Microsoft Research Bengaluru.",
+                "facts": [
+                  { "kind": "fact", "text": "Human baseline on Mental Composition (MC, chained transformations): 82%, almost identical to single-operation Mental Transformation (81%) and Paper Folding (80.1%). Humans show almost no composition penalty." },
+                  { "kind": "fact", "text": "Models score 13.0-51.8% on MC, 10.1-35.6% on single transformation, 11.3-32.0% on folding, which is far below humans with wide variance." },
+                  { "kind": "quote", "text": "“models particularly struggle with tasks requiring interpreting temporal sequences and tracking visual elements across transformations.”" }
+                ],
+                "analysis": "This is the most directly on-target paper found: it isolates composition as its own axis and shows models don’t just do worse than humans overall, they lose a specific, disproportionate amount of ground on the composed condition specifically.",
+                "links": [{ "label": "arXiv:2604.16054", "url": "https://arxiv.org/abs/2604.16054" }]
+              },
+              {
+                "authors": "Liu, Kuang, Li, Li, Yin, Cao, Sun, Shen, Zheng, Lin, Yu.",
+                "title": "TangramPuzzle: Evaluating MLLMs with Compositional Spatial Reasoning.",
+                "venue": "arXiv 2026",
+                "institution": "Tsinghua, Sun Yat-Sen, Tencent Youtu Lab, UIC.",
+                "facts": [
+                  { "kind": "fact", "text": "Outline Prediction (recognize the shape after transformations): up to 98.65% (Gemini3-Pro)." },
+                  { "kind": "fact", "text": "End-to-end full-composition success (generate the exact transformation sequence): Gemini3-Pro 22.60%, Claude-Sonnet-4.5 0.15%, GPT-5.2 0%, nearly all others 0-0.15%." },
+                  { "kind": "fact", "text": "Human baseline on full composition: 72.67%." },
+                  { "kind": "quote", "text": "“MLLMs tend to prioritize matching the target silhouette while neglecting geometric constraints.”" }
+                ],
+                "analysis": "Models go from near-perfect (98.65%) to near-zero (0-22.6%) purely by moving from “recognize the transformed shape” to “produce the composed transformation sequence,” while humans barely drop (72.67%, still far above any model). This is about as clean a “well-prompted base model can’t already do this reliably” result as the assignment’s litmus test could ask for.",
+                "links": [{ "label": "arXiv:2601.16520", "url": "https://arxiv.org/abs/2601.16520" }]
+              },
+              {
+                "authors": "Tasnim, Nichols, Yan, Ikechukwu, Zou, Ghadiyaram, Plummer.",
+                "title": "“Seeing Isn’t Orienting” (DORI benchmark).",
+                "venue": "arXiv 2025",
+                "institution": "Boston University + Johns Hopkins.",
+                "facts": [
+                  { "kind": "fact", "text": "Human compound rotation accuracy: 86% coarse / 86% granular — only a 6-point penalty vs. single-axis rotation (92%/82%)." },
+                  { "kind": "fact", "text": "Model compound rotation: collapses to ~49% coarse, as low as 8.6% granular for closed-source models." },
+                  { "kind": "quote", "text": "“models competent on general spatial benchmarks remain near-random on object-centric orientation tasks,” with “the largest drops on compound rotations.”" }
+                ],
+                "analysis": "A third independent lab, a third independent benchmark, the same qualitative shape: humans barely notice composition, models fall off a cliff. Three-for-three convergence across IIT Hyderabad/MSR, Tsinghua/Tencent, and Boston University is much stronger evidence than any single paper.",
+                "links": [{ "label": "arXiv:2505.21649", "url": "https://arxiv.org/abs/2505.21649" }]
+              },
+              {
+                "authors": "Tang, Gao, Zeng, Duan, Sun, Xing, Liu, Lyu, Chen.",
+                "title": "LEGO-Puzzles: How Good Are MLLMs at Multi-Step Spatial Reasoning?",
+                "venue": "arXiv 2025",
+                "institution": "Shanghai AI Laboratory, Tongji, Tsinghua.",
+                "facts": [
+                  { "kind": "fact", "text": "Human baseline: 93.6% overall; top models (GPT-4o, Gemini-2.0-Flash, Claude-3.5-Sonnet): 54-59%." },
+                  { "kind": "fact", "text": "The “Ordering” task (sequence correct assembly steps) shows several models at near-zero accuracy." },
+                  { "kind": "fact", "text": "Chain-of-thought prompting gives only “limited help,” with benefit “diminishing as task complexity increased beyond two steps.”" }
+                ],
+                "analysis": "Important negative result for mitigation strategy: if CoT prompting on a frontier model can’t fix this even at just two steps, that’s further confirmation prompting alone won’t clear the litmus test, reinforcing that this is a fine-tuning-shaped problem, not a prompting-shaped one.",
+                "links": [{ "label": "arXiv:2503.19990", "url": "https://arxiv.org/abs/2503.19990" }]
+              }
+            ]
+          },
+          {
+            "n": "1.2",
+            "title": "What does NOT count as evidence (explicitly ruled out)",
+            "flag": "negative",
+            "sources": [
+              {
+                "authors": "",
+                "title": "GeoEval (arXiv:2402.10104), GeoLaux (arXiv:2508.06226), and the Geometry3K/UniGeo/GeoQA/PGPS9K/MathVista cluster.",
+                "venue": "",
+                "institution": "",
+                "facts": [
+                  { "kind": "fact", "text": "These are the most-cited diagram geometry benchmarks, but on direct inspection they test static proof/calculation geometry (angles, lengths, congruence proofs, auxiliary-line construction). None isolate rotation/reflection/translation composition." }
+                ],
+                "analysis": "A useful negative finding, not a gap in the search: the *mainstream* geometry-QA literature doesn’t test this behavior at all. The real evidence lives in the more tangential puzzle/spatial-cognition literature (tangrams, LEGO, origami, orientation benchmarks) above, not in “geometry problem solving” benchmarks despite the topical adjacency.",
+                "links": [
+                  { "label": "arXiv:2402.10104", "url": "https://arxiv.org/abs/2402.10104" },
+                  { "label": "arXiv:2508.06226", "url": "https://arxiv.org/abs/2508.06226" }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "n": "2",
+        "id": "q2",
+        "title": "Can a diagram be reliably converted to text first? (the pipeline’s first stage)",
+        "subnodes": [
+          {
+            "n": "2.1",
+            "title": "Diagram parsing is a real, quantified bottleneck",
+            "sources": [
+              {
+                "authors": "Hao, Zhang, Yin, Huang.",
+                "title": "PGDP5K: A Diagram Parsing Dataset for Plane Geometry Problems.",
+                "venue": "ICPR 2022",
+                "institution": "Beijing Jiaotong University + Institute of Automation, CAS.",
+                "facts": [
+                  { "kind": "fact", "text": "State-of-the-art diagram parsing (PGDPNet) on PGDP5K achieves only 66.07% F1. Even a purpose-built, dedicated diagram parser mis-extracts roughly a third of diagram elements/relations." }
+                ],
+                "analysis": "The single most load-bearing number for this project’s pipeline design: it directly quantifies the risk in stage 1 (diagram-to-text). No parser here was built for transformation-sequence diagrams specifically, so there’s no reason to expect better than ~66% F1 on this project’s diagram type without dedicated fine-tuning of that stage too.",
+                "links": [{ "label": "arXiv:2205.09947", "url": "https://arxiv.org/abs/2205.09947" }]
+              },
+              {
+                "authors": "Lu, Gan, Jiang, Qiu, Huang, Liang, Zhu.",
+                "title": "Inter-GPS: Interpretable Geometry Problem Solving with Formal Language and Symbolic Reasoning.",
+                "venue": "ACL-IJCNLP 2021",
+                "institution": "UCLA VCLA + Zhejiang University + Sun Yat-sen University.",
+                "facts": [
+                  { "kind": "fact", "text": "Parses diagram (Hough Transform + RetinaNet + MathPix OCR) and text into a shared formal logic language, then runs symbolic theorem-proving. 57.5% overall solving accuracy on their introduced Geometry3K dataset (3,002 problems). The diagram-parser-only accuracy ablation could not be independently verified." }
+                ],
+                "analysis": "The foundational precedent for “parse the diagram into a formal/symbolic representation, then solve symbolically rather than end-to-end”. This is directly the architecture this project’s pipeline proposes, applied to a different geometry sub-domain.",
+                "links": [{ "label": "arXiv:2105.04165", "url": "https://arxiv.org/abs/2105.04165" }]
+              }
+            ]
+          },
+          {
+            "n": "2.2",
+            "title": "Naive decomposition can backfire",
+            "sources": [
+              {
+                "authors": "Guo, Wang, Wu, Miao, Wang.",
+                "title": "TALENT: Table VQA via Augmented Language-Enhanced Natural-text Transcription.",
+                "venue": "arXiv 2025",
+                "institution": "Johns Hopkins, Purdue, University at Albany.",
+                "facts": [
+                  { "kind": "fact", "text": "Pure OCR/markdown decomposition (73.6-75.5%) underperforms a richer “dual representation” (OCR spans + natural-language narration) decomposition (80.7-81.1%), which beats strong end-to-end VLMs (54.5-74.2%)." },
+                  { "kind": "quote", "text": "“Even with perfect OCR, an LLM reasoning over a rigid, non-prose format can still fail to grasp the full context.”" }
+                ],
+                "analysis": "The key qualifier on the whole pipeline idea: decomposition only helps if the intermediate text representation is *rich* (preserves spatial relationships, labeled correspondences, transformation parameters). A bare “here are two shapes” description would likely reproduce this paper’s failure mode.",
+                "links": [{ "label": "arXiv:2510.07098", "url": "https://arxiv.org/abs/2510.07098" }]
+              },
+              {
+                "authors": "Zhang, Cheng, Deng, Tian, Ma, Qin, Zhang, Zhu, Leng.",
+                "title": "“Diagram Formalization Enhanced Multi-Modal Geometry Problem Solver” (DFE-GPS).",
+                "venue": "arXiv 2024",
+                "institution": "Peking University, 201.AI, Shanghai Jiao Tong, Shanghai University.",
+                "facts": [
+                  { "kind": "fact", "text": "Adding a raw geometry diagram *decreases* accuracy for several MLLMs relative to text-only input (QwenVL: 19.90%→9.05%, a -10.85 point drop). Formalizing the diagram into a symbolic language before reasoning reverses this and improves further (+4-6 points over direct diagram+question input)." }
+                ],
+                "analysis": "The strongest direct support in the whole research pass, because it’s the only paper that runs on geometry diagrams specifically, on the same models: raw diagram hurts, symbolic diagram helps. Directly validates the “convert to text/symbolic form first” design choice for this project’s domain.",
+                "links": [{ "label": "arXiv:2409.04214", "url": "https://arxiv.org/abs/2409.04214" }]
+              }
+            ]
+          },
+          {
+            "n": "2.3",
+            "title": "The broader, cross-domain pattern (beyond geometry)",
+            "sources": [
+              {
+                "authors": "Vaishnav, Tammet.",
+                "title": "Symbolic Grounding Reveals Representational Bottlenecks in Abstract Visual Reasoning.",
+                "venue": "arXiv 2026",
+                "institution": "Tallinn University of Technology + Kimova AI.",
+                "facts": [
+                  { "kind": "fact", "text": "On Bongard-LOGO-style abstract visual reasoning, end-to-end VLM on raw images: 50-51% (chance level). LLM reasoning over structured symbolic descriptions of the same scenes: up to 96.2%." },
+                  { "kind": "quote", "text": "“poor performance in the visual setting stems primarily from representational limitations rather than an inability to reason over structured input.”" }
+                ],
+                "analysis": "The starkest decomposed-vs-end-to-end gap found (~45 points), though on a synthetic benchmark. It is directionally consistent with DFE-GPS and DePlot (chart QA: 29-point gain from decomposition), suggesting this is a general property of current VLMs, not a geometry-specific quirk.",
+                "links": [{ "label": "arXiv:2604.21346", "url": "https://arxiv.org/abs/2604.21346" }]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "n": "3",
+        "id": "q3",
+        "title": "What do students actually get wrong when composing transformations? (the misconception taxonomy)",
+        "subnodes": [
+          {
+            "n": "3.1",
+            "title": "The one verified, composition-specific misconception in the literature",
+            "flag": "verified",
+            "sources": [
+              {
+                "authors": "Hegg, M., & Fukawa-Connelly, T.",
+                "title": "Student Proficiency with Transformational Geometry After a College Proof-Based Geometry Class.",
+                "venue": "RUME 2017",
+                "institution": "",
+                "facts": [
+                  { "kind": "fact", "text": "Of 17 preservice teachers asked whether a triangle-mapping isometry was unique, 7 justified an incorrect answer by asserting an isometry can only be “one move.\" It explicitly failing to recognize that a composition of transformations is itself a single transformation." },
+                  { "kind": "quote", "text": "“These students wrote claims such as, ‘Yes because any other isometry would require more than one isometry.’”" }
+                ],
+                "analysis": "It’s a conceptual/proof-context error (composed-pair-vs-single-transformation conflation), not a computational one (wrong order, wrong center, wrong direction) like this project’s diagnoser will actually need to detect in computed-answer problems.",
+                "links": [{ "label": "RUME Conference Proceedings (2017)" }]
+              }
+            ]
+          },
+          {
+            "n": "3.2",
+            "title": "The gap that matters most for this project",
+            "sources": [
+              {
+                "authors": "Fife, J. H., James, K., & Bauer, M.",
+                "title": "A Learning Progression for Geometric Transformations.",
+                "venue": "ETS RR-19-01, 2019",
+                "institution": "Educational Testing Service.",
+                "facts": [
+                  { "kind": "fact", "text": "Explicitly places “performs composition of simple transformations” at Level 3 and “understands associativity/commutativity of compositions” at Level 5 of a 5-level progression — but the report’s own dedicated “Common Misconceptions” section names **zero** composition-specific misconceptions, only single-transformation ones (e.g., “a rotated square is no longer a square,” “circles can’t be translated because they have no corner ‘handles’”)." }
+                ],
+                "analysis": "A document explicitly built to catalog transformation misconceptions, from a top psychometric research org, simply doesn’t have a composition-specific entry. This is a genuine, informative absence: the field has not consolidated a named, measured misconception taxonomy for composed transformations. This project’s misconception label set must be constructed and empirically validated from scratch (informed by the plausible-but-unmeasured error types the AI-failure literature keeps gesturing at: order-dependence assumptions, not updating the reference frame/center for the second transformation) rather than imported from prior research.",
+                "links": [{ "label": "ETS RR-19-01 (2019)", "url": "https://onlinelibrary.wiley.com/doi/10.1002/ets2.12240" }]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "collapseChart": [
+    { "benchmark": "Mind’s Eye", "condition": "Mental Composition", "human": 82, "humanText": "82%", "modelLow": 13.0, "modelHigh": 51.8, "modelText": "13.0-51.8%" },
+    { "benchmark": "TangramPuzzle", "condition": "full composition", "human": 72.67, "humanText": "72.67%", "modelLow": 0, "modelHigh": 22.60, "modelText": "0-22.60%" },
+    { "benchmark": "DORI", "condition": "compound rotation", "human": 86, "humanText": "86%", "modelLow": 8.6, "modelHigh": 49, "modelText": "8.6-49%" },
+    { "benchmark": "LEGO-Puzzles", "condition": "overall", "human": 93.6, "humanText": "93.6%", "modelLow": 54, "modelHigh": 59, "modelText": "54-59%" }
+  ],
+  "experts": [
+    {
+      "name": "Pan Lu",
+      "institution": "UCLA Center for Vision, Cognition, Learning, and Autonomy (VCLA)",
+      "views": "Geometry problem solving benefits from parsing diagrams into a shared formal/symbolic language before applying symbolic theorem-proving, rather than reasoning end-to-end on pixels (Inter-GPS); later work (MathVista) catalogs how far multimodal models still are from robust visual math reasoning.",
+      "whyFollow": "Author of Inter-GPS and the Geometry3K dataset, which is the foundational precedent for this project’s “diagram → text/symbolic → solve” pipeline architecture, applied to a different geometry sub-domain (proofs/calculation rather than composed transformations).",
+      "links": [{ "label": "Inter-GPS (ACL-IJCNLP 2021)", "url": "https://arxiv.org/abs/2105.04165" }]
+    },
+    {
+      "name": "Bryan A. Plummer / Deepti Ghadiyaram",
+      "institution": "Boston University",
+      "views": "Current VLMs remain near-random on object-centric orientation reasoning even when they perform well on general spatial benchmarks; the gap is largest specifically on compound/composed rotations, not single-axis ones.",
+      "whyFollow": "Co-authors of DORI, one of three independent benchmarks (alongside Mind’s Eye and TangramPuzzle) that converge on the exact “composition collapses, single-step doesn’t” pattern this project’s litmus test relies on.",
+      "links": [{ "label": "Seeing Isn’t Orienting / DORI", "url": "https://arxiv.org/abs/2505.21649" }]
+    },
+    {
+      "name": "Aditya Kanade / Tanuja Ganu (Microsoft Research Bengaluru) + Rohit Sinha (IIT Hyderabad)",
+      "institution": "Microsoft Research India + IIT Hyderabad",
+      "views": "Multimodal LLMs disproportionately fail on tasks requiring tracking visual elements across a sequence of transformations (Mental Composition), compared to single-operation transformation or even paper-folding (forward-tracking) tasks.",
+      "whyFollow": "Authors of Mind’s Eye, the single most directly on-target benchmark found. It isolates “composition” as its own measured axis with a human baseline, which is exactly the comparison this project’s eval harness needs to replicate.",
+      "links": [{ "label": "Mind’s Eye (2026)", "url": "https://arxiv.org/abs/2604.16054" }]
+    },
+    {
+      "name": "Cheng-Lin Liu (Institute of Automation, CAS)",
+      "institution": "NLPR, Institute of Automation, Chinese Academy of Sciences",
+      "views": "Plane-geometry diagram parsing should be treated as its own measurable sub-task (not folded into end-to-end solving accuracy), because even dedicated parsers leave substantial extraction error.",
+      "whyFollow": "Senior author associated with PGDP5K/PGDPNet, the source of this project’s most load-bearing risk number (66.07% F1 ceiling on dedicated diagram parsing).",
+      "links": [{ "label": "PGDP5K (ICPR 2022)", "url": "https://arxiv.org/abs/2205.09947" }]
+    },
+    {
+      "name": "Tamara (Terry) Fukawa-Connelly",
+      "institution": "",
+      "views": "Preservice teachers frequently hold a “one move” conception of isometries that prevents recognizing a composition of transformations as itself a single well-defined transformation.",
+      "whyFollow": "Co-author of the only verified, quantified, composition-specific misconception finding in the math-education literature located during this research pass; a starting point (not a complete taxonomy) for this project’s misconception label set.",
+      "links": [{ "label": "Hegg & Fukawa-Connelly, RUME Conference Proceedings (2017)" }]
+    },
+    {
+      "name": "Educational Testing Service (Fife, James, Bauer)",
+      "institution": "",
+      "views": "Geometric transformation understanding progresses through 5 measurable levels, with composition-of-transformations appearing at Level 3 and commutativity/associativity understanding at Level 5. Their own misconceptions catalog, built explicitly to be comprehensive, contains no composition-specific entries.",
+      "whyFollow": "The clearest documented signal that this project cannot source its misconception taxonomy from existing literature and must construct + validate one empirically.",
+      "links": [{ "label": "ETS RR-19-01, “A Learning Progression for Geometric Transformations” (2019)", "url": "https://onlinelibrary.wiley.com/doi/10.1002/ets2.12240" }]
+    }
+  ],
+  "links": [
+    { "label": "Mind’s Eye", "url": "https://arxiv.org/abs/2604.16054" },
+    { "label": "TangramPuzzle", "url": "https://arxiv.org/abs/2601.16520" },
+    { "label": "DORI", "url": "https://arxiv.org/abs/2505.21649" },
+    { "label": "LEGO-Puzzles", "url": "https://arxiv.org/abs/2503.19990" },
+    { "label": "GeoEval", "url": "https://arxiv.org/abs/2402.10104" },
+    { "label": "GeoLaux", "url": "https://arxiv.org/abs/2508.06226" },
+    { "label": "PGDP5K", "url": "https://arxiv.org/abs/2205.09947" },
+    { "label": "Inter-GPS", "url": "https://arxiv.org/abs/2105.04165" },
+    { "label": "TALENT", "url": "https://arxiv.org/abs/2510.07098" },
+    { "label": "DFE-GPS", "url": "https://arxiv.org/abs/2409.04214" },
+    { "label": "Symbolic Grounding", "url": "https://arxiv.org/abs/2604.21346" },
+    { "label": "ETS RR-19-01", "url": "https://onlinelibrary.wiley.com/doi/10.1002/ets2.12240" }
+  ]
+}
