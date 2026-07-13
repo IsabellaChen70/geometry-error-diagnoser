@@ -1,0 +1,750 @@
+{
+  "schema_version": "v6.llm-judge.1",
+  "seed": 20260709,
+  "sample_size": 100,
+  "split": "test",
+  "modality": "image_coords",
+  "pairing": "identical IDs from frozen base and tuned records",
+  "sample_ids": [
+    129,
+    552,
+    729,
+    1088,
+    1152,
+    2216,
+    2311,
+    2316,
+    3229,
+    3452,
+    3788,
+    3834,
+    3893,
+    3916,
+    4111,
+    4170,
+    4252,
+    4488,
+    4575,
+    5011,
+    5452,
+    5670,
+    5811,
+    6888,
+    6975,
+    7447,
+    7511,
+    8011,
+    8416,
+    8547,
+    8793,
+    8829,
+    9034,
+    9347,
+    9416,
+    10588,
+    10788,
+    10888,
+    10934,
+    11088,
+    11175,
+    11334,
+    11375,
+    11911,
+    12016,
+    12111,
+    12493,
+    12775,
+    13247,
+    13511,
+    14270,
+    14429,
+    14470,
+    14693,
+    14711,
+    14793,
+    15129,
+    15234,
+    15411,
+    15775,
+    15875,
+    16188,
+    16347,
+    16670,
+    16770,
+    16888,
+    16988,
+    17493,
+    18052,
+    18270,
+    18511,
+    18611,
+    18652,
+    18729,
+    18752,
+    18934,
+    19129,
+    19388,
+    19629,
+    19916,
+    19952,
+    20016,
+    20047,
+    20193,
+    20747,
+    20752,
+    21411,
+    22034,
+    22047,
+    22075,
+    22493,
+    22611,
+    22870,
+    22952,
+    22975,
+    23034,
+    23175,
+    23193,
+    23575,
+    23647
+  ],
+  "blind_assignment": [
+    {
+      "case_id": 129,
+      "A_identity": "tuned",
+      "B_identity": "base"
+    },
+    {
+      "case_id": 552,
+      "A_identity": "base",
+      "B_identity": "tuned"
+    },
+    {
+      "case_id": 729,
+      "A_identity": "base",
+      "B_identity": "tuned"
+    },
+    {
+      "case_id": 1088,
+      "A_identity": "tuned",
+      "B_identity": "base"
+    },
+    {
+      "case_id": 1152,
+      "A_identity": "tuned",
+      "B_identity": "base"
+    },
+    {
+      "case_id": 2216,
+      "A_identity": "base",
+      "B_identity": "tuned"
+    },
+    {
+      "case_id": 2311,
+      "A_identity": "tuned",
+      "B_identity": "base"
+    },
+    {
+      "case_id": 2316,
+      "A_identity": "base",
+      "B_identity": "tuned"
+    },
+    {
+      "case_id": 3229,
+      "A_identity": "tuned",
+      "B_identity": "base"
+    },
+    {
+      "case_id": 3452,
+      "A_identity": "tuned",
+      "B_identity": "base"
+    },
+    {
+      "case_id": 3788,
+      "A_identity": "base",
+      "B_identity": "tuned"
+    },
+    {
+      "case_id": 3834,
+      "A_identity": "tuned",
+      "B_identity": "base"
+    },
+    {
+      "case_id": 3893,
+      "A_identity": "tuned",
+      "B_identity": "base"
+    },
+    {
+      "case_id": 3916,
+      "A_identity": "tuned",
+      "B_identity": "base"
+    },
+    {
+      "case_id": 4111,
+      "A_identity": "tuned",
+      "B_identity": "base"
+    },
+    {
+      "case_id": 4170,
+      "A_identity": "base",
+      "B_identity": "tuned"
+    },
+    {
+      "case_id": 4252,
+      "A_identity": "base",
+      "B_identity": "tuned"
+    },
+    {
+      "case_id": 4488,
+      "A_identity": "tuned",
+      "B_identity": "base"
+    },
+    {
+      "case_id": 4575,
+      "A_identity": "base",
+      "B_identity": "tuned"
+    },
+    {
+      "case_id": 5011,
+      "A_identity": "tuned",
+      "B_identity": "base"
+    },
+    {
+      "case_id": 5452,
+      "A_identity": "tuned",
+      "B_identity": "base"
+    },
+    {
+      "case_id": 5670,
+      "A_identity": "base",
+      "B_identity": "tuned"
+    },
+    {
+      "case_id": 5811,
+      "A_identity": "base",
+      "B_identity": "tuned"
+    },
+    {
+      "case_id": 6888,
+      "A_identity": "tuned",
+      "B_identity": "base"
+    },
+    {
+      "case_id": 6975,
+      "A_identity": "tuned",
+      "B_identity": "base"
+    },
+    {
+      "case_id": 7447,
+      "A_identity": "tuned",
+      "B_identity": "base"
+    },
+    {
+      "case_id": 7511,
+      "A_identity": "base",
+      "B_identity": "tuned"
+    },
+    {
+      "case_id": 8011,
+      "A_identity": "base",
+      "B_identity": "tuned"
+    },
+    {
+      "case_id": 8416,
+      "A_identity": "tuned",
+      "B_identity": "base"
+    },
+    {
+      "case_id": 8547,
+      "A_identity": "tuned",
+      "B_identity": "base"
+    },
+    {
+      "case_id": 8793,
+      "A_identity": "tuned",
+      "B_identity": "base"
+    },
+    {
+      "case_id": 8829,
+      "A_identity": "tuned",
+      "B_identity": "base"
+    },
+    {
+      "case_id": 9034,
+      "A_identity": "tuned",
+      "B_identity": "base"
+    },
+    {
+      "case_id": 9347,
+      "A_identity": "base",
+      "B_identity": "tuned"
+    },
+    {
+      "case_id": 9416,
+      "A_identity": "tuned",
+      "B_identity": "base"
+    },
+    {
+      "case_id": 10588,
+      "A_identity": "base",
+      "B_identity": "tuned"
+    },
+    {
+      "case_id": 10788,
+      "A_identity": "tuned",
+      "B_identity": "base"
+    },
+    {
+      "case_id": 10888,
+      "A_identity": "base",
+      "B_identity": "tuned"
+    },
+    {
+      "case_id": 10934,
+      "A_identity": "base",
+      "B_identity": "tuned"
+    },
+    {
+      "case_id": 11088,
+      "A_identity": "tuned",
+      "B_identity": "base"
+    },
+    {
+      "case_id": 11175,
+      "A_identity": "base",
+      "B_identity": "tuned"
+    },
+    {
+      "case_id": 11334,
+      "A_identity": "base",
+      "B_identity": "tuned"
+    },
+    {
+      "case_id": 11375,
+      "A_identity": "tuned",
+      "B_identity": "base"
+    },
+    {
+      "case_id": 11911,
+      "A_identity": "tuned",
+      "B_identity": "base"
+    },
+    {
+      "case_id": 12016,
+      "A_identity": "tuned",
+      "B_identity": "base"
+    },
+    {
+      "case_id": 12111,
+      "A_identity": "base",
+      "B_identity": "tuned"
+    },
+    {
+      "case_id": 12493,
+      "A_identity": "tuned",
+      "B_identity": "base"
+    },
+    {
+      "case_id": 12775,
+      "A_identity": "base",
+      "B_identity": "tuned"
+    },
+    {
+      "case_id": 13247,
+      "A_identity": "base",
+      "B_identity": "tuned"
+    },
+    {
+      "case_id": 13511,
+      "A_identity": "base",
+      "B_identity": "tuned"
+    },
+    {
+      "case_id": 14270,
+      "A_identity": "base",
+      "B_identity": "tuned"
+    },
+    {
+      "case_id": 14429,
+      "A_identity": "base",
+      "B_identity": "tuned"
+    },
+    {
+      "case_id": 14470,
+      "A_identity": "base",
+      "B_identity": "tuned"
+    },
+    {
+      "case_id": 14693,
+      "A_identity": "base",
+      "B_identity": "tuned"
+    },
+    {
+      "case_id": 14711,
+      "A_identity": "tuned",
+      "B_identity": "base"
+    },
+    {
+      "case_id": 14793,
+      "A_identity": "tuned",
+      "B_identity": "base"
+    },
+    {
+      "case_id": 15129,
+      "A_identity": "tuned",
+      "B_identity": "base"
+    },
+    {
+      "case_id": 15234,
+      "A_identity": "base",
+      "B_identity": "tuned"
+    },
+    {
+      "case_id": 15411,
+      "A_identity": "tuned",
+      "B_identity": "base"
+    },
+    {
+      "case_id": 15775,
+      "A_identity": "base",
+      "B_identity": "tuned"
+    },
+    {
+      "case_id": 15875,
+      "A_identity": "tuned",
+      "B_identity": "base"
+    },
+    {
+      "case_id": 16188,
+      "A_identity": "tuned",
+      "B_identity": "base"
+    },
+    {
+      "case_id": 16347,
+      "A_identity": "tuned",
+      "B_identity": "base"
+    },
+    {
+      "case_id": 16670,
+      "A_identity": "base",
+      "B_identity": "tuned"
+    },
+    {
+      "case_id": 16770,
+      "A_identity": "base",
+      "B_identity": "tuned"
+    },
+    {
+      "case_id": 16888,
+      "A_identity": "tuned",
+      "B_identity": "base"
+    },
+    {
+      "case_id": 16988,
+      "A_identity": "base",
+      "B_identity": "tuned"
+    },
+    {
+      "case_id": 17493,
+      "A_identity": "tuned",
+      "B_identity": "base"
+    },
+    {
+      "case_id": 18052,
+      "A_identity": "base",
+      "B_identity": "tuned"
+    },
+    {
+      "case_id": 18270,
+      "A_identity": "base",
+      "B_identity": "tuned"
+    },
+    {
+      "case_id": 18511,
+      "A_identity": "base",
+      "B_identity": "tuned"
+    },
+    {
+      "case_id": 18611,
+      "A_identity": "tuned",
+      "B_identity": "base"
+    },
+    {
+      "case_id": 18652,
+      "A_identity": "base",
+      "B_identity": "tuned"
+    },
+    {
+      "case_id": 18729,
+      "A_identity": "base",
+      "B_identity": "tuned"
+    },
+    {
+      "case_id": 18752,
+      "A_identity": "tuned",
+      "B_identity": "base"
+    },
+    {
+      "case_id": 18934,
+      "A_identity": "tuned",
+      "B_identity": "base"
+    },
+    {
+      "case_id": 19129,
+      "A_identity": "tuned",
+      "B_identity": "base"
+    },
+    {
+      "case_id": 19388,
+      "A_identity": "base",
+      "B_identity": "tuned"
+    },
+    {
+      "case_id": 19629,
+      "A_identity": "tuned",
+      "B_identity": "base"
+    },
+    {
+      "case_id": 19916,
+      "A_identity": "tuned",
+      "B_identity": "base"
+    },
+    {
+      "case_id": 19952,
+      "A_identity": "base",
+      "B_identity": "tuned"
+    },
+    {
+      "case_id": 20016,
+      "A_identity": "tuned",
+      "B_identity": "base"
+    },
+    {
+      "case_id": 20047,
+      "A_identity": "base",
+      "B_identity": "tuned"
+    },
+    {
+      "case_id": 20193,
+      "A_identity": "tuned",
+      "B_identity": "base"
+    },
+    {
+      "case_id": 20747,
+      "A_identity": "base",
+      "B_identity": "tuned"
+    },
+    {
+      "case_id": 20752,
+      "A_identity": "tuned",
+      "B_identity": "base"
+    },
+    {
+      "case_id": 21411,
+      "A_identity": "base",
+      "B_identity": "tuned"
+    },
+    {
+      "case_id": 22034,
+      "A_identity": "tuned",
+      "B_identity": "base"
+    },
+    {
+      "case_id": 22047,
+      "A_identity": "tuned",
+      "B_identity": "base"
+    },
+    {
+      "case_id": 22075,
+      "A_identity": "base",
+      "B_identity": "tuned"
+    },
+    {
+      "case_id": 22493,
+      "A_identity": "base",
+      "B_identity": "tuned"
+    },
+    {
+      "case_id": 22611,
+      "A_identity": "base",
+      "B_identity": "tuned"
+    },
+    {
+      "case_id": 22870,
+      "A_identity": "base",
+      "B_identity": "tuned"
+    },
+    {
+      "case_id": 22952,
+      "A_identity": "base",
+      "B_identity": "tuned"
+    },
+    {
+      "case_id": 22975,
+      "A_identity": "base",
+      "B_identity": "tuned"
+    },
+    {
+      "case_id": 23034,
+      "A_identity": "base",
+      "B_identity": "tuned"
+    },
+    {
+      "case_id": 23175,
+      "A_identity": "tuned",
+      "B_identity": "base"
+    },
+    {
+      "case_id": 23193,
+      "A_identity": "base",
+      "B_identity": "tuned"
+    },
+    {
+      "case_id": 23575,
+      "A_identity": "tuned",
+      "B_identity": "base"
+    },
+    {
+      "case_id": 23647,
+      "A_identity": "base",
+      "B_identity": "tuned"
+    }
+  ],
+  "blinded_side_balance": {
+    "base_as_A": 50,
+    "base_as_B": 50,
+    "tuned_as_A": 50,
+    "tuned_as_B": 50
+  },
+  "request_hashes": {
+    "129": "ac9cb0e74022878ea4c3abc2c7513b3e18b06904ef83766e263adaab82ac80ca",
+    "552": "80493237d89e6eb85fb0fbe46cdfd05a5e7d1a65b8b7d1073c309bf94057f2c2",
+    "729": "d577c4b54b2a01083a3aadfc99b6d027c119010a08a3381882f8653a3f979316",
+    "1088": "db61eda3885901720467196631475fe0c9aa4e3a36139c3bbf9a6d4a3a485605",
+    "1152": "2dc9ac14565eef8296bed7d6ce425b4c4c410865d42610bb06003dd69e5bbb1c",
+    "2216": "9903489c0934e6c6c81adc0b875626229e63cb6142f6232c59f57795c69f6b17",
+    "2311": "5e139b82b8a262fe316488918018c4c4c9f69afa056ac16874746d52eb4b1540",
+    "2316": "eb55b5fe4bcfc546fcb38fd5b0242aab076f6e5efd950e79db1ff0c62e520d17",
+    "3229": "b88a7304affa98edb454c13e067910d44f19aa75b2672e2d5ea7396086e341da",
+    "3452": "5d0af97b1e44ab0da562e5c07a4f3d62c1818a6ae2f5d30aa94b2295c15bed4b",
+    "3788": "e09e45c546d2273d37cdf3748b1937bd684845b311376c7670199d9078a33623",
+    "3834": "36efc9325e74ebf055d5b3b4dee2b3865fbcd2add760900bb7bb1c69d7459781",
+    "3893": "28ef339ef2121b50a0fd43c46aea64fd6cf1c9db0ce9701991f6d320ed9bc451",
+    "3916": "a1768e1320e36236db17b85a586b8ec9fa3e312b5db4db41ee28e4dd5900d7e2",
+    "4111": "93a905763d09fefc4aee2a537c35f2ad6901401ab81c954af07fd6bb3ad75974",
+    "4170": "194485e54405cc5af7891cdf269ab827be83ff5bd149479ca096c921cad6e7f4",
+    "4252": "ff35319deb019b31b54568e3a929ae7c08a717785cbd91bbe91227e7de5537d8",
+    "4488": "dfb8762abbdfcec37d7c26a50f8457afccb0e1db7a35407b10cd194692e3039a",
+    "4575": "6d32df878d6db336a28876713f10382279305e2d2215cc9f7805bd78a3cfa974",
+    "5011": "c30f5d2adabcda1a652c6679495d5752759d1797c8dbc96bb149e58577d26bb7",
+    "5452": "c500368eebf40dc9132fb0380ec89c47232c47c9aad47df55c15cc18ab2849da",
+    "5670": "8489046d83ca2b4e5f2ee1374026769a5cededf0aea1521a6b3d02972ffa5fda",
+    "5811": "99d66b7acf72f3c24fae8af80146e82750dcc1ae61324e20cc2208c1679c872f",
+    "6888": "754d88d525dfc93d1fb646f714a875a38fdb3351e7d55591f691293675c17537",
+    "6975": "72dec2a85da683e87bc55025726a2f4015864e5e54dd4e369782ac02a29c1399",
+    "7447": "60db744695a76395c43c34e36584d028e7cf07748464ad2a9fbcf8d9a23d2428",
+    "7511": "4da31a69182ec890d35fc231cd0dc8be7d5ed61c551046a56fee2941c7a2af44",
+    "8011": "92c34b6e3a7f5bf0ac331e4d54f5308cedbef0d29382fc255af3e4e3ed2f2539",
+    "8416": "cc81906310eaf472ea42e945cad041b9b0874c49412d3448c325a704b131f1ce",
+    "8547": "5ee1fb93c7cac68a2011c434981740ab28b67ab4252e26c78d2906b2457d2223",
+    "8793": "1eeda2c3671e314d19abd0c33301d6cd4c152821047f05902be69cf011caca50",
+    "8829": "d6d79c4f0d5142df974617bb82d693f06d6122e378c3ecc0f5c82d5696abd325",
+    "9034": "5562dfd902fd44529e99ab1c3c2966c4bcd6a4224e421d08224caeeb79f53b3e",
+    "9347": "58968f915eac2248a8a5efae4e3600b5b4181d9c283ffe718428cac3aa74a05b",
+    "9416": "0113d0abc336306b8d0825adfb3e81eab3320d19337f40a0a791a5409d82b24b",
+    "10588": "d870f5465af89bd508b7d11d193a7704252207f6fb9966a7ddb01caba2b1cf88",
+    "10788": "2bbfe91e779db15f5bec9b1199489b06bc79527222cadad6eaf1e70931b4a119",
+    "10888": "3801e1bdcb720c629cd6f4349d07885597d0e7e0649e25209f74d5d2ca7c8265",
+    "10934": "c3dfaa5efbe9da63c69d8971b07d32099700c93974f85cd898d766acdc7601a7",
+    "11088": "024beed9ea83613cc47e12822807065fcb2362a6d979a2cee14d373bb8e48d0b",
+    "11175": "34e62b0b0b89fada98e4b61ee5da15b21f471b89a061c62e5b2d108045480df5",
+    "11334": "e0f002ee0c7b66eecf2e662bcbb5eb29e15e1fa3c2d5ec3125108808239881e2",
+    "11375": "f25f3454c6ba8bdbb7b2d1bc71d47765070dfcd8b1c1b19fafd8f09eabd2eb43",
+    "11911": "ea5533992947d6dac779619ec4d3b193d7730b0a4c5abdc5b81cfb58c7fe79a8",
+    "12016": "dd9f8eb8241fb4bcb0d3370224659aa1b941b9eda430181c365676d9d5ff3ca0",
+    "12111": "cc9fc560b9db76e4cee427086a4633d3cac556152cd714ee5155ab82a8c4238f",
+    "12493": "bf0f48a7875766a30a045c18050a16649b69cf55d7bfa28b60c2617cad3f0c99",
+    "12775": "85ca2339c8837fe7706cfaa4cbbed1f8f27d3c30c26b1888d05e7dfc07c10fb2",
+    "13247": "20404500436cd9b4624bc9e4999e830f80f3a355324be3e77cec66603a2ee6a4",
+    "13511": "dd8342a51ff25a328b3b6863ad594e0b5d363e0c051c1a5c8e8c3b17a1ebc74c",
+    "14270": "ed037315c84fa8f420785e49d75d77b66be36151b0d5084d7dfd5ad8324b9c01",
+    "14429": "bf9c039f4820d63d87e2b89c95fb4281703259f5d41939be60d08dc0344e2c3e",
+    "14470": "3aae5c83b436d1f801d3b7b8c154cc581daa5f0de93881ad9a1f46bbc9f502de",
+    "14693": "3c9a4d105da8aab013d7c87b108d46b2ee264be2df34e02a38f44a57e4cb247e",
+    "14711": "31402b5d3a9258884c39d037a8c7b49c51d52eb0fd4b1e159b53aa72e4ce404a",
+    "14793": "0ffa2da45dc32e5b754a53b6d7c675ad62ccade6884f2810f481856b6072f58b",
+    "15129": "bd20a65f15f95c4ec4c9652cd463d05ee9735817370c9ecb1afae79199b976bc",
+    "15234": "a8af635afe33c4f871f40d2ede040b38de4e806b4fba019ff552fcb88c158c3c",
+    "15411": "d408eaf00a3f4825d05a7403abee848ca9ad680687adc853d40c3abc55edaa8f",
+    "15775": "e521d1e91a66b93a70d4672dfeaff5c199f7af8c92c2ba7cfea143125e287c70",
+    "15875": "0d21f19af0afef36e6dde8a3ce62ff5fd550a8431d437963ce34ce0b01d3ca8d",
+    "16188": "520c5afe2472a1dc50d474f6c0b45f3e958dff616c14013e67dd12c6f4d0667a",
+    "16347": "0484bd93df443de290496d6cee5230e20706403929dc9a910829ee3514fb76fb",
+    "16670": "7bcdd3bdf35499294af628f94730a4b85b5c5921651f7aea19f60ce5ec2bb642",
+    "16770": "b4390ae62ddd4a18056dc9002247e576bce8d502dad9eea7b8622fc48e3c2bd5",
+    "16888": "1ece3a54e34596408682c031800486781b97981acfaee8a2d8aafa78efa8d601",
+    "16988": "2a015056ec5076486b6d62fc8d6a2d249594ddcd9343ac81f75cf7b2c8a803da",
+    "17493": "d45866a46a52e7f74caf05638eb8fdd65ae1cf78e545f262d9a44587b1d3bb9a",
+    "18052": "aa6e50ba8ed855be5d65513f4e3b372a14bbaadf20a3a4810a9a5d0a0837d371",
+    "18270": "a87ac20eb4953a4876418534d9abf57f5a2653577e57c1c5d42541727e58bec1",
+    "18511": "88bf76df3fac86ffebe215d246011bbcd6ba4157e64bb344bd0b70ff159cf976",
+    "18611": "c0cfe35f19454a64fdf9c8cf5bae7657b9b163487270d3fa4fc8b0ca1fc54480",
+    "18652": "ed0ac1a286b1b60e6f03756dd49b66419d37f5c87c121c95131f1f5cafb9e3f4",
+    "18729": "c6249540fbe101b7cc97ad4e21d64737ff878c8a7c0b55f5964470f15b4747a3",
+    "18752": "828aee05ddca081988861af635dde9d4578f734ccdd2fcf2440ec9a167c698fc",
+    "18934": "71fd45bb8eeb7930c8a47e759e6d5f72e57abee2c6dc8e271d0b409c64e56316",
+    "19129": "81c620be20c36f0598c65bac3fec829ed9c1728a81c31c39055346c18c1ba1ef",
+    "19388": "e29a589f371ef25ed8bb5facc31e5fd9fca2bb4e19bb8156e580dbf428029505",
+    "19629": "9c6a361dda0d04ae05586cfc5106060112f875ee907106fb4a0fe4504f9b0265",
+    "19916": "da1384f24f6b72135cde3cb02141fd9bc0f6b7ed1675415b0f90d3d7f8163da0",
+    "19952": "0905bceff51f76d4feea1907a45f7c400aafecf523978eb1aa5ade08b64cfda5",
+    "20016": "6bb9a689090d317ae8e155fe35492feef5b486ee81af829e3a508d15b394f88a",
+    "20047": "59064338f1c97380ea04fa7db62d06a3078fd8b551979bdedc5c9eb62284eac7",
+    "20193": "61d22c1b31723e3ddc8166d991778aa1f667332ce4eca90d308ba3af9e4bf8ce",
+    "20747": "85574ccb1fffef032d38787cf5fa87beb8060e58d2fe22839fb34cfbb56a546c",
+    "20752": "c704d365405e1b30c88f605d6cd9a6240c7cbc4ee9929e571e9f92c556a8ba79",
+    "21411": "b4e0b8dea9fbd81976ad3fc82203a3104d1fb0f2324c0d4b654bab73d9f5416e",
+    "22034": "3853258fc328993841d31f3b360f4e21823c252a8d01e7dff45d9b61159b07e0",
+    "22047": "85988ea4d4f4eb6702542de8d195771f52568a8bb5bcc28e475c915f4c14c859",
+    "22075": "a8d88090e03088f4781de3921bb165ae85e610d5c8bfa9eb8d2b706d0f5f0318",
+    "22493": "a0bccb9c01997b4d9502a9003ff94d56c0975322f6c611dd3a0aac0715a90555",
+    "22611": "f20efd6791c08bf6c12bf27ceec2f117eb0ee05cee6409c5d7d16e8d4a1a4e93",
+    "22870": "c10e973514a1bb98e29822431711654ec4f9670945de03157b01e100f6d2acf5",
+    "22952": "eab63888358f7a2b89710b9a6afa7eac51471ed0884f896f1f464a6fcbddb3c2",
+    "22975": "396992aa3bc49f958c439988a7c8bc78919c4699b7d955fc039b1a416167a592",
+    "23034": "cb25b6d3d81cc406e8532303755372a2d276bcba575a5d03ebeb4c46529aa3a0",
+    "23175": "e679707a720370a15259370edc0ac6cae15f8b2c974c718e64a599f9f7e7c682",
+    "23193": "c1ee5888b2802ac1909c7b5e2c9fe2b7f113feb99a5354fc1158f22215929cda",
+    "23575": "ca6a5903f31219741513a21a4c5959db605a1e360c908b2aeb5a7d3064f9fb94",
+    "23647": "e8721dc4bcf5eb4abc499b32628ac30fe4315fb0640301277062359e97a9c1ed"
+  },
+  "system_prompt_sha256": "71acb5ae20700779c4429a20185c06e8167ce3785e67b32c9deba3d66818d880",
+  "request_set_sha256": "e07cd3e2c86f6d33cd5855bde4a4f551886b72b4f86a17341be3a3cd0f10b938",
+  "input_sha256": {
+    "results/v6_final/records_v6_4b_base_image_coords_test.jsonl": "263e664cfe787b2e4f621f7aa4e32ec2bd56f73448a337722dcf5e516d2c4bd3",
+    "results/v6_final/records_v6_4b_image_coords_test.jsonl": "339ced7217e1fa49a50e136c8a25526d4c33ef3845983e3f4007053d4cb6fe28",
+    "transform_diagnosis_data/test.jsonl": "5791948001cecd552237371e040a5c36aaf13c1b6438b0f95936ea4b9425a393"
+  },
+  "provider": "tfy",
+  "model": "gpt-5.6-sol",
+  "base_url": "https://tfy-eu.promptlens.trilogy.com",
+  "route_selection": "explicit CLI or existing repository route convention",
+  "max_output_tokens": 900,
+  "max_retries": 3,
+  "key_presence": {
+    "TFY_API_KEY": true,
+    "ANTHROPIC_API_KEY": false
+  },
+  "run_fingerprint": "003cba3bbe654f3a4d7b155692d2f46b749e6164fe7d1ea266ee3e02778f8d82",
+  "offline_validation": {
+    "validated_payloads": 2,
+    "payload_case_ids": [
+      129,
+      552
+    ],
+    "identity_hidden_from_judge_payload": true,
+    "strict_output_schema_validated": true,
+    "request_size_cap_bytes": 40000,
+    "passed": true
+  },
+  "secrets_persisted": false
+}

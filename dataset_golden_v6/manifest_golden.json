@@ -1,0 +1,145 @@
+{
+  "artifact": "dataset_golden_v6",
+  "canonical_dedup_key": {
+    "definition": "json.dumps([original, correct_image, student_image], separators=(\",\", \":\"))",
+    "matches": [
+      "model/make_v6_transform_data.py::_prepare_source_pools.geometry_key",
+      "model/audit_v6_predictions.py::geometry_fingerprint"
+    ],
+    "meaning": "RED pre-image + GREEN correct image + BLUE student image (encodes the injected error)"
+  },
+  "disjointness": {
+    "golden_records": 160,
+    "golden_unique_keys": 160,
+    "internal_duplicate_keys": 0,
+    "per_split": {
+      "source_ood": {
+        "overlap_count": 0,
+        "records_checked": 2000
+      },
+      "source_test": {
+        "overlap_count": 0,
+        "records_checked": 2400
+      },
+      "source_train": {
+        "overlap_count": 0,
+        "records_checked": 19200
+      },
+      "source_val": {
+        "overlap_count": 0,
+        "records_checked": 2400
+      },
+      "v6_local_samples": {
+        "overlap_count": 0,
+        "records_checked": 251
+      },
+      "v6_train": {
+        "overlap_count": 0,
+        "records_checked": 9600
+      },
+      "v6_val": {
+        "overlap_count": 0,
+        "records_checked": 400
+      }
+    },
+    "total_overlap_all_splits": 0
+  },
+  "existing_key_universe": {
+    "local_sample_files": [
+      "/Users/isabellachen/projects/SLM/dataset_sample_v6/train_v6.jsonl",
+      "/Users/isabellachen/projects/SLM/dataset_public/train_v6.jsonl",
+      "/Users/isabellachen/projects/SLM/_quarantine/.scratch_v6_verify/train_v6.jsonl",
+      "/Users/isabellachen/projects/SLM/_quarantine/.scratch_v6_verify/val_v6.jsonl"
+    ],
+    "source_dir": "/Users/isabellachen/projects/SLM/transform_diagnosis_data",
+    "v6_reconstruct_config": {
+      "mix": [
+        0.5,
+        0.2,
+        0.15,
+        0.15
+      ],
+      "seed": 20260711,
+      "train_n": 9600,
+      "val_n": 400
+    },
+    "v6_reconstructed": true
+  },
+  "generation_config": {
+    "labels": [
+      "correct",
+      "reflection_instead_of_rotation",
+      "rotation_instead_of_reflection",
+      "wrong_rotation_angle",
+      "wrong_reflection_line",
+      "wrong_translation",
+      "opposite_translation",
+      "completely_wrong"
+    ],
+    "n_per_label": 20,
+    "patterns": "errors.ID_COMPATIBLE_PATTERNS (two-step in-distribution)",
+    "render_subdir": "renders_v6/golden",
+    "seed": 20260712,
+    "split": "golden",
+    "total_records": 160
+  },
+  "generator": "model/make_golden_set.py",
+  "how_to_eval": "Drop golden_v6.jsonl + renders_v6/golden/ into a data dir and run eval_transform.py --data-dir <dir> --splits golden (see model/GOLDEN_SET.md).",
+  "label_balance": {
+    "completely_wrong": 20,
+    "correct": 20,
+    "opposite_translation": 20,
+    "reflection_instead_of_rotation": 20,
+    "rotation_instead_of_reflection": 20,
+    "wrong_reflection_line": 20,
+    "wrong_rotation_angle": 20,
+    "wrong_translation": 20
+  },
+  "oracle_verification": {
+    "label_mismatch_ids": [],
+    "label_mismatches": 0,
+    "net_mismatch_ids": [],
+    "net_mismatches": 0,
+    "records_checked": 160,
+    "target_failure_ids": [],
+    "target_scoring_failures": 0
+  },
+  "output_files": {
+    "golden_v6.jsonl": {
+      "bytes": 127884,
+      "path": "/Users/isabellachen/projects/SLM/dataset_golden_v6/golden_v6.jsonl",
+      "records": 160,
+      "sha256": "29e8482a8173e29e45409bd4a7b13d0f7ce23269ed839eced83cc76c4a7e8f12"
+    },
+    "golden_v6_image_coords_full_chat.jsonl": {
+      "bytes": 338961,
+      "path": "/Users/isabellachen/projects/SLM/dataset_golden_v6/golden_v6_image_coords_full_chat.jsonl",
+      "records": 160,
+      "sha256": "944fa55c8e9c40ed67ef264e2761424cfea7082f128cbdab711f50f2128e317a"
+    },
+    "golden_v6_image_full_chat.jsonl": {
+      "bytes": 298864,
+      "path": "/Users/isabellachen/projects/SLM/dataset_golden_v6/golden_v6_image_full_chat.jsonl",
+      "records": 160,
+      "sha256": "30ca4aac18b9a988431db9b62b24e86d3137388319a3a24e4270809f83df387c"
+    }
+  },
+  "rendering": {
+    "image_validation": {
+      "available": true,
+      "checked": 160,
+      "decoded": 3,
+      "missing": 0
+    },
+    "matplotlib_available": true,
+    "rendered_now": 160
+  },
+  "schema_version": "v6.net-affine.1",
+  "seeds_in_project": {
+    "eval_sample": 20260709,
+    "golden": 20260712,
+    "source_train_val_test_ood": 0,
+    "v6_train_val": 20260711
+  },
+  "what_this_is": "A held-out, oracle-verified, balanced v6 canonical-net diagnosis set that is provably disjoint from every existing split (v6 train/val and frozen source train/val/test/ood). Same primitives, same oracle, same format as the other splits; nothing was trained or previously evaluated on it."
+}

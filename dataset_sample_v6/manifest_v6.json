@@ -1,0 +1,327 @@
+{
+  "archive": {
+    "compression": "ZIP_STORED",
+    "contains_files_only": true,
+    "entry_order": "lexicographic",
+    "file_mode": "0644",
+    "path": "../dataset_sample_v6.zip",
+    "root": "dataset_sample_v6/",
+    "timestamp": "1980-01-01 00:00:00"
+  },
+  "artifact": "dataset_sample_v6",
+  "description": "Final-v6-schema sample generated from 24 balanced legacy train/source records; not a byte-for-byte sample of the 9,600-row mixed curriculum.",
+  "files": {
+    "README.md": {
+      "bytes": 3359,
+      "sha256": "670648570e7cd3eb77faaccdff0f7eaec9a0fa7c89e1d06e8d7ed7afd525bbb5"
+    },
+    "images/000000.png": {
+      "bytes": 36592,
+      "copied_byte_for_byte": true,
+      "sha256": "d7dc91ae95c9012911bf4f88826c491f6dd7bafa98d80beb2cab634b60b00cc3",
+      "source": "../dataset_sample/images/000000.png"
+    },
+    "images/000002.png": {
+      "bytes": 26518,
+      "copied_byte_for_byte": true,
+      "sha256": "5473d628925f6a699fc9855a83f7856b4918ce8de47252fd0fe12f0f60285857",
+      "source": "../dataset_sample/images/000002.png"
+    },
+    "images/000003.png": {
+      "bytes": 27096,
+      "copied_byte_for_byte": true,
+      "sha256": "59dfd09086e7e1e98ac0628eed4767171b51c82308eb8376447cc993eaba93ac",
+      "source": "../dataset_sample/images/000003.png"
+    },
+    "images/000004.png": {
+      "bytes": 29407,
+      "copied_byte_for_byte": true,
+      "sha256": "f80e556add6c2b6f2b3bb0d003446dc058159bdb485b1d6a50293aeb1a52b95b",
+      "source": "../dataset_sample/images/000004.png"
+    },
+    "images/000005.png": {
+      "bytes": 33694,
+      "copied_byte_for_byte": true,
+      "sha256": "c23cfffe3210e310c39fea710895f308d5f7b772cbd67294ced07af3dd78a427",
+      "source": "../dataset_sample/images/000005.png"
+    },
+    "images/000007.png": {
+      "bytes": 29911,
+      "copied_byte_for_byte": true,
+      "sha256": "2357e578f50718ed1f345305a1b442608d4dd6dbf88ad99a386b194a78d02016",
+      "source": "../dataset_sample/images/000007.png"
+    },
+    "images/000008.png": {
+      "bytes": 34119,
+      "copied_byte_for_byte": true,
+      "sha256": "a742afe8c47515b1be94be31eb474eda9298814f215f4fad05814a89324309cb",
+      "source": "../dataset_sample/images/000008.png"
+    },
+    "images/000010.png": {
+      "bytes": 32700,
+      "copied_byte_for_byte": true,
+      "sha256": "2ad0ba6349be7568402c6e552aa2f56961a14be0ee5fff13fb10313da74cf285",
+      "source": "../dataset_sample/images/000010.png"
+    },
+    "images/000012.png": {
+      "bytes": 28880,
+      "copied_byte_for_byte": true,
+      "sha256": "62d3bf1df1eada5f0c97037a0adee15f44d44f088925fec2b08b6cccd8aa0ff3",
+      "source": "../dataset_sample/images/000012.png"
+    },
+    "images/000013.png": {
+      "bytes": 35743,
+      "copied_byte_for_byte": true,
+      "sha256": "84b0fcb3428884701ced79fc60c2c8c4676131583cc24a47d579df4bc18d1046",
+      "source": "../dataset_sample/images/000013.png"
+    },
+    "images/000014.png": {
+      "bytes": 35243,
+      "copied_byte_for_byte": true,
+      "sha256": "50d8a2888ec2a0edd4cc10a1a2f1a202fa8f8c6e69b94cef24d870a4227c1d1c",
+      "source": "../dataset_sample/images/000014.png"
+    },
+    "images/000015.png": {
+      "bytes": 32592,
+      "copied_byte_for_byte": true,
+      "sha256": "4e6bed1560d08650fe2ed9dec35c77248c81a76af72d7cbb5e5952d7beb67afc",
+      "source": "../dataset_sample/images/000015.png"
+    },
+    "images/000017.png": {
+      "bytes": 33427,
+      "copied_byte_for_byte": true,
+      "sha256": "b4b24c7297b59d76847a15fc26d834a5063ded6c601cc214e360d27212ffaa92",
+      "source": "../dataset_sample/images/000017.png"
+    },
+    "images/000018.png": {
+      "bytes": 36399,
+      "copied_byte_for_byte": true,
+      "sha256": "9e13db4dc8be25d2e465b66ab2327a023c91e90dde1e7cca031f9cd8beb97e83",
+      "source": "../dataset_sample/images/000018.png"
+    },
+    "images/000020.png": {
+      "bytes": 34649,
+      "copied_byte_for_byte": true,
+      "sha256": "d7bd614b712575e0147618f08b313bbd980bd3e9b57c1324ef2ce163be518ff3",
+      "source": "../dataset_sample/images/000020.png"
+    },
+    "images/000021.png": {
+      "bytes": 38965,
+      "copied_byte_for_byte": true,
+      "sha256": "3f4da1098e8e1b70d67a6b703bbbeb65cdceb1a9d549594f79ff337cdb1d64af",
+      "source": "../dataset_sample/images/000021.png"
+    },
+    "images/000026.png": {
+      "bytes": 31036,
+      "copied_byte_for_byte": true,
+      "sha256": "11838616147052a075c3e8b9e1252a00e424330cfe540b7c60ea770936fafa1f",
+      "source": "../dataset_sample/images/000026.png"
+    },
+    "images/000027.png": {
+      "bytes": 29877,
+      "copied_byte_for_byte": true,
+      "sha256": "daacc8af292333c642ece4bc7c91e8e0840e2d3ae7b65a142007c6341fbe1f26",
+      "source": "../dataset_sample/images/000027.png"
+    },
+    "images/000028.png": {
+      "bytes": 29839,
+      "copied_byte_for_byte": true,
+      "sha256": "79011bf530402524fea37bb9afdd97aae8233d0e11b4f3703eaf46d9f6b064cb",
+      "source": "../dataset_sample/images/000028.png"
+    },
+    "images/000030.png": {
+      "bytes": 36850,
+      "copied_byte_for_byte": true,
+      "sha256": "650ed4e30c6b56a67276e3bfc934cf59a6a037958f8ebf10d9b058466d4db42f",
+      "source": "../dataset_sample/images/000030.png"
+    },
+    "images/000032.png": {
+      "bytes": 32729,
+      "copied_byte_for_byte": true,
+      "sha256": "a24cf446ac0187b06bb1733e501e6ff10f5fce07276fc07e5675657aab04ea07",
+      "source": "../dataset_sample/images/000032.png"
+    },
+    "images/000036.png": {
+      "bytes": 35870,
+      "copied_byte_for_byte": true,
+      "sha256": "8e61894ba34fed2f9f5b5a89595a610803902c71d9857edd04a403d45e8de8e5",
+      "source": "../dataset_sample/images/000036.png"
+    },
+    "images/000054.png": {
+      "bytes": 39143,
+      "copied_byte_for_byte": true,
+      "sha256": "1138185d483e2500ad281388e4aec4bb196adc76a8e869b4a0bc3d5f4abc9263",
+      "source": "../dataset_sample/images/000054.png"
+    },
+    "images/000066.png": {
+      "bytes": 30506,
+      "copied_byte_for_byte": true,
+      "sha256": "3c412c8545fb81b90a2d00491ed79501c907662df5ef11b5f3f36c75aabb8db8",
+      "source": "../dataset_sample/images/000066.png"
+    },
+    "train_v6.jsonl": {
+      "bytes": 20414,
+      "records": 24,
+      "sha256": "a98a74dbfced888cb5545999a57db0e68c945624d9466663dcbd4b4dea62d71b"
+    },
+    "train_v6_image_both_chat.jsonl": {
+      "bytes": 28588,
+      "records": 24,
+      "sha256": "f879da99e17c7b501bd59581ffcdc9a1fd01152fc077ccf0e196fbd503fc5b59"
+    },
+    "train_v6_image_coords_both_chat.jsonl": {
+      "bytes": 34766,
+      "records": 24,
+      "sha256": "15eca81a693bc837ae1a6dde7b6928bb559be7816d06fe8ffef7758863940104"
+    },
+    "train_v6_image_coords_correct_chat.jsonl": {
+      "bytes": 31960,
+      "records": 24,
+      "sha256": "ee2125ca341142d00765bc7a8eaba7f3019903f485adb044a573ea3f5ca5f805"
+    },
+    "train_v6_image_coords_full_chat.jsonl": {
+      "bytes": 48733,
+      "records": 24,
+      "sha256": "500f8d2eae81f2ff224d5c13a0e5da8918c528e99b24d669e1274ed1e4548337"
+    },
+    "train_v6_image_coords_student_chat.jsonl": {
+      "bytes": 31942,
+      "records": 24,
+      "sha256": "c5133229202f4c260062a54c70c4e2aba676ac8c9727c469ef91699908081b65"
+    },
+    "train_v6_image_correct_chat.jsonl": {
+      "bytes": 25782,
+      "records": 24,
+      "sha256": "b8baaeb6091312f338b5a830cf714196ed484a4c1f39b24bd870a2e211b865ec"
+    },
+    "train_v6_image_full_chat.jsonl": {
+      "bytes": 42555,
+      "records": 24,
+      "sha256": "7376f2eaffe841f5fad590a33b27c5299f850ce2396275aef8efab3399f84291"
+    },
+    "train_v6_image_student_chat.jsonl": {
+      "bytes": 25764,
+      "records": 24,
+      "sha256": "121c715ac0b10bb672cea7e693971b4af4758570b0caf3f4a36a61be98e9b710"
+    }
+  },
+  "generation": {
+    "assistant_target_builder": "transform_diagnosis.v6_format.target_json",
+    "canonical_maps": "recomputed from legacy correct_transform/student_transform and verified against GREEN/BLUE geometry by production augment_record",
+    "chat_helper": "model.make_v6_transform_data._chat_rows",
+    "conversation_builder": "transform_diagnosis.v6_format.conversation",
+    "record_augmentation": "transform_diagnosis.v6_format.augment_record",
+    "source_record_helper": "model.make_v6_transform_data._copy_source_record"
+  },
+  "known_hint_limitation": {
+    "audit": "../results/overnight/HINT_SAFETY_AUDIT.md",
+    "preserved": true,
+    "summary": "Full-task hints preserve current training targets and may disclose exact operations, map parameters, or translation values."
+  },
+  "sample": {
+    "chat_files": 8,
+    "chat_rows_per_file": 24,
+    "label_distribution": {
+      "completely_wrong": 3,
+      "correct": 3,
+      "opposite_translation": 3,
+      "reflection_instead_of_rotation": 3,
+      "rotation_instead_of_reflection": 3,
+      "wrong_reflection_line": 3,
+      "wrong_rotation_angle": 3,
+      "wrong_translation": 3
+    },
+    "modalities": [
+      "image",
+      "image_coords"
+    ],
+    "pool_distribution": {
+      "source": 24
+    },
+    "raw_file": "train_v6.jsonl",
+    "records": 24,
+    "sample_ids": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      20,
+      21,
+      22,
+      23
+    ],
+    "tasks": [
+      "correct",
+      "student",
+      "both",
+      "full"
+    ]
+  },
+  "schema_version": "v6.net-affine.1",
+  "source": {
+    "directory": "../dataset_sample",
+    "images_copied_byte_for_byte": true,
+    "legacy_chat_file": "../dataset_sample/train_sample_chat.jsonl",
+    "legacy_chat_sha256": "b04dc7e6aed3e741cc2667fb7f5f4e02da88c6dc1dfe43491d186d550aab040d",
+    "records": 24,
+    "records_file": "../dataset_sample/train_sample.jsonl",
+    "records_sha256": "057dab1b28d81a50d4095ccb682051d682c6f27e84094c99fdd41e74d6f6ba40",
+    "source_ids": [
+      0,
+      2,
+      3,
+      4,
+      5,
+      7,
+      8,
+      10,
+      12,
+      13,
+      14,
+      15,
+      17,
+      18,
+      20,
+      21,
+      26,
+      27,
+      28,
+      30,
+      32,
+      36,
+      54,
+      66
+    ],
+    "split": "train"
+  },
+  "verification": {
+    "assistant_targets_parsed_and_exact": 192,
+    "evaluator_true_field_checks": 576,
+    "geometry_map_applications_matched": 48,
+    "image_checksum_matches": 24,
+    "intended_modality_pair_checks": 96,
+    "jsonl_files_parsed": 9,
+    "jsonl_rows_parsed": 216,
+    "labels_with_exactly_three_records": 8,
+    "production_conversations_exact": 192,
+    "single_image_part_checks": 192,
+    "unique_sample_ids": 24,
+    "unique_source_ids": 24
+  }
+}

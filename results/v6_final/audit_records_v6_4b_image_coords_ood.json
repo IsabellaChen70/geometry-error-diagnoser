@@ -1,0 +1,170 @@
+{
+  "n": 500,
+  "metrics": {
+    "parse_ok": {
+      "hits": 500,
+      "n": 500,
+      "rate": 1.0,
+      "wilson_95": [
+        0.9923756595384479,
+        1.0
+      ]
+    },
+    "correct_net_ok": {
+      "hits": 500,
+      "n": 500,
+      "rate": 1.0,
+      "wilson_95": [
+        0.9923756595384479,
+        1.0
+      ]
+    },
+    "student_net_ok": {
+      "hits": 497,
+      "n": 500,
+      "rate": 0.994,
+      "wilson_95": [
+        0.9825097478959467,
+        0.9979574037280398
+      ]
+    },
+    "both_nets_ok": {
+      "hits": 497,
+      "n": 500,
+      "rate": 0.994,
+      "wilson_95": [
+        0.9825097478959467,
+        0.9979574037280398
+      ]
+    },
+    "label_ok": {
+      "hits": 499,
+      "n": 500,
+      "rate": 0.998,
+      "wilson_95": [
+        0.9887592932948532,
+        0.9996468636054407
+      ]
+    },
+    "derived_label_ok": {
+      "hits": 500,
+      "n": 500,
+      "rate": 1.0,
+      "wilson_95": [
+        0.9923756595384479,
+        1.0
+      ]
+    }
+  },
+  "evaluator_disagreement_rows": 0,
+  "sample_failures": [
+    {
+      "id": 25622,
+      "split": "ood",
+      "parse_ok": true,
+      "correct_net_ok": true,
+      "student_net_ok": false,
+      "both_nets_ok": false,
+      "label_ok": true,
+      "derived_label": "completely_wrong",
+      "derived_label_ok": true,
+      "predicted": {
+        "correct_net": {
+          "linear": "reflect_y_axis",
+          "tx": 0,
+          "ty": 0
+        },
+        "student_net": {
+          "linear": "reflect_x_axis",
+          "tx": 8,
+          "ty": -7
+        },
+        "label": "completely_wrong",
+        "hint": "Your whole answer is off: the correct net map is a reflection (reflect across y axis) with translation (0, 0), but yours is a reflection (reflect across x axis) with translation (8, -7). Both the transformation and the translation are wrong."
+      },
+      "true_label": "completely_wrong",
+      "stored_metric_disagreements": {}
+    },
+    {
+      "id": 24408,
+      "split": "ood",
+      "parse_ok": true,
+      "correct_net_ok": true,
+      "student_net_ok": false,
+      "both_nets_ok": false,
+      "label_ok": true,
+      "derived_label": "completely_wrong",
+      "derived_label_ok": true,
+      "predicted": {
+        "correct_net": {
+          "linear": "reflect_y_axis",
+          "tx": 0,
+          "ty": 0
+        },
+        "student_net": {
+          "linear": "rot_ccw_270",
+          "tx": 4,
+          "ty": 0
+        },
+        "label": "completely_wrong",
+        "hint": "Your whole answer is off: the correct net map is a reflection (reflect across y axis) with translation (0, 0), but yours is a rotation (rotate 270 degrees counterclockwise) with translation (4, 0). Both the transformation and the translation are wrong."
+      },
+      "true_label": "completely_wrong",
+      "stored_metric_disagreements": {}
+    },
+    {
+      "id": 25853,
+      "split": "ood",
+      "parse_ok": true,
+      "correct_net_ok": true,
+      "student_net_ok": false,
+      "both_nets_ok": false,
+      "label_ok": true,
+      "derived_label": "completely_wrong",
+      "derived_label_ok": true,
+      "predicted": {
+        "correct_net": {
+          "linear": "reflect_x_axis",
+          "tx": 0,
+          "ty": 0
+        },
+        "student_net": {
+          "linear": "rot_ccw_90",
+          "tx": 0,
+          "ty": -2
+        },
+        "label": "completely_wrong",
+        "hint": "Your whole answer is off: the correct net map is a reflection (reflect across x axis) with translation (0, 0), but yours is a rotation (rotate 90 degrees counterclockwise) with translation (0, -2). Both the transformation and the translation are wrong."
+      },
+      "true_label": "completely_wrong",
+      "stored_metric_disagreements": {}
+    },
+    {
+      "id": 25941,
+      "split": "ood",
+      "parse_ok": true,
+      "correct_net_ok": true,
+      "student_net_ok": true,
+      "both_nets_ok": true,
+      "label_ok": false,
+      "derived_label": "completely_wrong",
+      "derived_label_ok": true,
+      "predicted": {
+        "correct_net": {
+          "linear": "reflect_y_axis",
+          "tx": 0,
+          "ty": 0
+        },
+        "student_net": {
+          "linear": "reflect_x_axis",
+          "tx": 0,
+          "ty": -5
+        },
+        "label": "wrong_reflection_line",
+        "hint": "Check the line of reflection: the task used reflect across y axis, but you used reflect across x axis."
+      },
+      "true_label": "completely_wrong",
+      "stored_metric_disagreements": {}
+    }
+  ]
+}

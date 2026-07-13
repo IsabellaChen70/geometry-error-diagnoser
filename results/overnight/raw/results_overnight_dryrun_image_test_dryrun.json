@@ -1,0 +1,66 @@
+{
+  "n": 2,
+  "parse_rate": 0.0,
+  "label_accuracy": 0.0,
+  "label_coverage": 1.0,
+  "label_available": 2,
+  "balanced_accuracy": 0.0,
+  "transform_match_rate": 0.0,
+  "transform_coverage": 1.0,
+  "transform_available": 2,
+  "correct_net_match_rate": 0.0,
+  "correct_net_coverage": 1.0,
+  "correct_net_available": 2,
+  "student_net_match_rate": 0.0,
+  "student_net_coverage": 1.0,
+  "student_net_available": 2,
+  "both_nets_match_rate": 0.0,
+  "both_nets_coverage": 1.0,
+  "both_nets_available": 2,
+  "step_sequence_exact_rate": null,
+  "step_sequence_exact_match_rate": null,
+  "step_sequence_exact_coverage": 0.0,
+  "step_sequence_exact_available": 0,
+  "derived_label_accuracy": null,
+  "derived_label_coverage": 0.0,
+  "derived_label_available": 0,
+  "hint_match_rate": 0.0,
+  "hint_coverage": 1.0,
+  "hint_available": 2,
+  "hint_exact_match_rate": 0.0,
+  "hint_exact_coverage": 1.0,
+  "hint_exact_available": 2,
+  "per_label_recall": {
+    "correct": null,
+    "reflection_instead_of_rotation": null,
+    "rotation_instead_of_reflection": null,
+    "wrong_rotation_angle": 0.0,
+    "wrong_reflection_line": null,
+    "wrong_translation": null,
+    "opposite_translation": null,
+    "completely_wrong": 0.0
+  },
+  "confusion": {
+    "correct": {},
+    "reflection_instead_of_rotation": {},
+    "rotation_instead_of_reflection": {},
+    "wrong_rotation_angle": {
+      "PARSE_FAIL": 1
+    },
+    "wrong_reflection_line": {},
+    "wrong_translation": {},
+    "opposite_translation": {},
+    "completely_wrong": {
+      "PARSE_FAIL": 1
+    }
+  },
+  "gateway_schema": "v6",
+  "task": "full",
+  "input_mode": "image",
+  "model": "dummy/route",
+  "sample_seed": 20260709,
+  "ids": [
+    14270,
+    19847
+  ]
+}

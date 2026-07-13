@@ -1,0 +1,554 @@
+## main
+ M .gitignore
+D  GeoSym127K
+ M model/02_vision_base_model.ipynb
+ D model/dataset_sample/images/000000.png
+ D model/dataset_sample/images/000001.png
+ D model/dataset_sample/images/000002.png
+ D model/dataset_sample/images/000003.png
+ D model/dataset_sample/images/000004.png
+ D model/dataset_sample/images/000005.png
+ D model/dataset_sample/images/000006.png
+ D model/dataset_sample/images/000007.png
+ D model/dataset_sample/images/000008.png
+ D model/dataset_sample/images/000009.png
+ D model/dataset_sample/images/000010.png
+ D model/dataset_sample/images/000011.png
+ D model/dataset_sample/images/000012.png
+ D model/dataset_sample/images/000013.png
+ D model/dataset_sample/images/000014.png
+ D model/dataset_sample/images/000015.png
+ D model/dataset_sample/images/000016.png
+ D model/dataset_sample/images/000017.png
+ D model/dataset_sample/images/000018.png
+ D model/dataset_sample/images/000019.png
+ D model/dataset_sample/images/000020.png
+ D model/dataset_sample/images/000021.png
+ D model/dataset_sample/images/000022.png
+ D model/dataset_sample/images/000023.png
+ D model/dataset_sample/ood.jsonl
+ D model/dataset_sample/ood_chat.jsonl
+ D model/dataset_sample/train.jsonl
+ D model/dataset_sample/train_chat.jsonl
+ D model/dataset_sample/val.jsonl
+ D model/dataset_sample/val_chat.jsonl
+ D model/diagnosis_sample/images/000000.png
+ D model/diagnosis_sample/images/000001.png
+ D model/diagnosis_sample/images/000002.png
+ D model/diagnosis_sample/images/000003.png
+ D model/diagnosis_sample/images/000004.png
+ D model/diagnosis_sample/images/000005.png
+ D model/diagnosis_sample/images/000006.png
+ D model/diagnosis_sample/images/000007.png
+ D model/diagnosis_sample/images/000008.png
+ D model/diagnosis_sample/images/000009.png
+ D model/diagnosis_sample/images/000010.png
+ D model/diagnosis_sample/images/000011.png
+ D model/diagnosis_sample/images/000012.png
+ D model/diagnosis_sample/images/000013.png
+ D model/diagnosis_sample/images/000014.png
+ D model/diagnosis_sample/images/000015.png
+ D model/diagnosis_sample/images/000016.png
+ D model/diagnosis_sample/images/000017.png
+ D model/diagnosis_sample/images/000018.png
+ D model/diagnosis_sample/images/000019.png
+ D model/diagnosis_sample/images/000020.png
+ D model/diagnosis_sample/images/000021.png
+ D model/diagnosis_sample/images/000022.png
+ D model/diagnosis_sample/images/000023.png
+ D model/diagnosis_sample/images/000024.png
+ D model/diagnosis_sample/images/000025.png
+ D model/diagnosis_sample/images/000026.png
+ D model/diagnosis_sample/images/000027.png
+ D model/diagnosis_sample/images/000028.png
+ D model/diagnosis_sample/images/000029.png
+ D model/diagnosis_sample/images/000030.png
+ D model/diagnosis_sample/images/000031.png
+ D model/diagnosis_sample/images/000032.png
+ D model/diagnosis_sample/images/000033.png
+ D model/diagnosis_sample/images/000034.png
+ D model/diagnosis_sample/images/000035.png
+ D model/diagnosis_sample/images/000036.png
+ D model/diagnosis_sample/images/000037.png
+ D model/diagnosis_sample/images/000038.png
+ D model/diagnosis_sample/images/000039.png
+ D model/diagnosis_sample/images/000040.png
+ D model/diagnosis_sample/images/000041.png
+ D model/diagnosis_sample/images/000042.png
+ D model/diagnosis_sample/images/000043.png
+ D model/diagnosis_sample/train.jsonl
+ D model/diagnosis_sample/train_chat.jsonl
+ D model/diagnosis_sample/val.jsonl
+ D model/diagnosis_sample/val_chat.jsonl
+ D model/generate_dataset.py
+ D model/generate_diagnosis_data.py
+ M transform_diagnosis/BUILD_LOG.md
+ M transform_diagnosis/__main__.py
+ M transform_diagnosis/dataset.py
+ M transform_diagnosis/errors.py
+ M transform_diagnosis/problems.py
+ M transform_diagnosis/render.py
+ M transform_diagnosis/test_dataset.py
+ M transform_diagnosis/test_transform_core.py
+ M transform_diagnosis/transform_core.py
+D  transform_diagnosis_data/data.jsonl
+D  transform_diagnosis_data/reference_example.png
+D  transform_diagnosis_data/renders/000000.png
+D  transform_diagnosis_data/renders/000001.png
+D  transform_diagnosis_data/renders/000002.png
+D  transform_diagnosis_data/renders/000003.png
+D  transform_diagnosis_data/renders/000004.png
+D  transform_diagnosis_data/renders/000005.png
+D  transform_diagnosis_data/renders/000006.png
+D  transform_diagnosis_data/renders/000007.png
+D  transform_diagnosis_data/renders/000008.png
+D  transform_diagnosis_data/renders/000009.png
+D  transform_diagnosis_data/renders/000010.png
+D  transform_diagnosis_data/renders/000011.png
+D  transform_diagnosis_data/renders/000012.png
+D  transform_diagnosis_data/renders/000013.png
+D  transform_diagnosis_data/renders/000014.png
+D  transform_diagnosis_data/renders/000015.png
+D  transform_diagnosis_data/renders/000016.png
+D  transform_diagnosis_data/renders/000017.png
+D  transform_diagnosis_data/renders/000018.png
+D  transform_diagnosis_data/renders/000019.png
+D  transform_diagnosis_data/renders/000020.png
+D  transform_diagnosis_data/renders/000021.png
+D  transform_diagnosis_data/renders/000022.png
+D  transform_diagnosis_data/renders/000023.png
+D  transform_diagnosis_data/renders/000024.png
+D  transform_diagnosis_data/renders/000025.png
+D  transform_diagnosis_data/renders/000026.png
+D  transform_diagnosis_data/renders/000027.png
+D  transform_diagnosis_data/renders/000028.png
+D  transform_diagnosis_data/renders/000029.png
+D  transform_diagnosis_data/renders/000030.png
+D  transform_diagnosis_data/renders/000031.png
+D  transform_diagnosis_data/renders/000032.png
+D  transform_diagnosis_data/renders/000033.png
+D  transform_diagnosis_data/renders/000034.png
+D  transform_diagnosis_data/renders/000035.png
+D  transform_diagnosis_data/renders/000036.png
+D  transform_diagnosis_data/renders/000037.png
+D  transform_diagnosis_data/renders/000038.png
+D  transform_diagnosis_data/renders/000039.png
+D  transform_diagnosis_data/renders/000040.png
+D  transform_diagnosis_data/renders/000041.png
+D  transform_diagnosis_data/renders/000042.png
+D  transform_diagnosis_data/renders/000043.png
+D  transform_diagnosis_data/renders/000044.png
+D  transform_diagnosis_data/renders/000045.png
+D  transform_diagnosis_data/renders/000046.png
+D  transform_diagnosis_data/renders/000047.png
+D  transform_diagnosis_data/renders/000048.png
+D  transform_diagnosis_data/renders/000049.png
+D  transform_diagnosis_data/renders/000050.png
+D  transform_diagnosis_data/renders/000051.png
+D  transform_diagnosis_data/renders/000052.png
+D  transform_diagnosis_data/renders/000053.png
+D  transform_diagnosis_data/renders/000054.png
+D  transform_diagnosis_data/renders/000055.png
+D  transform_diagnosis_data/renders/000056.png
+D  transform_diagnosis_data/renders/000057.png
+D  transform_diagnosis_data/renders/000058.png
+D  transform_diagnosis_data/renders/000059.png
+D  transform_diagnosis_data/renders/000060.png
+D  transform_diagnosis_data/renders/000061.png
+D  transform_diagnosis_data/renders/000062.png
+D  transform_diagnosis_data/renders/000063.png
+D  transform_diagnosis_data/renders/000064.png
+D  transform_diagnosis_data/renders/000065.png
+D  transform_diagnosis_data/renders/000066.png
+D  transform_diagnosis_data/renders/000067.png
+D  transform_diagnosis_data/renders/000068.png
+D  transform_diagnosis_data/renders/000069.png
+D  transform_diagnosis_data/renders/000070.png
+D  transform_diagnosis_data/renders/000071.png
+D  transform_diagnosis_data/renders/000072.png
+D  transform_diagnosis_data/renders/000073.png
+D  transform_diagnosis_data/renders/000074.png
+D  transform_diagnosis_data/renders/000075.png
+D  transform_diagnosis_data/renders/000076.png
+D  transform_diagnosis_data/renders/000077.png
+D  transform_diagnosis_data/renders/000078.png
+D  transform_diagnosis_data/renders/000079.png
+D  transform_diagnosis_data/renders/000080.png
+D  transform_diagnosis_data/renders/000081.png
+D  transform_diagnosis_data/renders/000082.png
+D  transform_diagnosis_data/renders/000083.png
+D  transform_diagnosis_data/renders/000084.png
+D  transform_diagnosis_data/renders/000085.png
+D  transform_diagnosis_data/renders/000086.png
+D  transform_diagnosis_data/renders/000087.png
+D  transform_diagnosis_data/renders/000088.png
+D  transform_diagnosis_data/renders/000089.png
+D  transform_diagnosis_data/renders/000090.png
+D  transform_diagnosis_data/renders/000091.png
+D  transform_diagnosis_data/renders/000092.png
+D  transform_diagnosis_data/renders/000093.png
+D  transform_diagnosis_data/renders/000094.png
+D  transform_diagnosis_data/renders/000095.png
+D  transform_diagnosis_data/renders/000096.png
+D  transform_diagnosis_data/renders/000097.png
+D  transform_diagnosis_data/renders/000098.png
+D  transform_diagnosis_data/renders/000099.png
+D  transform_diagnosis_data/renders/000100.png
+D  transform_diagnosis_data/renders/000101.png
+D  transform_diagnosis_data/renders/000102.png
+D  transform_diagnosis_data/renders/000103.png
+D  transform_diagnosis_data/renders/000104.png
+D  transform_diagnosis_data/renders/000105.png
+D  transform_diagnosis_data/renders/000106.png
+D  transform_diagnosis_data/renders/000107.png
+D  transform_diagnosis_data/renders/000108.png
+D  transform_diagnosis_data/renders/000109.png
+D  transform_diagnosis_data/renders/000110.png
+D  transform_diagnosis_data/renders/000111.png
+D  transform_diagnosis_data/renders/000112.png
+D  transform_diagnosis_data/renders/000113.png
+D  transform_diagnosis_data/renders/000114.png
+D  transform_diagnosis_data/renders/000115.png
+D  transform_diagnosis_data/renders/000116.png
+D  transform_diagnosis_data/renders/000117.png
+D  transform_diagnosis_data/renders/000118.png
+D  transform_diagnosis_data/renders/000119.png
+D  transform_diagnosis_data/renders/000120.png
+D  transform_diagnosis_data/renders/000121.png
+D  transform_diagnosis_data/renders/000122.png
+D  transform_diagnosis_data/renders/000123.png
+D  transform_diagnosis_data/renders/000124.png
+D  transform_diagnosis_data/renders/000125.png
+D  transform_diagnosis_data/renders/000126.png
+D  transform_diagnosis_data/renders/000127.png
+D  transform_diagnosis_data/renders/000128.png
+D  transform_diagnosis_data/renders/000129.png
+D  transform_diagnosis_data/renders/000130.png
+D  transform_diagnosis_data/renders/000131.png
+D  transform_diagnosis_data/renders/000132.png
+D  transform_diagnosis_data/renders/000133.png
+D  transform_diagnosis_data/renders/000134.png
+D  transform_diagnosis_data/renders/000135.png
+D  transform_diagnosis_data/renders/000136.png
+D  transform_diagnosis_data/renders/000137.png
+D  transform_diagnosis_data/renders/000138.png
+D  transform_diagnosis_data/renders/000139.png
+D  transform_diagnosis_data/renders/000140.png
+D  transform_diagnosis_data/renders/000141.png
+D  transform_diagnosis_data/renders/000142.png
+D  transform_diagnosis_data/renders/000143.png
+D  transform_diagnosis_data/renders/000144.png
+D  transform_diagnosis_data/renders/000145.png
+D  transform_diagnosis_data/renders/000146.png
+D  transform_diagnosis_data/renders/000147.png
+D  transform_diagnosis_data/renders/000148.png
+D  transform_diagnosis_data/renders/000149.png
+D  transform_diagnosis_data/renders/000150.png
+D  transform_diagnosis_data/renders/000151.png
+D  transform_diagnosis_data/renders/000152.png
+D  transform_diagnosis_data/renders/000153.png
+D  transform_diagnosis_data/renders/000154.png
+D  transform_diagnosis_data/renders/000155.png
+D  transform_diagnosis_data/renders/000156.png
+D  transform_diagnosis_data/renders/000157.png
+D  transform_diagnosis_data/renders/000158.png
+D  transform_diagnosis_data/renders/000159.png
+D  transform_diagnosis_data/renders/000160.png
+D  transform_diagnosis_data/renders/000161.png
+D  transform_diagnosis_data/renders/000162.png
+D  transform_diagnosis_data/renders/000163.png
+D  transform_diagnosis_data/renders/000164.png
+D  transform_diagnosis_data/renders/000165.png
+D  transform_diagnosis_data/renders/000166.png
+D  transform_diagnosis_data/renders/000167.png
+D  transform_diagnosis_data/renders/000168.png
+D  transform_diagnosis_data/renders/000169.png
+D  transform_diagnosis_data/renders/000170.png
+D  transform_diagnosis_data/renders/000171.png
+D  transform_diagnosis_data/renders/000172.png
+D  transform_diagnosis_data/renders/000173.png
+D  transform_diagnosis_data/renders/000174.png
+D  transform_diagnosis_data/renders/000175.png
+D  transform_diagnosis_data/renders/000176.png
+D  transform_diagnosis_data/renders/000177.png
+D  transform_diagnosis_data/renders/000178.png
+D  transform_diagnosis_data/renders/000179.png
+D  transform_diagnosis_data/renders/000180.png
+D  transform_diagnosis_data/renders/000181.png
+D  transform_diagnosis_data/renders/000182.png
+D  transform_diagnosis_data/renders/000183.png
+D  transform_diagnosis_data/renders/000184.png
+D  transform_diagnosis_data/renders/000185.png
+D  transform_diagnosis_data/renders/000186.png
+D  transform_diagnosis_data/renders/000187.png
+D  transform_diagnosis_data/renders/000188.png
+D  transform_diagnosis_data/renders/000189.png
+D  transform_diagnosis_data/renders/000190.png
+D  transform_diagnosis_data/renders/000191.png
+D  transform_diagnosis_data/renders/000192.png
+D  transform_diagnosis_data/renders/000193.png
+D  transform_diagnosis_data/renders/000194.png
+D  transform_diagnosis_data/renders/000195.png
+D  transform_diagnosis_data/renders/000196.png
+D  transform_diagnosis_data/renders/000197.png
+D  transform_diagnosis_data/renders/000198.png
+D  transform_diagnosis_data/renders/000199.png
+D  transform_diagnosis_data/renders/000200.png
+D  transform_diagnosis_data/renders/000201.png
+D  transform_diagnosis_data/renders/000202.png
+D  transform_diagnosis_data/renders/000203.png
+D  transform_diagnosis_data/renders/000204.png
+D  transform_diagnosis_data/renders/000205.png
+D  transform_diagnosis_data/renders/000206.png
+D  transform_diagnosis_data/renders/000207.png
+D  transform_diagnosis_data/renders/000208.png
+D  transform_diagnosis_data/renders/000209.png
+D  transform_diagnosis_data/renders/000210.png
+D  transform_diagnosis_data/renders/000211.png
+D  transform_diagnosis_data/renders/000212.png
+D  transform_diagnosis_data/renders/000213.png
+D  transform_diagnosis_data/renders/000214.png
+D  transform_diagnosis_data/renders/000215.png
+D  transform_diagnosis_data/renders/000216.png
+D  transform_diagnosis_data/renders/000217.png
+D  transform_diagnosis_data/renders/000218.png
+D  transform_diagnosis_data/renders/000219.png
+D  transform_diagnosis_data/renders/000220.png
+D  transform_diagnosis_data/renders/000221.png
+D  transform_diagnosis_data/renders/000222.png
+D  transform_diagnosis_data/renders/000223.png
+D  transform_diagnosis_data/renders/000224.png
+D  transform_diagnosis_data/renders/000225.png
+D  transform_diagnosis_data/renders/000226.png
+D  transform_diagnosis_data/renders/000227.png
+D  transform_diagnosis_data/renders/000228.png
+D  transform_diagnosis_data/renders/000229.png
+D  transform_diagnosis_data/renders/000230.png
+D  transform_diagnosis_data/renders/000231.png
+D  transform_diagnosis_data/renders/000232.png
+D  transform_diagnosis_data/renders/000233.png
+D  transform_diagnosis_data/renders/000234.png
+D  transform_diagnosis_data/renders/000235.png
+D  transform_diagnosis_data/renders/000236.png
+D  transform_diagnosis_data/renders/000237.png
+D  transform_diagnosis_data/renders/000238.png
+D  transform_diagnosis_data/renders/000239.png
+D  transform_diagnosis_data/renders/000240.png
+D  transform_diagnosis_data/renders/000241.png
+D  transform_diagnosis_data/renders/000242.png
+D  transform_diagnosis_data/renders/000243.png
+D  transform_diagnosis_data/renders/000244.png
+D  transform_diagnosis_data/renders/000245.png
+D  transform_diagnosis_data/renders/000246.png
+D  transform_diagnosis_data/renders/000247.png
+D  transform_diagnosis_data/renders/000248.png
+D  transform_diagnosis_data/renders/000249.png
+D  transform_diagnosis_data/renders/000250.png
+D  transform_diagnosis_data/renders/000251.png
+D  transform_diagnosis_data/renders/000252.png
+D  transform_diagnosis_data/renders/000253.png
+D  transform_diagnosis_data/renders/000254.png
+D  transform_diagnosis_data/renders/000255.png
+D  transform_diagnosis_data/renders/000256.png
+D  transform_diagnosis_data/renders/000257.png
+D  transform_diagnosis_data/renders/000258.png
+D  transform_diagnosis_data/renders/000259.png
+D  transform_diagnosis_data/renders/000260.png
+D  transform_diagnosis_data/renders/000261.png
+D  transform_diagnosis_data/renders/000262.png
+D  transform_diagnosis_data/renders/000263.png
+D  transform_diagnosis_data/renders/000264.png
+D  transform_diagnosis_data/renders/000265.png
+D  transform_diagnosis_data/renders/000266.png
+D  transform_diagnosis_data/renders/000267.png
+D  transform_diagnosis_data/renders/000268.png
+D  transform_diagnosis_data/renders/000269.png
+D  transform_diagnosis_data/renders/000270.png
+D  transform_diagnosis_data/renders/000271.png
+D  transform_diagnosis_data/renders/000272.png
+D  transform_diagnosis_data/renders/000273.png
+D  transform_diagnosis_data/renders/000274.png
+D  transform_diagnosis_data/renders/000275.png
+D  transform_diagnosis_data/renders/000276.png
+D  transform_diagnosis_data/renders/000277.png
+D  transform_diagnosis_data/renders/000278.png
+D  transform_diagnosis_data/renders/000279.png
+D  transform_diagnosis_data/renders/000280.png
+D  transform_diagnosis_data/renders/000281.png
+D  transform_diagnosis_data/renders/000282.png
+D  transform_diagnosis_data/renders/000283.png
+D  transform_diagnosis_data/renders/000284.png
+D  transform_diagnosis_data/renders/000285.png
+D  transform_diagnosis_data/renders/000286.png
+D  transform_diagnosis_data/renders/000287.png
+D  transform_diagnosis_data/renders/000288.png
+D  transform_diagnosis_data/renders/000289.png
+D  transform_diagnosis_data/renders/000290.png
+D  transform_diagnosis_data/renders/000291.png
+D  transform_diagnosis_data/renders/000292.png
+D  transform_diagnosis_data/renders/000293.png
+D  transform_diagnosis_data/renders/000294.png
+D  transform_diagnosis_data/renders/000295.png
+D  transform_diagnosis_data/renders/000296.png
+D  transform_diagnosis_data/renders/000297.png
+D  transform_diagnosis_data/renders/000298.png
+D  transform_diagnosis_data/renders/000299.png
+D  transform_diagnosis_data/renders/000300.png
+D  transform_diagnosis_data/renders/000301.png
+D  transform_diagnosis_data/renders/000302.png
+D  transform_diagnosis_data/renders/000303.png
+D  transform_diagnosis_data/renders/000304.png
+D  transform_diagnosis_data/renders/000305.png
+D  transform_diagnosis_data/renders/000306.png
+D  transform_diagnosis_data/renders/000307.png
+D  transform_diagnosis_data/renders/000308.png
+D  transform_diagnosis_data/renders/000309.png
+D  transform_diagnosis_data/renders/000310.png
+D  transform_diagnosis_data/renders/000311.png
+D  transform_diagnosis_data/renders/000312.png
+D  transform_diagnosis_data/renders/000313.png
+D  transform_diagnosis_data/renders/000314.png
+D  transform_diagnosis_data/renders/000315.png
+D  transform_diagnosis_data/renders/000316.png
+D  transform_diagnosis_data/renders/000317.png
+D  transform_diagnosis_data/renders/000318.png
+D  transform_diagnosis_data/renders/000319.png
+D  transform_diagnosis_data/renders/000320.png
+D  transform_diagnosis_data/renders/000321.png
+D  transform_diagnosis_data/renders/000322.png
+D  transform_diagnosis_data/renders/000323.png
+D  transform_diagnosis_data/renders/000324.png
+D  transform_diagnosis_data/renders/000325.png
+D  transform_diagnosis_data/renders/000326.png
+D  transform_diagnosis_data/renders/000327.png
+D  transform_diagnosis_data/renders/000328.png
+D  transform_diagnosis_data/renders/000329.png
+D  transform_diagnosis_data/renders/000330.png
+D  transform_diagnosis_data/renders/000331.png
+D  transform_diagnosis_data/renders/000332.png
+D  transform_diagnosis_data/renders/000333.png
+D  transform_diagnosis_data/renders/000334.png
+D  transform_diagnosis_data/renders/000335.png
+D  transform_diagnosis_data/renders/000336.png
+D  transform_diagnosis_data/renders/000337.png
+D  transform_diagnosis_data/renders/000338.png
+D  transform_diagnosis_data/renders/000339.png
+D  transform_diagnosis_data/renders/000340.png
+D  transform_diagnosis_data/renders/000341.png
+D  transform_diagnosis_data/renders/000342.png
+D  transform_diagnosis_data/renders/000343.png
+D  transform_diagnosis_data/renders/000344.png
+D  transform_diagnosis_data/renders/000345.png
+D  transform_diagnosis_data/renders/000346.png
+D  transform_diagnosis_data/renders/000347.png
+D  transform_diagnosis_data/renders/000348.png
+D  transform_diagnosis_data/renders/000349.png
+D  transform_diagnosis_data/renders/000350.png
+D  transform_diagnosis_data/renders/000351.png
+D  transform_diagnosis_data/renders/000352.png
+D  transform_diagnosis_data/renders/000353.png
+D  transform_diagnosis_data/renders/000354.png
+D  transform_diagnosis_data/renders/000355.png
+D  transform_diagnosis_data/renders/000356.png
+D  transform_diagnosis_data/renders/000357.png
+D  transform_diagnosis_data/renders/000358.png
+D  transform_diagnosis_data/renders/000359.png
+D  transform_diagnosis_data/renders/000360.png
+D  transform_diagnosis_data/renders/000361.png
+D  transform_diagnosis_data/renders/000362.png
+D  transform_diagnosis_data/renders/000363.png
+D  transform_diagnosis_data/renders/000364.png
+D  transform_diagnosis_data/renders/000365.png
+D  transform_diagnosis_data/renders/000366.png
+D  transform_diagnosis_data/renders/000367.png
+D  transform_diagnosis_data/renders/000368.png
+D  transform_diagnosis_data/renders/000369.png
+D  transform_diagnosis_data/renders/000370.png
+D  transform_diagnosis_data/renders/000371.png
+D  transform_diagnosis_data/renders/000372.png
+D  transform_diagnosis_data/renders/000373.png
+D  transform_diagnosis_data/renders/000374.png
+D  transform_diagnosis_data/renders/000375.png
+D  transform_diagnosis_data/renders/000376.png
+D  transform_diagnosis_data/renders/000377.png
+D  transform_diagnosis_data/renders/000378.png
+D  transform_diagnosis_data/renders/000379.png
+D  transform_diagnosis_data/renders/000380.png
+D  transform_diagnosis_data/renders/000381.png
+D  transform_diagnosis_data/renders/000382.png
+D  transform_diagnosis_data/renders/000383.png
+D  transform_diagnosis_data/renders/000384.png
+D  transform_diagnosis_data/renders/000385.png
+D  transform_diagnosis_data/renders/000386.png
+D  transform_diagnosis_data/renders/000387.png
+D  transform_diagnosis_data/renders/000388.png
+D  transform_diagnosis_data/renders/000389.png
+D  transform_diagnosis_data/renders/000390.png
+D  transform_diagnosis_data/renders/000391.png
+D  transform_diagnosis_data/renders/000392.png
+D  transform_diagnosis_data/renders/000393.png
+D  transform_diagnosis_data/renders/000394.png
+D  transform_diagnosis_data/renders/000395.png
+D  transform_diagnosis_data/renders/000396.png
+D  transform_diagnosis_data/renders/000397.png
+D  transform_diagnosis_data/renders/000398.png
+D  transform_diagnosis_data/renders/000399.png
+D  transform_diagnosis_data/summary.json
+D  transform_diagnosis_data/test.jsonl
+D  transform_diagnosis_data/train.jsonl
+D  transform_diagnosis_data/val.jsonl
+?? OVERNIGHT_CURSOR_PROMPT.md
+?? _quarantine/
+?? dataset_sample.zip
+?? dataset_sample/
+?? manual_check/
+?? model/V6_TRANSFORM_RUNBOOK.md
+?? model/audit_identifiability.py
+?? model/audit_v6_predictions.py
+?? model/coarsegrain_ablation.py
+?? model/colab_train_eval.ipynb
+?? model/eval_base_coords_fewshot.py
+?? model/eval_frontier.py
+?? model/eval_frontier_gateway.py
+?? model/eval_transform.py
+?? model/eval_tuned.py
+?? model/eval_tuned_coords.py
+?? model/eval_val.py
+?? model/make_cot_data.py
+?? model/make_v4_data.py
+?? model/make_v5_data.py
+?? model/make_v6_transform_data.py
+?? model/probe_coords.py
+?? model/rescore_probe.py
+?? model/rescore_records.py
+?? model/run_eval.sbatch
+?? model/snapshot_v6_artifacts.py
+?? model/sync_to_cluster.sh
+?? model/test_audit_v6_predictions.py
+?? model/test_coarsegrain_ablation.py
+?? model/test_rescore_records.py
+?? model/test_v6_transform_pipeline.py
+?? model/train.py
+?? model/train_cot.py
+?? model/train_transform.py
+?? records_probe_coords.jsonl
+?? records_probe_coords_rescored.jsonl
+?? results/
+?? results_probe_coords.json
+?? results_probe_coords_rescored.json
+?? transform_diagnosis/chat_format.py
+?? transform_diagnosis/contrastive.py
+?? transform_diagnosis/cot.py
+?? transform_diagnosis/enum_transform.py
+?? transform_diagnosis/eval.py
+?? transform_diagnosis/hints.py
+?? transform_diagnosis/net_transform.py
+?? transform_diagnosis/test_contrastive.py
+?? transform_diagnosis/test_cot.py
+?? transform_diagnosis/test_cot_structured.py
+?? transform_diagnosis/test_enum_transform.py
+?? transform_diagnosis/test_eval.py
+?? transform_diagnosis/test_eval_v6.py
+?? transform_diagnosis/test_net_transform.py
+?? transform_diagnosis/test_v6_format.py
+?? transform_diagnosis/v6_format.py

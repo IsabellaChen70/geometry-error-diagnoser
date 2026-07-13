@@ -294,10 +294,16 @@ def describe_transform(t: TransformLike, rotation_style: str = "ccw") -> str:
     raise ValueError(f"cannot describe non-primitive transform: {t!r}")
 
 
-_ROT_RE = re.compile(r"rotate\s+(\d+)\s*degrees?\s+(counterclockwise|clockwise|ccw|cw)")
+# The direction word is optional so natural phrasings ("rotate 180 degrees about the
+# origin") parse; a missing direction is only *unambiguous* at 0/180 (see parse_transform).
+_ROT_RE = re.compile(r"rotate\s+(\d+)\s*degrees?(?:\s+(counterclockwise|clockwise|ccw|cw))?")
 _REFL_RE = re.compile(r"reflect\s+across\s+(.*)")
-_TRANS_XY_RE = re.compile(r"translate\s+by\s*\(\s*(-?\d+)\s*,\s*(-?\d+)\s*\)")
-_TRANS_DIR_RE = re.compile(r"translate\s+(\d+)\s+(left|right|up|down)")
+# "translate"/"move", optional "by", and an optional counting noun ("3 units up") are all
+# accepted; the math (magnitude + direction, or the (dx, dy) literal) is what's captured.
+_TRANS_XY_RE = re.compile(r"(?:translate|move)\s+by\s*\(\s*(-?\d+)\s*,\s*(-?\d+)\s*\)")
+_TRANS_DIR_RE = re.compile(
+    r"(?:translate|move)\s+(\d+)\s*(?:units?|squares?|spaces?)?\s*(left|right|up|down)"
+)
 
 _DIR_TO_VEC = {
     "left": (-1, 0),
@@ -308,11 +314,24 @@ _DIR_TO_VEC = {
 
 
 def parse_transform(text: str) -> Transform:
-    """Parse a schema string back into a ``Transform`` (inverse of describe_transform)."""
+    """Parse a schema string back into a ``Transform`` (inverse of describe_transform).
+
+    Accepts the canonical schema wording plus common equivalent phrasings that mean the
+    exact same motion: rotations with the (irrelevant) direction omitted at 0/180 and/or a
+    trailing "about the origin"; translations spelled "move" or with a counting noun
+    ("3 units up"). Genuinely ambiguous input (e.g. a 90-degree rotation with no direction)
+    still raises, so wrong motions cannot slip through as matches.
+    """
     s = " ".join(text.strip().lower().split())
     m = _ROT_RE.search(s)
     if m:
-        return rotate(int(m.group(1)), m.group(2))
+        deg = int(m.group(1))
+        direction = m.group(2)
+        if direction is not None:
+            return rotate(deg, direction)
+        if deg % 180 == 0:  # 0/180: clockwise == counterclockwise, so no direction needed
+            return rotate(deg)
+        raise ValueError(f"ambiguous rotation (no direction) for {deg} degrees: {text!r}")
     m = _TRANS_XY_RE.search(s)
     if m:
         return translate(int(m.group(1)), int(m.group(2)))

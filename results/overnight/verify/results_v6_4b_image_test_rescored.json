@@ -1,0 +1,93 @@
+{
+  "n": 500,
+  "parse_rate": 1.0,
+  "label_accuracy": 0.856,
+  "label_coverage": 1.0,
+  "label_available": 500,
+  "balanced_accuracy": 0.838013591880058,
+  "transform_match_rate": 0.462,
+  "transform_coverage": 1.0,
+  "transform_available": 500,
+  "correct_net_match_rate": 0.462,
+  "correct_net_coverage": 1.0,
+  "correct_net_available": 500,
+  "student_net_match_rate": 0.438,
+  "student_net_coverage": 1.0,
+  "student_net_available": 500,
+  "both_nets_match_rate": 0.384,
+  "both_nets_coverage": 1.0,
+  "both_nets_available": 500,
+  "step_sequence_exact_rate": null,
+  "step_sequence_exact_match_rate": null,
+  "step_sequence_exact_coverage": 0.0,
+  "step_sequence_exact_available": 0,
+  "derived_label_accuracy": 0.856,
+  "derived_label_coverage": 1.0,
+  "derived_label_available": 500,
+  "hint_match_rate": 0.732,
+  "hint_coverage": 1.0,
+  "hint_available": 500,
+  "hint_exact_match_rate": 0.516,
+  "hint_exact_coverage": 1.0,
+  "hint_exact_available": 500,
+  "per_label_recall": {
+    "correct": 1.0,
+    "reflection_instead_of_rotation": 0.864406779661017,
+    "rotation_instead_of_reflection": 0.8615384615384616,
+    "wrong_rotation_angle": 0.9605263157894737,
+    "wrong_reflection_line": 0.8421052631578947,
+    "wrong_translation": 1.0,
+    "opposite_translation": 0.425531914893617,
+    "completely_wrong": 0.75
+  },
+  "confusion": {
+    "correct": {
+      "correct": 66
+    },
+    "reflection_instead_of_rotation": {
+      "reflection_instead_of_rotation": 51,
+      "completely_wrong": 1,
+      "wrong_rotation_angle": 1,
+      "rotation_instead_of_reflection": 4,
+      "wrong_reflection_line": 2
+    },
+    "rotation_instead_of_reflection": {
+      "rotation_instead_of_reflection": 56,
+      "reflection_instead_of_rotation": 3,
+      "wrong_reflection_line": 3,
+      "wrong_translation": 1,
+      "completely_wrong": 1,
+      "wrong_rotation_angle": 1
+    },
+    "wrong_rotation_angle": {
+      "wrong_rotation_angle": 73,
+      "reflection_instead_of_rotation": 1,
+      "rotation_instead_of_reflection": 1,
+      "completely_wrong": 1
+    },
+    "wrong_reflection_line": {
+      "wrong_reflection_line": 48,
+      "completely_wrong": 3,
+      "rotation_instead_of_reflection": 2,
+      "reflection_instead_of_rotation": 3,
+      "wrong_rotation_angle": 1
+    },
+    "wrong_translation": {
+      "wrong_translation": 66
+    },
+    "opposite_translation": {
+      "wrong_translation": 25,
+      "opposite_translation": 20,
+      "correct": 1,
+      "completely_wrong": 1
+    },
+    "completely_wrong": {
+      "wrong_rotation_angle": 8,
+      "wrong_translation": 4,
+      "completely_wrong": 48,
+      "wrong_reflection_line": 2,
+      "reflection_instead_of_rotation": 1,
+      "rotation_instead_of_reflection": 1
+    }
+  }
+}

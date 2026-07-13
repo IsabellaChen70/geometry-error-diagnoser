@@ -1,0 +1,253 @@
+{
+  "schema_version": "v6.llm-judge-validation.1",
+  "status": "PASS",
+  "provider": "tfy",
+  "model": "gpt-5.6-sol",
+  "sample": {
+    "seed": 20260709,
+    "split": "test",
+    "modality": "image_coords",
+    "paired_ids": 100
+  },
+  "evidence": {
+    "raw_rows": 106,
+    "successful_rows": 100,
+    "failed_rows_preserved": 6,
+    "successful_unique_ids": 100,
+    "successful_request_fingerprint": "003cba3bbe654f3a4d7b155692d2f46b749e6164fe7d1ea266ee3e02778f8d82",
+    "successful_request_set_sha256": "e07cd3e2c86f6d33cd5855bde4a4f551886b72b4f86a17341be3a3cd0f10b938"
+  },
+  "checks": {
+    "json_and_jsonl_parse": true,
+    "success_ids_unique_and_match_sample": true,
+    "request_hashes_match_metadata": true,
+    "request_set_hash_matches": true,
+    "run_fingerprint_recomputed": true,
+    "input_hashes_match": true,
+    "provider_model_consistent": true,
+    "strict_judgment_schema_all_100": true,
+    "final_response_matches_saved_judgment_all_100": true,
+    "ab_identity_balance_50_50": true,
+    "preference_identity_remapping_matches": true,
+    "counts_rates_and_intervals_match": true,
+    "rubric_means_and_intervals_match": true,
+    "retry_error_statistics_match": true,
+    "cumulative_raw_evidence_matches": true,
+    "report_core_values_match": true,
+    "integrated_overnight_results_match": true,
+    "integrated_overnight_report_matches": true,
+    "checklist_tally_matches": true,
+    "run_log_tldr_current": true
+  },
+  "recomputed": {
+    "completed_pairs": 100,
+    "overall_preference": {
+      "tuned": {
+        "count": 100,
+        "n": 100,
+        "rate": 1.0,
+        "wilson_95": [
+          0.9630065017930143,
+          1.0
+        ]
+      },
+      "base": {
+        "count": 0,
+        "n": 100,
+        "rate": 0.0,
+        "wilson_95": [
+          3.469446951953614e-18,
+          0.03699349820698568
+        ]
+      },
+      "tie": {
+        "count": 0,
+        "n": 100,
+        "rate": 0.0,
+        "wilson_95": [
+          3.469446951953614e-18,
+          0.03699349820698568
+        ]
+      }
+    },
+    "tutoring_preference": {
+      "tuned": {
+        "count": 25,
+        "n": 100,
+        "rate": 0.25,
+        "wilson_95": [
+          0.17545211362287672,
+          0.34304463548061603
+        ]
+      },
+      "base": {
+        "count": 75,
+        "n": 100,
+        "rate": 0.75,
+        "wilson_95": [
+          0.656955364519384,
+          0.8245478863771232
+        ]
+      },
+      "tie": {
+        "count": 0,
+        "n": 100,
+        "rate": 0.0,
+        "wilson_95": [
+          3.469446951953614e-18,
+          0.03699349820698568
+        ]
+      }
+    },
+    "rubric_by_model_identity": {
+      "base": {
+        "pedagogical_usefulness_score": {
+          "mean": 1.8,
+          "n": 100,
+          "normal_95": [
+            1.6754165109648222,
+            1.9245834890351778
+          ]
+        },
+        "operation_family_relevance_score": {
+          "mean": 1.91,
+          "n": 100,
+          "normal_95": [
+            1.7070110934589322,
+            2.1129889065410676
+          ]
+        },
+        "clarity_actionability_score": {
+          "mean": 2.7,
+          "n": 100,
+          "normal_95": [
+            2.5769836612613033,
+            2.823016338738697
+          ]
+        },
+        "operation_family_relevant": {
+          "count": 50,
+          "n": 100,
+          "rate": 0.5,
+          "wilson_95": [
+            0.4038315303659956,
+            0.5961684696340044
+          ]
+        },
+        "forbidden_answer_or_coordinate_leak": {
+          "count": 1,
+          "n": 100,
+          "rate": 0.01,
+          "wilson_95": [
+            0.0017674320641406505,
+            0.054486196178705315
+          ]
+        }
+      },
+      "tuned": {
+        "pedagogical_usefulness_score": {
+          "mean": 2.89,
+          "n": 100,
+          "normal_95": [
+            2.7482400833377225,
+            3.0317599166622777
+          ]
+        },
+        "operation_family_relevance_score": {
+          "mean": 4.98,
+          "n": 100,
+          "normal_95": [
+            4.952422269105877,
+            5.0
+          ]
+        },
+        "clarity_actionability_score": {
+          "mean": 4.12,
+          "n": 100,
+          "normal_95": [
+            3.9476419959888687,
+            4.292358004011132
+          ]
+        },
+        "operation_family_relevant": {
+          "count": 100,
+          "n": 100,
+          "rate": 1.0,
+          "wilson_95": [
+            0.9630065017930143,
+            1.0
+          ]
+        },
+        "forbidden_answer_or_coordinate_leak": {
+          "count": 100,
+          "n": 100,
+          "rate": 1.0,
+          "wilson_95": [
+            0.9630065017930143,
+            1.0
+          ]
+        }
+      }
+    },
+    "blinded_side_balance": {
+      "base_as_A": 50,
+      "base_as_B": 50,
+      "tuned_as_A": 50,
+      "tuned_as_B": 50
+    },
+    "request_statistics": {
+      "successful_rows": 100,
+      "total_attempts": 122,
+      "retried_cases": 20,
+      "strict_parse_failures_before_success": 15,
+      "request_errors_before_success": 7
+    },
+    "leak_type_counts_by_model_identity": {
+      "base": {
+        "exact_rotation_angle": 1,
+        "exact_student_map": 1
+      },
+      "tuned": {
+        "coordinate_pair": 7,
+        "exact_correct_map": 47,
+        "exact_reflection_line": 50,
+        "exact_rotation_angle": 61,
+        "exact_student_map": 47,
+        "exact_translation_value": 46
+      }
+    }
+  },
+  "hint_safety_reconciliation": {
+    "deterministic_audit_scope": 2000,
+    "deterministic_exact_answer_value_disclosure": {
+      "count": 1919,
+      "n": 2000,
+      "rate": 0.9595
+    },
+    "deterministic_safe_useful": {
+      "count": 28,
+      "n": 2000,
+      "rate": 0.014
+    },
+    "judge_sample_tuned_leak": {
+      "count": 100,
+      "n": 100,
+      "rate": 1.0,
+      "wilson_95": [
+        0.9630065017930143,
+        1.0
+      ]
+    },
+    "judge_sample_base_leak": {
+      "count": 1,
+      "n": 100,
+      "rate": 0.01,
+      "wilson_95": [
+        0.0017674320641406505,
+        0.054486196178705315
+      ]
+    },
+    "v6_prompt_explicitly_forbids_coordinates": false,
+    "interpretation": "The subjective 100-pair judge and deterministic 2,000-output audit agree that tuned hints are highly operation-relevant but routinely disclose exact answer parameters under the stricter tutoring-safety rubric. The v6 prompt did not explicitly prohibit coordinates, so this is a safety/specification concern rather than a direct prompt violation."
+  }
+}

@@ -1,0 +1,332 @@
+{
+  "n": 500,
+  "metrics": {
+    "parse_ok": {
+      "hits": 500,
+      "n": 500,
+      "rate": 1.0,
+      "wilson_95": [
+        0.9923756595384479,
+        1.0
+      ]
+    },
+    "correct_net_ok": {
+      "hits": 0,
+      "n": 500,
+      "rate": 0.0,
+      "wilson_95": [
+        4.336808689942018e-19,
+        0.007624340461552241
+      ]
+    },
+    "student_net_ok": {
+      "hits": 19,
+      "n": 500,
+      "rate": 0.038,
+      "wilson_95": [
+        0.024460118055830385,
+        0.05858477253064388
+      ]
+    },
+    "both_nets_ok": {
+      "hits": 0,
+      "n": 500,
+      "rate": 0.0,
+      "wilson_95": [
+        4.336808689942018e-19,
+        0.007624340461552241
+      ]
+    },
+    "label_ok": {
+      "hits": 111,
+      "n": 500,
+      "rate": 0.222,
+      "wilson_95": [
+        0.18776935138162992,
+        0.26046978191499315
+      ]
+    },
+    "derived_label_ok": {
+      "hits": 144,
+      "n": 500,
+      "rate": 0.288,
+      "wilson_95": [
+        0.250043271115854,
+        0.32918944923984417
+      ]
+    }
+  },
+  "evaluator_disagreement_rows": 0,
+  "sample_failures": [
+    {
+      "id": 25745,
+      "split": "ood",
+      "parse_ok": true,
+      "correct_net_ok": false,
+      "student_net_ok": false,
+      "both_nets_ok": false,
+      "label_ok": false,
+      "derived_label": "correct",
+      "derived_label_ok": false,
+      "predicted": {
+        "correct_net": {
+          "linear": "rot_ccw_90",
+          "tx": 4,
+          "ty": -4
+        },
+        "student_net": {
+          "linear": "rot_ccw_90",
+          "tx": 4,
+          "ty": -4
+        },
+        "label": "wrong_translation",
+        "hint": "Check the translation vector applied to the original polygon."
+      },
+      "true_label": "rotation_instead_of_reflection",
+      "stored_metric_disagreements": {}
+    },
+    {
+      "id": 25981,
+      "split": "ood",
+      "parse_ok": true,
+      "correct_net_ok": false,
+      "student_net_ok": false,
+      "both_nets_ok": false,
+      "label_ok": false,
+      "derived_label": "wrong_rotation_angle",
+      "derived_label_ok": false,
+      "predicted": {
+        "correct_net": {
+          "linear": "rot_180",
+          "tx": 0,
+          "ty": 0
+        },
+        "student_net": {
+          "linear": "rot_ccw_90",
+          "tx": 0,
+          "ty": 0
+        },
+        "label": "wrong_rotation_angle",
+        "hint": "Check the orientation and position of corresponding vertices to determine the correct rotation angle."
+      },
+      "true_label": "rotation_instead_of_reflection",
+      "stored_metric_disagreements": {}
+    },
+    {
+      "id": 25610,
+      "split": "ood",
+      "parse_ok": true,
+      "correct_net_ok": false,
+      "student_net_ok": false,
+      "both_nets_ok": false,
+      "label_ok": true,
+      "derived_label": "correct",
+      "derived_label_ok": true,
+      "predicted": {
+        "correct_net": {
+          "linear": "rot_180",
+          "tx": 0,
+          "ty": 0
+        },
+        "student_net": {
+          "linear": "rot_180",
+          "tx": 0,
+          "ty": 0
+        },
+        "label": "correct",
+        "hint": "Check if the transformation from red to green matches the transformation from red to blue, and verify the linear part and translation."
+      },
+      "true_label": "correct",
+      "stored_metric_disagreements": {}
+    },
+    {
+      "id": 24454,
+      "split": "ood",
+      "parse_ok": true,
+      "correct_net_ok": false,
+      "student_net_ok": false,
+      "both_nets_ok": false,
+      "label_ok": false,
+      "derived_label": "wrong_rotation_angle",
+      "derived_label_ok": false,
+      "predicted": {
+        "correct_net": {
+          "linear": "rot_180",
+          "tx": 0,
+          "ty": 0
+        },
+        "student_net": {
+          "linear": "rot_ccw_90",
+          "tx": 0,
+          "ty": 0
+        },
+        "label": "wrong_rotation_angle",
+        "hint": "Check if the rotation angle matches the expected 180-degree rotation for the correct map."
+      },
+      "true_label": "rotation_instead_of_reflection",
+      "stored_metric_disagreements": {}
+    },
+    {
+      "id": 24679,
+      "split": "ood",
+      "parse_ok": true,
+      "correct_net_ok": false,
+      "student_net_ok": false,
+      "both_nets_ok": false,
+      "label_ok": false,
+      "derived_label": "wrong_rotation_angle",
+      "derived_label_ok": false,
+      "predicted": {
+        "correct_net": {
+          "linear": "rot_180",
+          "tx": 0,
+          "ty": 0
+        },
+        "student_net": {
+          "linear": "rot_ccw_270",
+          "tx": 0,
+          "ty": 0
+        },
+        "label": "wrong_rotation_angle",
+        "hint": "Check the orientation of corresponding vertices between red and green, then compare with blue."
+      },
+      "true_label": "completely_wrong",
+      "stored_metric_disagreements": {}
+    },
+    {
+      "id": 25936,
+      "split": "ood",
+      "parse_ok": true,
+      "correct_net_ok": false,
+      "student_net_ok": false,
+      "both_nets_ok": false,
+      "label_ok": false,
+      "derived_label": "correct",
+      "derived_label_ok": false,
+      "predicted": {
+        "correct_net": {
+          "linear": "rot_ccw_90",
+          "tx": 1,
+          "ty": 0
+        },
+        "student_net": {
+          "linear": "rot_ccw_90",
+          "tx": 1,
+          "ty": 0
+        },
+        "label": "wrong_translation",
+        "hint": "Check if the translation vector matches the expected displacement between corresponding vertices."
+      },
+      "true_label": "wrong_reflection_line",
+      "stored_metric_disagreements": {}
+    },
+    {
+      "id": 24378,
+      "split": "ood",
+      "parse_ok": true,
+      "correct_net_ok": false,
+      "student_net_ok": false,
+      "both_nets_ok": false,
+      "label_ok": false,
+      "derived_label": "wrong_rotation_angle",
+      "derived_label_ok": false,
+      "predicted": {
+        "correct_net": {
+          "linear": "rot_180",
+          "tx": 0,
+          "ty": 0
+        },
+        "student_net": {
+          "linear": "rot_ccw_90",
+          "tx": 0,
+          "ty": 0
+        },
+        "label": "wrong_rotation_angle",
+        "hint": "Check the orientation and position of corresponding vertices between red and blue."
+      },
+      "true_label": "wrong_reflection_line",
+      "stored_metric_disagreements": {}
+    },
+    {
+      "id": 24486,
+      "split": "ood",
+      "parse_ok": true,
+      "correct_net_ok": false,
+      "student_net_ok": false,
+      "both_nets_ok": false,
+      "label_ok": false,
+      "derived_label": "wrong_rotation_angle",
+      "derived_label_ok": false,
+      "predicted": {
+        "correct_net": {
+          "linear": "rot_180",
+          "tx": 0,
+          "ty": 0
+        },
+        "student_net": {
+          "linear": "rot_ccw_90",
+          "tx": 0,
+          "ty": 0
+        },
+        "label": "wrong_rotation_angle",
+        "hint": "Check the orientation and position of corresponding vertices between red and blue."
+      },
+      "true_label": "wrong_reflection_line",
+      "stored_metric_disagreements": {}
+    },
+    {
+      "id": 24654,
+      "split": "ood",
+      "parse_ok": true,
+      "correct_net_ok": false,
+      "student_net_ok": false,
+      "both_nets_ok": false,
+      "label_ok": false,
+      "derived_label": "wrong_rotation_angle",
+      "derived_label_ok": false,
+      "predicted": {
+        "correct_net": {
+          "linear": "rot_180",
+          "tx": 0,
+          "ty": 0
+        },
+        "student_net": {
+          "linear": "rot_ccw_90",
+          "tx": 0,
+          "ty": 0
+        },
+        "label": "wrong_rotation_angle",
+        "hint": "Check if the rotation angle matches the expected 180-degree rotation for the correct map."
+      },
+      "true_label": "wrong_reflection_line",
+      "stored_metric_disagreements": {}
+    },
+    {
+      "id": 25213,
+      "split": "ood",
+      "parse_ok": true,
+      "correct_net_ok": false,
+      "student_net_ok": false,
+      "both_nets_ok": false,
+      "label_ok": false,
+      "derived_label": "correct",
+      "derived_label_ok": false,
+      "predicted": {
+        "correct_net": {
+          "linear": "rot_180",
+          "tx": 3,
+          "ty": -3
+        },
+        "student_net": {
+          "linear": "rot_180",
+          "tx": 3,
+          "ty": -3
+        },
+        "label": "correct",
+        "hint": "Check if the transformation from red to green matches the red to blue transformation, and verify the linear part and translation."
+      },
+      "true_label": "rotation_instead_of_reflection",
+      "stored_metric_disagreements": {}
+    }
+  ]
+}

@@ -1,0 +1,332 @@
+{
+  "n": 500,
+  "metrics": {
+    "parse_ok": {
+      "hits": 500,
+      "n": 500,
+      "rate": 1.0,
+      "wilson_95": [
+        0.9923756595384479,
+        1.0
+      ]
+    },
+    "correct_net_ok": {
+      "hits": 231,
+      "n": 500,
+      "rate": 0.462,
+      "wilson_95": [
+        0.41875629515879303,
+        0.505823154716285
+      ]
+    },
+    "student_net_ok": {
+      "hits": 219,
+      "n": 500,
+      "rate": 0.438,
+      "wilson_95": [
+        0.39514834408666566,
+        0.48179707413056694
+      ]
+    },
+    "both_nets_ok": {
+      "hits": 192,
+      "n": 500,
+      "rate": 0.384,
+      "wilson_95": [
+        0.34240767461779237,
+        0.4273611723692879
+      ]
+    },
+    "label_ok": {
+      "hits": 428,
+      "n": 500,
+      "rate": 0.856,
+      "wilson_95": [
+        0.8225095437017246,
+        0.8840619258896502
+      ]
+    },
+    "derived_label_ok": {
+      "hits": 428,
+      "n": 500,
+      "rate": 0.856,
+      "wilson_95": [
+        0.8225095437017246,
+        0.8840619258896502
+      ]
+    }
+  },
+  "evaluator_disagreement_rows": 0,
+  "sample_failures": [
+    {
+      "id": 8275,
+      "split": "test",
+      "parse_ok": true,
+      "correct_net_ok": true,
+      "student_net_ok": false,
+      "both_nets_ok": false,
+      "label_ok": false,
+      "derived_label": "wrong_reflection_line",
+      "derived_label_ok": false,
+      "predicted": {
+        "correct_net": {
+          "linear": "reflect_y_axis",
+          "tx": 0,
+          "ty": 6
+        },
+        "student_net": {
+          "linear": "reflect_y_eq_x",
+          "tx": 0,
+          "ty": 6
+        },
+        "label": "wrong_reflection_line",
+        "hint": "Check the line of reflection: the task used reflect across y axis, but you used reflect across line y = x."
+      },
+      "true_label": "rotation_instead_of_reflection",
+      "stored_metric_disagreements": {}
+    },
+    {
+      "id": 11911,
+      "split": "test",
+      "parse_ok": true,
+      "correct_net_ok": false,
+      "student_net_ok": true,
+      "both_nets_ok": false,
+      "label_ok": true,
+      "derived_label": "completely_wrong",
+      "derived_label_ok": true,
+      "predicted": {
+        "correct_net": {
+          "linear": "rot_ccw_90",
+          "tx": -2,
+          "ty": -3
+        },
+        "student_net": {
+          "linear": "rot_180",
+          "tx": -1,
+          "ty": -2
+        },
+        "label": "completely_wrong",
+        "hint": "Your whole answer is off: the correct net map is a rotation (rotate 90 degrees counterclockwise) with translation (-2, -3), but yours is a rotation (rotate 180 degrees counterclockwise) with translation (-1, -2). Both the transformation and the translation are wrong."
+      },
+      "true_label": "completely_wrong",
+      "stored_metric_disagreements": {}
+    },
+    {
+      "id": 10016,
+      "split": "test",
+      "parse_ok": true,
+      "correct_net_ok": false,
+      "student_net_ok": false,
+      "both_nets_ok": false,
+      "label_ok": true,
+      "derived_label": "wrong_rotation_angle",
+      "derived_label_ok": true,
+      "predicted": {
+        "correct_net": {
+          "linear": "rot_ccw_90",
+          "tx": 0,
+          "ty": 7
+        },
+        "student_net": {
+          "linear": "rot_180",
+          "tx": 0,
+          "ty": 7
+        },
+        "label": "wrong_rotation_angle",
+        "hint": "Check the angle: the task used rotate 90 degrees counterclockwise, but you used rotate 180 degrees counterclockwise."
+      },
+      "true_label": "wrong_rotation_angle",
+      "stored_metric_disagreements": {}
+    },
+    {
+      "id": 20293,
+      "split": "test",
+      "parse_ok": true,
+      "correct_net_ok": false,
+      "student_net_ok": false,
+      "both_nets_ok": false,
+      "label_ok": true,
+      "derived_label": "rotation_instead_of_reflection",
+      "derived_label_ok": true,
+      "predicted": {
+        "correct_net": {
+          "linear": "reflect_y_axis",
+          "tx": 2,
+          "ty": 0
+        },
+        "student_net": {
+          "linear": "rot_ccw_90",
+          "tx": 2,
+          "ty": 0
+        },
+        "label": "rotation_instead_of_reflection",
+        "hint": "You rotated where a reflection was required. The step should have been reflect across y axis, not rotate 90 degrees counterclockwise."
+      },
+      "true_label": "rotation_instead_of_reflection",
+      "stored_metric_disagreements": {}
+    },
+    {
+      "id": 12675,
+      "split": "test",
+      "parse_ok": true,
+      "correct_net_ok": false,
+      "student_net_ok": false,
+      "both_nets_ok": false,
+      "label_ok": true,
+      "derived_label": "correct",
+      "derived_label_ok": true,
+      "predicted": {
+        "correct_net": {
+          "linear": "rot_ccw_270",
+          "tx": 1,
+          "ty": 4
+        },
+        "student_net": {
+          "linear": "rot_ccw_270",
+          "tx": 1,
+          "ty": 4
+        },
+        "label": "correct",
+        "hint": "Correct. Both steps are right: first translate by (1, -4), then rotate 270 degrees counterclockwise. You applied each move in the right order."
+      },
+      "true_label": "correct",
+      "stored_metric_disagreements": {}
+    },
+    {
+      "id": 21111,
+      "split": "test",
+      "parse_ok": true,
+      "correct_net_ok": true,
+      "student_net_ok": false,
+      "both_nets_ok": false,
+      "label_ok": true,
+      "derived_label": "completely_wrong",
+      "derived_label_ok": true,
+      "predicted": {
+        "correct_net": {
+          "linear": "rot_ccw_270",
+          "tx": 5,
+          "ty": 0
+        },
+        "student_net": {
+          "linear": "rot_ccw_90",
+          "tx": -1,
+          "ty": -3
+        },
+        "label": "completely_wrong",
+        "hint": "Your whole answer is off: the correct net map is a rotation (rotate 270 degrees counterclockwise) with translation (5, 0), but yours is a rotation (rotate 90 degrees counterclockwise) with translation (-1, -3). Both the transformation and the translation are wrong."
+      },
+      "true_label": "completely_wrong",
+      "stored_metric_disagreements": {}
+    },
+    {
+      "id": 22870,
+      "split": "test",
+      "parse_ok": true,
+      "correct_net_ok": false,
+      "student_net_ok": false,
+      "both_nets_ok": false,
+      "label_ok": true,
+      "derived_label": "wrong_rotation_angle",
+      "derived_label_ok": true,
+      "predicted": {
+        "correct_net": {
+          "linear": "rot_180",
+          "tx": 0,
+          "ty": 5
+        },
+        "student_net": {
+          "linear": "rot_ccw_90",
+          "tx": 0,
+          "ty": 5
+        },
+        "label": "wrong_rotation_angle",
+        "hint": "Check the angle: the task used rotate 180 degrees counterclockwise, but you used rotate 90 degrees counterclockwise."
+      },
+      "true_label": "wrong_rotation_angle",
+      "stored_metric_disagreements": {}
+    },
+    {
+      "id": 21188,
+      "split": "test",
+      "parse_ok": true,
+      "correct_net_ok": false,
+      "student_net_ok": true,
+      "both_nets_ok": false,
+      "label_ok": false,
+      "derived_label": "wrong_reflection_line",
+      "derived_label_ok": false,
+      "predicted": {
+        "correct_net": {
+          "linear": "reflect_y_axis",
+          "tx": -2,
+          "ty": 0
+        },
+        "student_net": {
+          "linear": "reflect_y_eq_neg_x",
+          "tx": -2,
+          "ty": 0
+        },
+        "label": "wrong_reflection_line",
+        "hint": "Check the line of reflection: the task used reflect across y axis, but you used reflect across line y = -x."
+      },
+      "true_label": "reflection_instead_of_rotation",
+      "stored_metric_disagreements": {}
+    },
+    {
+      "id": 6775,
+      "split": "test",
+      "parse_ok": true,
+      "correct_net_ok": false,
+      "student_net_ok": false,
+      "both_nets_ok": false,
+      "label_ok": true,
+      "derived_label": "opposite_translation",
+      "derived_label_ok": true,
+      "predicted": {
+        "correct_net": {
+          "linear": "reflect_y_eq_x",
+          "tx": 3,
+          "ty": 0
+        },
+        "student_net": {
+          "linear": "reflect_y_eq_x",
+          "tx": -3,
+          "ty": 0
+        },
+        "label": "opposite_translation",
+        "hint": "You translated in the opposite direction: it should be translate 3 right, not translate 3 left."
+      },
+      "true_label": "opposite_translation",
+      "stored_metric_disagreements": {}
+    },
+    {
+      "id": 129,
+      "split": "test",
+      "parse_ok": true,
+      "correct_net_ok": false,
+      "student_net_ok": false,
+      "both_nets_ok": false,
+      "label_ok": true,
+      "derived_label": "rotation_instead_of_reflection",
+      "derived_label_ok": true,
+      "predicted": {
+        "correct_net": {
+          "linear": "reflect_y_eq_x",
+          "tx": 5,
+          "ty": 0
+        },
+        "student_net": {
+          "linear": "rot_180",
+          "tx": 5,
+          "ty": 0
+        },
+        "label": "rotation_instead_of_reflection",
+        "hint": "You rotated where a reflection was required. The step should have been reflect across line y = x, not rotate 180 degrees counterclockwise."
+      },
+      "true_label": "rotation_instead_of_reflection",
+      "stored_metric_disagreements": {}
+    }
+  ]
+}

@@ -1,0 +1,192 @@
+{
+  "schema_version": "v6.llm-judge.1",
+  "status": "PASS",
+  "provider": "tfy",
+  "model": "gpt-5.6-sol",
+  "sample_seed": 20260709,
+  "requested_pairs": 100,
+  "aggregate": {
+    "completed_pairs": 100,
+    "overall_preference": {
+      "tuned": {
+        "count": 100,
+        "n": 100,
+        "rate": 1.0,
+        "wilson_95": [
+          0.9630065017930143,
+          1.0
+        ]
+      },
+      "base": {
+        "count": 0,
+        "n": 100,
+        "rate": 0.0,
+        "wilson_95": [
+          3.469446951953614e-18,
+          0.03699349820698568
+        ]
+      },
+      "tie": {
+        "count": 0,
+        "n": 100,
+        "rate": 0.0,
+        "wilson_95": [
+          3.469446951953614e-18,
+          0.03699349820698568
+        ]
+      }
+    },
+    "tutoring_preference": {
+      "tuned": {
+        "count": 25,
+        "n": 100,
+        "rate": 0.25,
+        "wilson_95": [
+          0.17545211362287672,
+          0.34304463548061603
+        ]
+      },
+      "base": {
+        "count": 75,
+        "n": 100,
+        "rate": 0.75,
+        "wilson_95": [
+          0.656955364519384,
+          0.8245478863771232
+        ]
+      },
+      "tie": {
+        "count": 0,
+        "n": 100,
+        "rate": 0.0,
+        "wilson_95": [
+          3.469446951953614e-18,
+          0.03699349820698568
+        ]
+      }
+    },
+    "rubric_by_model_identity": {
+      "base": {
+        "pedagogical_usefulness_score": {
+          "mean": 1.8,
+          "n": 100,
+          "normal_95": [
+            1.6754165109648222,
+            1.9245834890351778
+          ]
+        },
+        "operation_family_relevance_score": {
+          "mean": 1.91,
+          "n": 100,
+          "normal_95": [
+            1.7070110934589322,
+            2.1129889065410676
+          ]
+        },
+        "clarity_actionability_score": {
+          "mean": 2.7,
+          "n": 100,
+          "normal_95": [
+            2.5769836612613033,
+            2.823016338738697
+          ]
+        },
+        "operation_family_relevant": {
+          "count": 50,
+          "n": 100,
+          "rate": 0.5,
+          "wilson_95": [
+            0.4038315303659956,
+            0.5961684696340044
+          ]
+        },
+        "forbidden_answer_or_coordinate_leak": {
+          "count": 1,
+          "n": 100,
+          "rate": 0.01,
+          "wilson_95": [
+            0.0017674320641406505,
+            0.054486196178705315
+          ]
+        }
+      },
+      "tuned": {
+        "pedagogical_usefulness_score": {
+          "mean": 2.89,
+          "n": 100,
+          "normal_95": [
+            2.7482400833377225,
+            3.0317599166622777
+          ]
+        },
+        "operation_family_relevance_score": {
+          "mean": 4.98,
+          "n": 100,
+          "normal_95": [
+            4.952422269105877,
+            5.0
+          ]
+        },
+        "clarity_actionability_score": {
+          "mean": 4.12,
+          "n": 100,
+          "normal_95": [
+            3.9476419959888687,
+            4.292358004011132
+          ]
+        },
+        "operation_family_relevant": {
+          "count": 100,
+          "n": 100,
+          "rate": 1.0,
+          "wilson_95": [
+            0.9630065017930143,
+            1.0
+          ]
+        },
+        "forbidden_answer_or_coordinate_leak": {
+          "count": 100,
+          "n": 100,
+          "rate": 1.0,
+          "wilson_95": [
+            0.9630065017930143,
+            1.0
+          ]
+        }
+      }
+    },
+    "blinded_side_balance": {
+      "base_as_A": 50,
+      "base_as_B": 50,
+      "tuned_as_A": 50,
+      "tuned_as_B": 50
+    },
+    "request_statistics": {
+      "successful_rows": 100,
+      "total_attempts": 122,
+      "retried_cases": 20,
+      "strict_parse_failures_before_success": 15,
+      "request_errors_before_success": 7
+    }
+  },
+  "offline_validation": {
+    "validated_payloads": 2,
+    "payload_case_ids": [
+      129,
+      552
+    ],
+    "identity_hidden_from_judge_payload": true,
+    "strict_output_schema_validated": true,
+    "request_size_cap_bytes": 40000,
+    "passed": true
+  },
+  "smoke_passed": true,
+  "subjectivity_note": "LLM judgments are subjective and never replace deterministic map scoring.",
+  "persisted_attempts_cumulative": {
+    "raw_rows": 106,
+    "judge_case_attempts": 140,
+    "successful_rows": 100,
+    "failed_rows": 6
+  },
+  "retry_failed_required": false
+}

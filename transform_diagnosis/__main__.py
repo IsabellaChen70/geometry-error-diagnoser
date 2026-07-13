@@ -15,7 +15,7 @@ import argparse
 import json
 import os
 
-from . import dataset, transform_core as tc
+from . import dataset, errors, transform_core as tc
 
 
 def _parse_split(text: str):
@@ -42,6 +42,9 @@ def build_arg_parser() -> argparse.ArgumentParser:
                     help="train,val,test fractions (default: 0.8,0.1,0.1)")
     ap.add_argument("--min-count", type=int, default=30, dest="min_count",
                     help="minimum records per diagnosis label (default: 30)")
+    ap.add_argument("--ood-per-label", type=int, default=120, dest="ood_per_label",
+                    help="held-out (OOD) records per OOD-eligible label (default: 120); "
+                         "0 disables the OOD slice")
     ap.add_argument("--no-render", action="store_true", help="skip PNG rendering")
     return ap
 
@@ -58,6 +61,7 @@ def main(argv=None) -> int:
         split_fracs=args.split,
         render_subdir=render_subdir,
         do_render=not args.no_render,
+        ood_per_label=args.ood_per_label,
     )
 
     records = result["records"]
@@ -65,9 +69,17 @@ def main(argv=None) -> int:
         "seed": args.seed,
         "requested_n": args.n,
         "min_count": args.min_count,
+        "ood_per_label": args.ood_per_label,
         "total_records": len(records),
+        "id_records": result["id_count"],
+        "ood_records": result["ood_count"],
         "split_fractions": list(args.split),
+        "held_out_patterns": [list(p) for p in errors.HELD_OUT_PATTERNS],
+        "in_distribution_patterns": [list(p) for p in errors.IN_DISTRIBUTION_PATTERNS],
+        "ood_eligible_labels": list(errors.OOD_ELIGIBLE_LABELS),
         "label_counts": result["label_counts"],
+        "id_label_counts": result["id_label_counts"],
+        "ood_label_counts": result["ood_label_counts"],
         "split_counts": result["split_counts"],
         "targets": result["targets"],
         "images_rendered_now": result["rendered"],
@@ -79,10 +91,13 @@ def main(argv=None) -> int:
         json.dump(summary, f, indent=2, sort_keys=True)
 
     print(f"[transform_diagnosis] wrote {len(records)} records to {os.path.abspath(args.out)}")
-    print(f"  data.jsonl + train/val/test.jsonl; splits: {result['split_counts']}")
-    print("  label counts:")
+    print(f"  data.jsonl + train/val/test.jsonl + ood.jsonl; splits: {result['split_counts']}")
+    print(f"  in-distribution ({result['id_count']}) label counts:")
     for label in tc.DIAGNOSIS_LABELS:
-        print(f"    {label:34} {result['label_counts'][label]}")
+        print(f"    {label:34} {result['id_label_counts'][label]}")
+    print(f"  OOD held-out slice ({result['ood_count']}) label counts:")
+    for label in errors.OOD_ELIGIBLE_LABELS:
+        print(f"    {label:34} {result['ood_label_counts'][label]}")
     if args.no_render:
         print("  rendering skipped (--no-render)")
     else:

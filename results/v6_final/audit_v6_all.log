@@ -1,0 +1,168 @@
+
+records_v6_4b_base_image_coords_ood  n=500  evaluator_disagreements=0
+  parse_ok               1.000  95% CI [0.992, 1.000]
+  correct_net_ok         0.000  95% CI [0.000, 0.008]
+  student_net_ok         0.038  95% CI [0.024, 0.059]
+  both_nets_ok           0.000  95% CI [0.000, 0.008]
+  label_ok               0.222  95% CI [0.188, 0.260]
+  derived_label_ok       0.288  95% CI [0.250, 0.329]
+  wrote audit_records_v6_4b_base_image_coords_ood.json
+
+records_v6_4b_base_image_coords_test  n=500  evaluator_disagreements=0
+  parse_ok               1.000  95% CI [0.992, 1.000]
+  correct_net_ok         0.000  95% CI [0.000, 0.008]
+  student_net_ok         0.004  95% CI [0.001, 0.014]
+  both_nets_ok           0.000  95% CI [0.000, 0.008]
+  label_ok               0.298  95% CI [0.260, 0.340]
+  derived_label_ok       0.296  95% CI [0.258, 0.337]
+  wrote audit_records_v6_4b_base_image_coords_test.json
+
+records_v6_4b_base_image_ood  n=500  evaluator_disagreements=0
+  parse_ok               1.000  95% CI [0.992, 1.000]
+  correct_net_ok         0.000  95% CI [0.000, 0.008]
+  student_net_ok         0.074  95% CI [0.054, 0.100]
+  both_nets_ok           0.000  95% CI [0.000, 0.008]
+  label_ok               0.100  95% CI [0.077, 0.129]
+  derived_label_ok       0.026  95% CI [0.015, 0.044]
+  wrote audit_records_v6_4b_base_image_ood.json
+
+records_v6_4b_base_image_test  n=500  evaluator_disagreements=0
+  parse_ok               1.000  95% CI [0.992, 1.000]
+  correct_net_ok         0.000  95% CI [0.000, 0.008]
+  student_net_ok         0.000  95% CI [0.000, 0.008]
+  both_nets_ok           0.000  95% CI [0.000, 0.008]
+  label_ok               0.118  95% CI [0.093, 0.149]
+  derived_label_ok       0.116  95% CI [0.091, 0.147]
+  wrote audit_records_v6_4b_base_image_test.json
+
+records_v6_4b_image_coords_ood  n=500  evaluator_disagreements=0
+  parse_ok               1.000  95% CI [0.992, 1.000]
+  correct_net_ok         1.000  95% CI [0.992, 1.000]
+  student_net_ok         0.994  95% CI [0.983, 0.998]
+  both_nets_ok           0.994  95% CI [0.983, 0.998]
+  label_ok               0.998  95% CI [0.989, 1.000]
+  derived_label_ok       1.000  95% CI [0.992, 1.000]
+  wrote audit_records_v6_4b_image_coords_ood.json
+
+records_v6_4b_image_coords_test  n=500  evaluator_disagreements=0
+  parse_ok               1.000  95% CI [0.992, 1.000]
+  correct_net_ok         0.986  95% CI [0.971, 0.993]
+  student_net_ok         0.996  95% CI [0.986, 0.999]
+  both_nets_ok           0.986  95% CI [0.971, 0.993]
+  label_ok               0.996  95% CI [0.986, 0.999]
+  derived_label_ok       0.996  95% CI [0.986, 0.999]
+  wrote audit_records_v6_4b_image_coords_test.json
+
+records_v6_4b_image_ood  n=500  evaluator_disagreements=0
+  parse_ok               1.000  95% CI [0.992, 1.000]
+  correct_net_ok         0.824  95% CI [0.788, 0.855]
+  student_net_ok         0.694  95% CI [0.652, 0.733]
+  both_nets_ok           0.676  95% CI [0.634, 0.716]
+  label_ok               0.852  95% CI [0.818, 0.880]
+  derived_label_ok       0.852  95% CI [0.818, 0.880]
+  wrote audit_records_v6_4b_image_ood.json
+
+records_v6_4b_image_test  n=500  evaluator_disagreements=0
+  parse_ok               1.000  95% CI [0.992, 1.000]
+  correct_net_ok         0.462  95% CI [0.419, 0.506]
+  student_net_ok         0.438  95% CI [0.395, 0.482]
+  both_nets_ok           0.384  95% CI [0.342, 0.427]
+  label_ok               0.856  95% CI [0.823, 0.884]
+  derived_label_ok       0.856  95% CI [0.823, 0.884]
+  wrote audit_records_v6_4b_image_test.json
+
+leakage audit: {
+  "available": true,
+  "train_records": 9600,
+  "evaluated_records": 1000,
+  "exact_geometry_overlap_count": 0,
+  "overlap_ids": [],
+  "train_rows_sourced_from_test_or_ood": 0,
+  "bad_source_ids": []
+}
+
+paired: records_v6_4b_base_image_coords_ood vs records_v6_4b_base_image_ood (n=500)
+  correct_net_ok         {'both_correct': 0, 'records_v6_4b_base_image_coords_ood_only': 0, 'records_v6_4b_base_image_ood_only': 0, 'neither': 500, 'rate_difference_left_minus_right': 0.0}
+  student_net_ok         {'both_correct': 14, 'records_v6_4b_base_image_coords_ood_only': 5, 'records_v6_4b_base_image_ood_only': 23, 'neither': 458, 'rate_difference_left_minus_right': -0.036}
+  both_nets_ok           {'both_correct': 0, 'records_v6_4b_base_image_coords_ood_only': 0, 'records_v6_4b_base_image_ood_only': 0, 'neither': 500, 'rate_difference_left_minus_right': 0.0}
+  label_ok               {'both_correct': 11, 'records_v6_4b_base_image_coords_ood_only': 100, 'records_v6_4b_base_image_ood_only': 39, 'neither': 350, 'rate_difference_left_minus_right': 0.122}
+  derived_label_ok       {'both_correct': 13, 'records_v6_4b_base_image_coords_ood_only': 131, 'records_v6_4b_base_image_ood_only': 0, 'neither': 356, 'rate_difference_left_minus_right': 0.262}
+
+paired: records_v6_4b_base_image_coords_ood vs records_v6_4b_image_coords_ood (n=500)
+  correct_net_ok         {'both_correct': 0, 'records_v6_4b_base_image_coords_ood_only': 0, 'records_v6_4b_image_coords_ood_only': 500, 'neither': 0, 'rate_difference_left_minus_right': -1.0}
+  student_net_ok         {'both_correct': 19, 'records_v6_4b_base_image_coords_ood_only': 0, 'records_v6_4b_image_coords_ood_only': 478, 'neither': 3, 'rate_difference_left_minus_right': -0.956}
+  both_nets_ok           {'both_correct': 0, 'records_v6_4b_base_image_coords_ood_only': 0, 'records_v6_4b_image_coords_ood_only': 497, 'neither': 3, 'rate_difference_left_minus_right': -0.994}
+  label_ok               {'both_correct': 111, 'records_v6_4b_base_image_coords_ood_only': 0, 'records_v6_4b_image_coords_ood_only': 388, 'neither': 1, 'rate_difference_left_minus_right': -0.776}
+  derived_label_ok       {'both_correct': 144, 'records_v6_4b_base_image_coords_ood_only': 0, 'records_v6_4b_image_coords_ood_only': 356, 'neither': 0, 'rate_difference_left_minus_right': -0.712}
+
+paired: records_v6_4b_base_image_coords_ood vs records_v6_4b_image_ood (n=500)
+  correct_net_ok         {'both_correct': 0, 'records_v6_4b_base_image_coords_ood_only': 0, 'records_v6_4b_image_ood_only': 412, 'neither': 88, 'rate_difference_left_minus_right': -0.824}
+  student_net_ok         {'both_correct': 15, 'records_v6_4b_base_image_coords_ood_only': 4, 'records_v6_4b_image_ood_only': 332, 'neither': 149, 'rate_difference_left_minus_right': -0.656}
+  both_nets_ok           {'both_correct': 0, 'records_v6_4b_base_image_coords_ood_only': 0, 'records_v6_4b_image_ood_only': 338, 'neither': 162, 'rate_difference_left_minus_right': -0.676}
+  label_ok               {'both_correct': 111, 'records_v6_4b_base_image_coords_ood_only': 0, 'records_v6_4b_image_ood_only': 315, 'neither': 74, 'rate_difference_left_minus_right': -0.63}
+  derived_label_ok       {'both_correct': 134, 'records_v6_4b_base_image_coords_ood_only': 10, 'records_v6_4b_image_ood_only': 292, 'neither': 64, 'rate_difference_left_minus_right': -0.564}
+
+paired: records_v6_4b_base_image_coords_test vs records_v6_4b_base_image_test (n=500)
+  correct_net_ok         {'both_correct': 0, 'records_v6_4b_base_image_coords_test_only': 0, 'records_v6_4b_base_image_test_only': 0, 'neither': 500, 'rate_difference_left_minus_right': 0.0}
+  student_net_ok         {'both_correct': 0, 'records_v6_4b_base_image_coords_test_only': 2, 'records_v6_4b_base_image_test_only': 0, 'neither': 498, 'rate_difference_left_minus_right': 0.004}
+  both_nets_ok           {'both_correct': 0, 'records_v6_4b_base_image_coords_test_only': 0, 'records_v6_4b_base_image_test_only': 0, 'neither': 500, 'rate_difference_left_minus_right': 0.0}
+  label_ok               {'both_correct': 50, 'records_v6_4b_base_image_coords_test_only': 99, 'records_v6_4b_base_image_test_only': 9, 'neither': 342, 'rate_difference_left_minus_right': 0.18}
+  derived_label_ok       {'both_correct': 48, 'records_v6_4b_base_image_coords_test_only': 100, 'records_v6_4b_base_image_test_only': 10, 'neither': 342, 'rate_difference_left_minus_right': 0.18}
+
+paired: records_v6_4b_base_image_coords_test vs records_v6_4b_image_coords_test (n=500)
+  correct_net_ok         {'both_correct': 0, 'records_v6_4b_base_image_coords_test_only': 0, 'records_v6_4b_image_coords_test_only': 493, 'neither': 7, 'rate_difference_left_minus_right': -0.986}
+  student_net_ok         {'both_correct': 2, 'records_v6_4b_base_image_coords_test_only': 0, 'records_v6_4b_image_coords_test_only': 496, 'neither': 2, 'rate_difference_left_minus_right': -0.992}
+  both_nets_ok           {'both_correct': 0, 'records_v6_4b_base_image_coords_test_only': 0, 'records_v6_4b_image_coords_test_only': 493, 'neither': 7, 'rate_difference_left_minus_right': -0.986}
+  label_ok               {'both_correct': 149, 'records_v6_4b_base_image_coords_test_only': 0, 'records_v6_4b_image_coords_test_only': 349, 'neither': 2, 'rate_difference_left_minus_right': -0.698}
+  derived_label_ok       {'both_correct': 148, 'records_v6_4b_base_image_coords_test_only': 0, 'records_v6_4b_image_coords_test_only': 350, 'neither': 2, 'rate_difference_left_minus_right': -0.7}
+
+paired: records_v6_4b_base_image_coords_test vs records_v6_4b_image_test (n=500)
+  correct_net_ok         {'both_correct': 0, 'records_v6_4b_base_image_coords_test_only': 0, 'records_v6_4b_image_test_only': 231, 'neither': 269, 'rate_difference_left_minus_right': -0.462}
+  student_net_ok         {'both_correct': 2, 'records_v6_4b_base_image_coords_test_only': 0, 'records_v6_4b_image_test_only': 217, 'neither': 281, 'rate_difference_left_minus_right': -0.434}
+  both_nets_ok           {'both_correct': 0, 'records_v6_4b_base_image_coords_test_only': 0, 'records_v6_4b_image_test_only': 192, 'neither': 308, 'rate_difference_left_minus_right': -0.384}
+  label_ok               {'both_correct': 146, 'records_v6_4b_base_image_coords_test_only': 3, 'records_v6_4b_image_test_only': 282, 'neither': 69, 'rate_difference_left_minus_right': -0.558}
+  derived_label_ok       {'both_correct': 141, 'records_v6_4b_base_image_coords_test_only': 7, 'records_v6_4b_image_test_only': 287, 'neither': 65, 'rate_difference_left_minus_right': -0.56}
+
+paired: records_v6_4b_base_image_ood vs records_v6_4b_image_coords_ood (n=500)
+  correct_net_ok         {'both_correct': 0, 'records_v6_4b_base_image_ood_only': 0, 'records_v6_4b_image_coords_ood_only': 500, 'neither': 0, 'rate_difference_left_minus_right': -1.0}
+  student_net_ok         {'both_correct': 37, 'records_v6_4b_base_image_ood_only': 0, 'records_v6_4b_image_coords_ood_only': 460, 'neither': 3, 'rate_difference_left_minus_right': -0.92}
+  both_nets_ok           {'both_correct': 0, 'records_v6_4b_base_image_ood_only': 0, 'records_v6_4b_image_coords_ood_only': 497, 'neither': 3, 'rate_difference_left_minus_right': -0.994}
+  label_ok               {'both_correct': 50, 'records_v6_4b_base_image_ood_only': 0, 'records_v6_4b_image_coords_ood_only': 449, 'neither': 1, 'rate_difference_left_minus_right': -0.898}
+  derived_label_ok       {'both_correct': 13, 'records_v6_4b_base_image_ood_only': 0, 'records_v6_4b_image_coords_ood_only': 487, 'neither': 0, 'rate_difference_left_minus_right': -0.974}
+
+paired: records_v6_4b_base_image_ood vs records_v6_4b_image_ood (n=500)
+  correct_net_ok         {'both_correct': 0, 'records_v6_4b_base_image_ood_only': 0, 'records_v6_4b_image_ood_only': 412, 'neither': 88, 'rate_difference_left_minus_right': -0.824}
+  student_net_ok         {'both_correct': 29, 'records_v6_4b_base_image_ood_only': 8, 'records_v6_4b_image_ood_only': 318, 'neither': 145, 'rate_difference_left_minus_right': -0.62}
+  both_nets_ok           {'both_correct': 0, 'records_v6_4b_base_image_ood_only': 0, 'records_v6_4b_image_ood_only': 338, 'neither': 162, 'rate_difference_left_minus_right': -0.676}
+  label_ok               {'both_correct': 41, 'records_v6_4b_base_image_ood_only': 9, 'records_v6_4b_image_ood_only': 385, 'neither': 65, 'rate_difference_left_minus_right': -0.752}
+  derived_label_ok       {'both_correct': 13, 'records_v6_4b_base_image_ood_only': 0, 'records_v6_4b_image_ood_only': 413, 'neither': 74, 'rate_difference_left_minus_right': -0.826}
+
+paired: records_v6_4b_base_image_test vs records_v6_4b_image_coords_test (n=500)
+  correct_net_ok         {'both_correct': 0, 'records_v6_4b_base_image_test_only': 0, 'records_v6_4b_image_coords_test_only': 493, 'neither': 7, 'rate_difference_left_minus_right': -0.986}
+  student_net_ok         {'both_correct': 0, 'records_v6_4b_base_image_test_only': 0, 'records_v6_4b_image_coords_test_only': 498, 'neither': 2, 'rate_difference_left_minus_right': -0.996}
+  both_nets_ok           {'both_correct': 0, 'records_v6_4b_base_image_test_only': 0, 'records_v6_4b_image_coords_test_only': 493, 'neither': 7, 'rate_difference_left_minus_right': -0.986}
+  label_ok               {'both_correct': 59, 'records_v6_4b_base_image_test_only': 0, 'records_v6_4b_image_coords_test_only': 439, 'neither': 2, 'rate_difference_left_minus_right': -0.878}
+  derived_label_ok       {'both_correct': 58, 'records_v6_4b_base_image_test_only': 0, 'records_v6_4b_image_coords_test_only': 440, 'neither': 2, 'rate_difference_left_minus_right': -0.88}
+
+paired: records_v6_4b_base_image_test vs records_v6_4b_image_test (n=500)
+  correct_net_ok         {'both_correct': 0, 'records_v6_4b_base_image_test_only': 0, 'records_v6_4b_image_test_only': 231, 'neither': 269, 'rate_difference_left_minus_right': -0.462}
+  student_net_ok         {'both_correct': 0, 'records_v6_4b_base_image_test_only': 0, 'records_v6_4b_image_test_only': 219, 'neither': 281, 'rate_difference_left_minus_right': -0.438}
+  both_nets_ok           {'both_correct': 0, 'records_v6_4b_base_image_test_only': 0, 'records_v6_4b_image_test_only': 192, 'neither': 308, 'rate_difference_left_minus_right': -0.384}
+  label_ok               {'both_correct': 56, 'records_v6_4b_base_image_test_only': 3, 'records_v6_4b_image_test_only': 372, 'neither': 69, 'rate_difference_left_minus_right': -0.738}
+  derived_label_ok       {'both_correct': 56, 'records_v6_4b_base_image_test_only': 2, 'records_v6_4b_image_test_only': 372, 'neither': 70, 'rate_difference_left_minus_right': -0.74}
+
+paired: records_v6_4b_image_coords_ood vs records_v6_4b_image_ood (n=500)
+  correct_net_ok         {'both_correct': 412, 'records_v6_4b_image_coords_ood_only': 88, 'records_v6_4b_image_ood_only': 0, 'neither': 0, 'rate_difference_left_minus_right': 0.176}
+  student_net_ok         {'both_correct': 347, 'records_v6_4b_image_coords_ood_only': 150, 'records_v6_4b_image_ood_only': 0, 'neither': 3, 'rate_difference_left_minus_right': 0.3}
+  both_nets_ok           {'both_correct': 338, 'records_v6_4b_image_coords_ood_only': 159, 'records_v6_4b_image_ood_only': 0, 'neither': 3, 'rate_difference_left_minus_right': 0.318}
+  label_ok               {'both_correct': 426, 'records_v6_4b_image_coords_ood_only': 73, 'records_v6_4b_image_ood_only': 0, 'neither': 1, 'rate_difference_left_minus_right': 0.146}
+  derived_label_ok       {'both_correct': 426, 'records_v6_4b_image_coords_ood_only': 74, 'records_v6_4b_image_ood_only': 0, 'neither': 0, 'rate_difference_left_minus_right': 0.148}
+
+paired: records_v6_4b_image_coords_test vs records_v6_4b_image_test (n=500)
+  correct_net_ok         {'both_correct': 230, 'records_v6_4b_image_coords_test_only': 263, 'records_v6_4b_image_test_only': 1, 'neither': 6, 'rate_difference_left_minus_right': 0.524}
+  student_net_ok         {'both_correct': 219, 'records_v6_4b_image_coords_test_only': 279, 'records_v6_4b_image_test_only': 0, 'neither': 2, 'rate_difference_left_minus_right': 0.558}
+  both_nets_ok           {'both_correct': 192, 'records_v6_4b_image_coords_test_only': 301, 'records_v6_4b_image_test_only': 0, 'neither': 7, 'rate_difference_left_minus_right': 0.602}
+  label_ok               {'both_correct': 427, 'records_v6_4b_image_coords_test_only': 71, 'records_v6_4b_image_test_only': 1, 'neither': 1, 'rate_difference_left_minus_right': 0.14}
+  derived_label_ok       {'both_correct': 427, 'records_v6_4b_image_coords_test_only': 71, 'records_v6_4b_image_test_only': 1, 'neither': 1, 'rate_difference_left_minus_right': 0.14}
+
+wrote audit_v6_paired_summary.json

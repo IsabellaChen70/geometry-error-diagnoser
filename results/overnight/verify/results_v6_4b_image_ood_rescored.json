@@ -1,0 +1,76 @@
+{
+  "n": 500,
+  "parse_rate": 1.0,
+  "label_accuracy": 0.852,
+  "label_coverage": 1.0,
+  "label_available": 500,
+  "balanced_accuracy": 0.8564328137826923,
+  "transform_match_rate": 0.824,
+  "transform_coverage": 1.0,
+  "transform_available": 500,
+  "correct_net_match_rate": 0.824,
+  "correct_net_coverage": 1.0,
+  "correct_net_available": 500,
+  "student_net_match_rate": 0.694,
+  "student_net_coverage": 1.0,
+  "student_net_available": 500,
+  "both_nets_match_rate": 0.676,
+  "both_nets_coverage": 1.0,
+  "both_nets_available": 500,
+  "step_sequence_exact_rate": null,
+  "step_sequence_exact_match_rate": null,
+  "step_sequence_exact_coverage": 0.0,
+  "step_sequence_exact_available": 0,
+  "derived_label_accuracy": 0.852,
+  "derived_label_coverage": 1.0,
+  "derived_label_available": 500,
+  "hint_match_rate": 0.852,
+  "hint_coverage": 1.0,
+  "hint_available": 500,
+  "hint_exact_match_rate": 0.068,
+  "hint_exact_coverage": 1.0,
+  "hint_exact_available": 500,
+  "per_label_recall": {
+    "correct": 1.0,
+    "reflection_instead_of_rotation": null,
+    "rotation_instead_of_reflection": 0.8208955223880597,
+    "wrong_rotation_angle": null,
+    "wrong_reflection_line": 0.9302325581395349,
+    "wrong_translation": null,
+    "opposite_translation": null,
+    "completely_wrong": 0.6746031746031746
+  },
+  "confusion": {
+    "correct": {
+      "correct": 111
+    },
+    "reflection_instead_of_rotation": {},
+    "rotation_instead_of_reflection": {
+      "rotation_instead_of_reflection": 110,
+      "reflection_instead_of_rotation": 9,
+      "opposite_translation": 2,
+      "wrong_reflection_line": 8,
+      "wrong_rotation_angle": 1,
+      "completely_wrong": 2,
+      "correct": 2
+    },
+    "wrong_rotation_angle": {},
+    "wrong_reflection_line": {
+      "wrong_reflection_line": 120,
+      "wrong_rotation_angle": 1,
+      "reflection_instead_of_rotation": 2,
+      "rotation_instead_of_reflection": 5,
+      "completely_wrong": 1
+    },
+    "wrong_translation": {},
+    "opposite_translation": {},
+    "completely_wrong": {
+      "wrong_translation": 11,
+      "completely_wrong": 85,
+      "rotation_instead_of_reflection": 15,
+      "reflection_instead_of_rotation": 1,
+      "wrong_reflection_line": 13,
+      "wrong_rotation_angle": 1
+    }
+  }
+}

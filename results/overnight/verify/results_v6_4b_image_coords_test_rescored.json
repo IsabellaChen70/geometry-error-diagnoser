@@ -1,0 +1,71 @@
+{
+  "n": 500,
+  "parse_rate": 1.0,
+  "label_accuracy": 0.996,
+  "label_coverage": 1.0,
+  "label_available": 500,
+  "balanced_accuracy": 0.9956883734760631,
+  "transform_match_rate": 0.986,
+  "transform_coverage": 1.0,
+  "transform_available": 500,
+  "correct_net_match_rate": 0.986,
+  "correct_net_coverage": 1.0,
+  "correct_net_available": 500,
+  "student_net_match_rate": 0.996,
+  "student_net_coverage": 1.0,
+  "student_net_available": 500,
+  "both_nets_match_rate": 0.986,
+  "both_nets_coverage": 1.0,
+  "both_nets_available": 500,
+  "step_sequence_exact_rate": null,
+  "step_sequence_exact_match_rate": null,
+  "step_sequence_exact_coverage": 0.0,
+  "step_sequence_exact_available": 0,
+  "derived_label_accuracy": 0.996,
+  "derived_label_coverage": 1.0,
+  "derived_label_available": 500,
+  "hint_match_rate": 0.902,
+  "hint_coverage": 1.0,
+  "hint_available": 500,
+  "hint_exact_match_rate": 0.818,
+  "hint_exact_coverage": 1.0,
+  "hint_exact_available": 500,
+  "per_label_recall": {
+    "correct": 1.0,
+    "reflection_instead_of_rotation": 0.9830508474576272,
+    "rotation_instead_of_reflection": 1.0,
+    "wrong_rotation_angle": 1.0,
+    "wrong_reflection_line": 0.9824561403508771,
+    "wrong_translation": 1.0,
+    "opposite_translation": 1.0,
+    "completely_wrong": 1.0
+  },
+  "confusion": {
+    "correct": {
+      "correct": 66
+    },
+    "reflection_instead_of_rotation": {
+      "reflection_instead_of_rotation": 58,
+      "completely_wrong": 1
+    },
+    "rotation_instead_of_reflection": {
+      "rotation_instead_of_reflection": 65
+    },
+    "wrong_rotation_angle": {
+      "wrong_rotation_angle": 76
+    },
+    "wrong_reflection_line": {
+      "completely_wrong": 1,
+      "wrong_reflection_line": 56
+    },
+    "wrong_translation": {
+      "wrong_translation": 66
+    },
+    "opposite_translation": {
+      "opposite_translation": 47
+    },
+    "completely_wrong": {
+      "completely_wrong": 64
+    }
+  }
+}

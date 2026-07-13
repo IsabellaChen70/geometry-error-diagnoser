@@ -78,11 +78,29 @@ def _make_step(kind: str, rng) -> Tuple[tc.Transform, str]:
     raise ValueError(kind)
 
 
+def _validate_original(pts: Sequence[Point]) -> List[Point]:
+    """Coerce + validate a forced pre-image: integer lattice, in-bounds, simple, asymmetric.
+
+    A forced ``original`` (used by the contrastive-group generator to share ONE RED
+    pre-image across matched records) must satisfy the same invariants an internally
+    generated pre-image does, so the correct net map stays uniquely recoverable.
+    """
+    base = tc.as_points(pts)
+    if not geometry.in_bounds(base, -BOUND, BOUND):
+        raise ValueError("forced original is out of bounds")
+    if not geometry.is_simple(base):
+        raise ValueError("forced original is not a simple polygon")
+    if not tc.is_asymmetric(base):
+        raise ValueError("forced original is not asymmetric (net map would be ambiguous)")
+    return list(base)
+
+
 def make_problem(
     rng,
     pattern: Optional[Sequence[str]] = None,
     num_vertices: Optional[int] = None,
     *,
+    original: Optional[Sequence[Point]] = None,
     max_shape_tries: int = 200,
     max_op_tries: int = 200,
 ) -> Problem:
@@ -91,27 +109,38 @@ def make_problem(
     Guarantees: ``original`` and ``image`` are integer lattice polygons fully inside
     ``[-BOUND, BOUND]^2``; ``original`` is simple and ``transform_core.is_asymmetric``
     (so the correct net map is unique); ``image != original``. ``pattern`` (an ordered
-    pair of move kinds) and ``num_vertices`` may be forced; otherwise sampled.
+    tuple of move kinds, of ANY length -- e.g. ``("rotate",)`` for a single-step
+    curriculum problem) and ``num_vertices`` may be forced; otherwise sampled.
+
+    ``original`` may be forced too: when given, that exact (validated) pre-image is reused
+    instead of generating a fresh one, so several problems can share one RED shape (the
+    contrastive-group generator relies on this). Only the correct transform is then
+    sampled/retried.
     """
+    forced_original = _validate_original(original) if original is not None else None
     for _ in range(max_shape_tries):
-        nv = num_vertices if num_vertices is not None else rng.choice(VERTEX_CHOICES)
-        original = geometry.generate_irregular_polygon(
-            nv, irregularity=0.5, spikiness=0.35, radius=4.0, rng=rng,
-            snap=True, require_asymmetric=True,
-        )
+        if forced_original is not None:
+            base = list(forced_original)
+            nv = len(base)
+        else:
+            nv = num_vertices if num_vertices is not None else rng.choice(VERTEX_CHOICES)
+            base = geometry.generate_irregular_polygon(
+                nv, irregularity=0.5, spikiness=0.35, radius=4.0, rng=rng,
+                snap=True, require_asymmetric=True,
+            )
         pat = tuple(pattern) if pattern is not None else rng.choice(PATTERNS)
 
         for _ in range(max_op_tries):
             steps = [_make_step(k, rng) for k in pat]
             answer = [t for t, _ in steps]
             answer_text = [txt for _, txt in steps]
-            image = tc.compose(answer).apply(original)
+            image = tc.compose(answer).apply(base)
             if not geometry.in_bounds(image, -BOUND, BOUND):
                 continue
-            if image == original:
+            if image == base:
                 continue
             return Problem(
-                original=list(original),
+                original=list(base),
                 image=list(image),
                 answer=answer,
                 answer_text=answer_text,

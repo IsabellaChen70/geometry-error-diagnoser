@@ -1,0 +1,227 @@
+{
+  "artifact": "dataset_public",
+  "description": "Larger label-balanced v6 sample built from local source records via the production v6_format helpers; coordinates chat is text-only and covers all records, images are a small visual subset. Not a byte-for-byte sample of the ORCD mixed curriculum.",
+  "files": {
+    "images/000000.png": {
+      "bytes": 22245,
+      "copied_byte_for_byte": true,
+      "sha256": "b1df5e2d0ab898597bb93f1661d79d9a336b9c871a4857636fb5f0a6692b21af",
+      "source": "transform_diagnosis_data/renders/000000.png"
+    },
+    "images/000002.png": {
+      "bytes": 16641,
+      "copied_byte_for_byte": true,
+      "sha256": "d00dd3c30daea99cfe07f6eb83fe668b424668ac1c6e4aa6efbf055f45e4e2ef",
+      "source": "transform_diagnosis_data/renders/000002.png"
+    },
+    "images/000003.png": {
+      "bytes": 16566,
+      "copied_byte_for_byte": true,
+      "sha256": "739815ce4e2291393ecf8f22bb2796c497f0bba5e473e37794683df63c3103e3",
+      "source": "transform_diagnosis_data/renders/000003.png"
+    },
+    "images/000004.png": {
+      "bytes": 19131,
+      "copied_byte_for_byte": true,
+      "sha256": "68bf6fbe665fa14ebcace659550aaed96979aa2f328aacf5fb3545927330bfcb",
+      "source": "transform_diagnosis_data/renders/000004.png"
+    },
+    "images/000005.png": {
+      "bytes": 20948,
+      "copied_byte_for_byte": true,
+      "sha256": "d9b903c9311746302bfe117bda4ff17e516fe1d807e7a9d2ff1ba9cdc94c11ab",
+      "source": "transform_diagnosis_data/renders/000005.png"
+    },
+    "images/000007.png": {
+      "bytes": 18489,
+      "copied_byte_for_byte": true,
+      "sha256": "165bde7f289ff48513db2ee3d04aff565b09f9e417a9156e9094a1c1863a8cf3",
+      "source": "transform_diagnosis_data/renders/000007.png"
+    },
+    "images/000008.png": {
+      "bytes": 20510,
+      "copied_byte_for_byte": true,
+      "sha256": "c1edc0efb8bdd024ec2a0e474020f6b9d4ef905be2f23b8ca2be534867e70472",
+      "source": "transform_diagnosis_data/renders/000008.png"
+    },
+    "images/000010.png": {
+      "bytes": 18929,
+      "copied_byte_for_byte": true,
+      "sha256": "9d795dfc718f6724f3129d8f83203b875ac4fecad1570f2d3cf0f1df6787bfd6",
+      "source": "transform_diagnosis_data/renders/000010.png"
+    },
+    "images/000012.png": {
+      "bytes": 17203,
+      "copied_byte_for_byte": true,
+      "sha256": "2813258142bfd400725532f3c68db3bcd44f836629149d4acc9e7e995ff2038d",
+      "source": "transform_diagnosis_data/renders/000012.png"
+    },
+    "images/000013.png": {
+      "bytes": 21791,
+      "copied_byte_for_byte": true,
+      "sha256": "412adb58eea879402260f498e08a29324e040a5874bde891cb2ab748c7c00df0",
+      "source": "transform_diagnosis_data/renders/000013.png"
+    },
+    "images/000014.png": {
+      "bytes": 21823,
+      "copied_byte_for_byte": true,
+      "sha256": "83516ab12f7b17e51921fa726a2a26d16311cdb945023af7f465cb24b3688e7d",
+      "source": "transform_diagnosis_data/renders/000014.png"
+    },
+    "images/000015.png": {
+      "bytes": 19287,
+      "copied_byte_for_byte": true,
+      "sha256": "8e8b943e0b6b77958caff8bcc2c8784c27de13ae1e00d1e0e47c690ee025f8b7",
+      "source": "transform_diagnosis_data/renders/000015.png"
+    },
+    "images/000017.png": {
+      "bytes": 20410,
+      "copied_byte_for_byte": true,
+      "sha256": "990cdd84f58b45a35a5c76ccdd12d5518e759805289e2aa8fdf32321af628d75",
+      "source": "transform_diagnosis_data/renders/000017.png"
+    },
+    "images/000018.png": {
+      "bytes": 21939,
+      "copied_byte_for_byte": true,
+      "sha256": "06e7bd8b478902ef5297c0c845a463e3f6b97c9bf564762b40f8250e2904f777",
+      "source": "transform_diagnosis_data/renders/000018.png"
+    },
+    "images/000020.png": {
+      "bytes": 20003,
+      "copied_byte_for_byte": true,
+      "sha256": "3d77b9012d0f76d3a39055434fb31df1fffa143008d7509a91c05e32ff933c15",
+      "source": "transform_diagnosis_data/renders/000020.png"
+    },
+    "images/000021.png": {
+      "bytes": 23394,
+      "copied_byte_for_byte": true,
+      "sha256": "f544b6fb9946a5071e3999bde9a85832152b60351c6a784204ad76b024ee0330",
+      "source": "transform_diagnosis_data/renders/000021.png"
+    },
+    "images/000026.png": {
+      "bytes": 18634,
+      "copied_byte_for_byte": true,
+      "sha256": "60a78ba0888623c6911c2c3a3b583b4dba036c52475dd662baf0b1c3a8db277d",
+      "source": "transform_diagnosis_data/renders/000026.png"
+    },
+    "images/000027.png": {
+      "bytes": 17388,
+      "copied_byte_for_byte": true,
+      "sha256": "b97033c7158351867bcc0bbfb1342bff8fdc0c671359103ca74fc00d5b0f6a0f",
+      "source": "transform_diagnosis_data/renders/000027.png"
+    },
+    "images/000028.png": {
+      "bytes": 17302,
+      "copied_byte_for_byte": true,
+      "sha256": "1d7b57d0a9121e32c4b50291292db68028bcce5f6887c8fa610d00fd57db0c93",
+      "source": "transform_diagnosis_data/renders/000028.png"
+    },
+    "images/000030.png": {
+      "bytes": 21557,
+      "copied_byte_for_byte": true,
+      "sha256": "2fc3427164598b62a515dbb41e34293688ce3daec2d83a01ab2a298c2e43eafc",
+      "source": "transform_diagnosis_data/renders/000030.png"
+    },
+    "images/000032.png": {
+      "bytes": 19675,
+      "copied_byte_for_byte": true,
+      "sha256": "63ab8785789b3b6e231e56a16594c819fc8e4a6297fa732b1c06f2eb6bd782cf",
+      "source": "transform_diagnosis_data/renders/000032.png"
+    },
+    "images/000036.png": {
+      "bytes": 21766,
+      "copied_byte_for_byte": true,
+      "sha256": "f2b9a3b6fd1b3f89f4224687742a52df1ab113d2c9f2c8b22836a0f32ce65adc",
+      "source": "transform_diagnosis_data/renders/000036.png"
+    },
+    "images/000054.png": {
+      "bytes": 23981,
+      "copied_byte_for_byte": true,
+      "sha256": "ba71766d916849fed01c978bca40a09c5e9f0efb22045075556590e24626311e",
+      "source": "transform_diagnosis_data/renders/000054.png"
+    },
+    "images/000066.png": {
+      "bytes": 17421,
+      "copied_byte_for_byte": true,
+      "sha256": "ba0be5178a8ef96575621a204267bb40d0bcbe3fea9c7a28030cc821ab72c51c",
+      "source": "transform_diagnosis_data/renders/000066.png"
+    },
+    "train_v6.jsonl": {
+      "bytes": 203511,
+      "records": 240,
+      "sha256": "e23cd07103b6686c7bf4e426ae77af0dc98653ce6672e7ae56933c21c2f95bce"
+    },
+    "train_v6_coords_both_chat.jsonl": {
+      "bytes": 333620,
+      "records": 240,
+      "sha256": "416c8e7b606f007d6fb8e558a84867b767f477e05ec3cc1d187f70388fe46bd5"
+    },
+    "train_v6_coords_correct_chat.jsonl": {
+      "bytes": 305372,
+      "records": 240,
+      "sha256": "f1dd0a3ef284a15d3033b05adf0782bcfa24308a7f1bb453fdbe3b110185b08d"
+    },
+    "train_v6_coords_full_chat.jsonl": {
+      "bytes": 496521,
+      "records": 240,
+      "sha256": "75b60a14618658e36e8308efc206c845e99fadf7c3f1b7afe19a8138f0eca094"
+    },
+    "train_v6_coords_student_chat.jsonl": {
+      "bytes": 305089,
+      "records": 240,
+      "sha256": "9153b4acc65f42568b1a2d512c50ca3eecf08119b46870f5281f747d76eee767"
+    },
+    "train_v6_image_coords_full_chat.jsonl": {
+      "bytes": 51056,
+      "records": 24,
+      "sha256": "debb22b7f099f5a7ed01e3fc3a0abadb3540af1025fa76e05c1e1c2b566cb9dc"
+    }
+  },
+  "generation": {
+    "assistant_target_builder": "transform_diagnosis.v6_format.target_json",
+    "builder": "model/build_public_sample.py",
+    "conversation_builder": "transform_diagnosis.v6_format.conversation",
+    "record_augmentation": "transform_diagnosis.v6_format.augment_record",
+    "selection": "deterministic: sorted by source id within each label"
+  },
+  "known_hint_limitation": {
+    "audit": "../results/overnight/HINT_SAFETY_AUDIT.md",
+    "preserved": true,
+    "summary": "Full-task hints preserve current training targets and may disclose exact operations, map parameters, or translation values."
+  },
+  "sample": {
+    "coords_chat_rows_per_task": 240,
+    "image_per_label": 3,
+    "image_subset_records": 24,
+    "label_distribution": {
+      "completely_wrong": 30,
+      "correct": 30,
+      "opposite_translation": 30,
+      "reflection_instead_of_rotation": 30,
+      "rotation_instead_of_reflection": 30,
+      "wrong_reflection_line": 30,
+      "wrong_rotation_angle": 30,
+      "wrong_translation": 30
+    },
+    "per_label": 30,
+    "records": 240,
+    "tasks": [
+      "correct",
+      "student",
+      "both",
+      "full"
+    ]
+  },
+  "schema_version": "v6.net-affine.1",
+  "source": {
+    "sha256": "52333ac486a65e8ca0dd8b0519f634870d60006e5975a670df9b0133c8f1c432",
+    "train_jsonl": "transform_diagnosis_data/train.jsonl",
+    "train_records": 19200
+  },
+  "verification": {
+    "conversations_built": 960,
+    "skipped_source_records": 0,
+    "targets_parsed_and_exact": 960,
+    "unique_ids": 240
+  }
+}

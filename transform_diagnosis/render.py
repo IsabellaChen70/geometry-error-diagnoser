@@ -48,6 +48,27 @@ def _draw_polygon(ax, pts: Sequence[Sequence[int]], color: str, *, fill: bool = 
             solid_joinstyle="round")
 
 
+def _label_vertices(ax, pts: Sequence[Sequence[int]], color: str) -> None:
+    """Number each vertex 1..n (in the polygon's own order) in the polygon's color.
+
+    The numbers give the model explicit VERTEX CORRESPONDENCE across the three shapes
+    (vertex 1 of RED maps to vertex 1 of GREEN/BLUE) and encode winding order, so the
+    exact rotation / reflection / translation — and the handedness that separates the
+    rotate-vs-reflect labels — become readable instead of guessed. Each label is nudged
+    outward from the shape's centroid so it sits off the edges, with a faint white
+    backing so it stays legible over the grid and where the shapes overlap.
+    """
+    cx = sum(p[0] for p in pts) / len(pts)
+    cy = sum(p[1] for p in pts) / len(pts)
+    for i, (x, y) in enumerate(pts, start=1):
+        dx, dy = x - cx, y - cy
+        norm = (dx * dx + dy * dy) ** 0.5 or 1.0
+        ox, oy = 0.7 * dx / norm, 0.7 * dy / norm      # push the number outward
+        ax.text(x + ox, y + oy, str(i), color=color, fontsize=7, fontweight="bold",
+                ha="center", va="center", zorder=6,
+                bbox=dict(boxstyle="round,pad=0.1", fc="white", ec="none", alpha=0.55))
+
+
 def render_to_path(
     original: Sequence[Sequence[int]],
     student_image: Sequence[Sequence[int]],
@@ -58,14 +79,14 @@ def render_to_path(
     _require_matplotlib()
     os.makedirs(os.path.dirname(path) or ".", exist_ok=True)
 
-    fig, ax = plt.subplots(figsize=(4.2, 4.2), dpi=120)
+    fig, ax = plt.subplots(figsize=(5.0, 5.0), dpi=150)   # larger + sharper for legibility
     ax.set_xlim(-LIM, LIM)
     ax.set_ylim(-LIM, LIM)
     ax.set_aspect("equal")
     ax.set_xticks(range(-LIM, LIM + 1))
     ax.set_yticks(range(-LIM, LIM + 1))
     ax.grid(True, linewidth=0.4, alpha=0.4)
-    ax.tick_params(labelsize=5)
+    ax.tick_params(labelsize=6)
     ax.axhline(0, color="black", linewidth=1.1)
     ax.axvline(0, color="black", linewidth=1.1)
 
@@ -73,6 +94,12 @@ def render_to_path(
         _draw_polygon(ax, correct_image, _GREEN, fill=False, linestyle="--", linewidth=1.6)
     _draw_polygon(ax, original, _RED)
     _draw_polygon(ax, student_image, _BLUE)
+
+    # Numbered vertices for correspondence/handedness (drawn last so they sit on top).
+    if correct_image is not None:
+        _label_vertices(ax, correct_image, _GREEN)
+    _label_vertices(ax, original, _RED)
+    _label_vertices(ax, student_image, _BLUE)
 
     tmp = path + ".tmp.png"
     fig.savefig(tmp, bbox_inches="tight")

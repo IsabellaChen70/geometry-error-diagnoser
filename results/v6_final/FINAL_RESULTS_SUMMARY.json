@@ -1,0 +1,295 @@
+{
+  "schema_version": "v6.final-summary.1",
+  "evaluation": {
+    "model_family": "unsloth/Qwen3-VL-4B-Instruct-unsloth-bnb-4bit",
+    "task_schema": "v6.net-affine.1",
+    "task": "full",
+    "sample_seed": 20260709,
+    "n_per_cell": 500,
+    "splits": ["test", "ood"],
+    "modalities": ["image", "image_coords"],
+    "model_states": ["base", "tuned"]
+  },
+  "source_inventory": {
+    "regular_files": 26,
+    "record_jsonl": 8,
+    "aggregate_json": 8,
+    "independent_audit_json": 8,
+    "paired_audit_json": 1,
+    "audit_log": 1
+  },
+  "verification": {
+    "json_and_jsonl_valid": true,
+    "records_per_cell": 500,
+    "unique_ids_per_cell": 500,
+    "paired_id_order_equal_within_each_split": true,
+    "aggregate_metrics_match_records": true,
+    "confusions_match_records": true,
+    "per_label_recall_matches_records": true,
+    "wilson_95_match_recomputation": true,
+    "paired_summaries_match_records": true,
+    "evaluator_disagreement_rows_each_record_file": 0
+  },
+  "audit": {
+    "available": true,
+    "train_records": 9600,
+    "evaluated_records": 1000,
+    "exact_geometry_overlap_count": 0,
+    "train_rows_sourced_from_test_or_ood": 0,
+    "overlap_ids": [],
+    "bad_source_ids": []
+  },
+  "metric_order": [
+    "correct_net_ok",
+    "student_net_ok",
+    "both_nets_ok",
+    "label_ok",
+    "derived_label_ok"
+  ],
+  "cells": {
+    "base_image_test": {
+      "counts": [0, 0, 0, 59, 58],
+      "rates": [0.0, 0.0, 0.0, 0.118, 0.116]
+    },
+    "base_image_ood": {
+      "counts": [0, 37, 0, 50, 13],
+      "rates": [0.0, 0.074, 0.0, 0.1, 0.026]
+    },
+    "base_image_coords_test": {
+      "counts": [0, 2, 0, 149, 148],
+      "rates": [0.0, 0.004, 0.0, 0.298, 0.296]
+    },
+    "base_image_coords_ood": {
+      "counts": [0, 19, 0, 111, 144],
+      "rates": [0.0, 0.038, 0.0, 0.222, 0.288]
+    },
+    "tuned_image_test": {
+      "counts": [231, 219, 192, 428, 428],
+      "rates": [0.462, 0.438, 0.384, 0.856, 0.856],
+      "wilson_95": [
+        [0.418756, 0.505823],
+        [0.395148, 0.481797],
+        [0.342408, 0.427361],
+        [0.82251, 0.884062],
+        [0.82251, 0.884062]
+      ]
+    },
+    "tuned_image_ood": {
+      "counts": [412, 347, 338, 426, 426],
+      "rates": [0.824, 0.694, 0.676, 0.852, 0.852],
+      "wilson_95": [
+        [0.788186, 0.854874],
+        [0.652255, 0.732787],
+        [0.633772, 0.715545],
+        [0.818194, 0.880439],
+        [0.818194, 0.880439]
+      ]
+    },
+    "tuned_image_coords_test": {
+      "counts": [493, 498, 493, 498, 498],
+      "rates": [0.986, 0.996, 0.986, 0.996, 0.996],
+      "wilson_95": [
+        [0.971387, 0.993202],
+        [0.985534, 0.998902],
+        [0.971387, 0.993202],
+        [0.985534, 0.998902],
+        [0.985534, 0.998902]
+      ]
+    },
+    "tuned_image_coords_ood": {
+      "counts": [500, 497, 497, 499, 500],
+      "rates": [1.0, 0.994, 0.994, 0.998, 1.0],
+      "wilson_95": [
+        [0.992376, 1.0],
+        [0.98251, 0.997957],
+        [0.98251, 0.997957],
+        [0.988759, 0.999647],
+        [0.992376, 1.0]
+      ]
+    }
+  },
+  "base_to_tuned_delta_percentage_points": {
+    "image_test": [46.2, 43.8, 38.4, 73.8, 74.0],
+    "image_ood": [82.4, 62.0, 67.6, 75.2, 82.6],
+    "image_coords_test": [98.6, 99.2, 98.6, 69.8, 70.0],
+    "image_coords_ood": [100.0, 95.6, 99.4, 77.6, 71.2]
+  },
+  "base_to_tuned_paired_discordance": {
+    "image_test": {
+      "base_only": [0, 0, 0, 3, 2],
+      "tuned_only": [231, 219, 192, 372, 372]
+    },
+    "image_ood": {
+      "base_only": [0, 8, 0, 9, 0],
+      "tuned_only": [412, 318, 338, 385, 413]
+    },
+    "image_coords_test": {
+      "base_only": [0, 0, 0, 0, 0],
+      "tuned_only": [493, 496, 493, 349, 350]
+    },
+    "image_coords_ood": {
+      "base_only": [0, 0, 0, 0, 0],
+      "tuned_only": [500, 478, 497, 388, 356]
+    }
+  },
+  "tuned_image_coords_minus_image_delta_percentage_points": {
+    "test": [52.4, 55.8, 60.2, 14.0, 14.0],
+    "ood": [17.6, 30.0, 31.8, 14.6, 14.8]
+  },
+  "label_distributions": {
+    "test": {
+      "correct": 66,
+      "reflection_instead_of_rotation": 59,
+      "rotation_instead_of_reflection": 65,
+      "wrong_rotation_angle": 76,
+      "wrong_reflection_line": 57,
+      "wrong_translation": 66,
+      "opposite_translation": 47,
+      "completely_wrong": 64
+    },
+    "ood": {
+      "correct": 111,
+      "rotation_instead_of_reflection": 134,
+      "wrong_reflection_line": 129,
+      "completely_wrong": 126
+    }
+  },
+  "error_analysis": {
+    "tuned_image_coords_test": {
+      "exact_pair_outcomes": {
+        "both_correct": 493,
+        "student_only": 5,
+        "neither_correct": 2
+      },
+      "geometry_label_cross": {
+        "geometry_pass_label_pass": 493,
+        "geometry_fail_label_pass": 5,
+        "geometry_fail_label_fail": 2
+      },
+      "seven_exact_pair_failures": [
+        {
+          "id": 52,
+          "true_label": "wrong_reflection_line",
+          "pred_label": "completely_wrong",
+          "correct_net_ok": false,
+          "student_net_ok": true,
+          "label_ok": false,
+          "derived_label_ok": false
+        },
+        {
+          "id": 3529,
+          "true_label": "completely_wrong",
+          "pred_label": "completely_wrong",
+          "correct_net_ok": false,
+          "student_net_ok": true,
+          "label_ok": true,
+          "derived_label_ok": true
+        },
+        {
+          "id": 3929,
+          "true_label": "reflection_instead_of_rotation",
+          "pred_label": "completely_wrong",
+          "correct_net_ok": false,
+          "student_net_ok": true,
+          "label_ok": false,
+          "derived_label_ok": false
+        },
+        {
+          "id": 5252,
+          "true_label": "correct",
+          "pred_label": "correct",
+          "correct_net_ok": false,
+          "student_net_ok": false,
+          "label_ok": true,
+          "derived_label_ok": true
+        },
+        {
+          "id": 7770,
+          "true_label": "completely_wrong",
+          "pred_label": "completely_wrong",
+          "correct_net_ok": false,
+          "student_net_ok": true,
+          "label_ok": true,
+          "derived_label_ok": true
+        },
+        {
+          "id": 16316,
+          "true_label": "wrong_translation",
+          "pred_label": "wrong_translation",
+          "correct_net_ok": false,
+          "student_net_ok": true,
+          "label_ok": true,
+          "derived_label_ok": true
+        },
+        {
+          "id": 21634,
+          "true_label": "correct",
+          "pred_label": "correct",
+          "correct_net_ok": false,
+          "student_net_ok": false,
+          "label_ok": true,
+          "derived_label_ok": true
+        }
+      ]
+    },
+    "tuned_image_coords_ood": {
+      "exact_pair_outcomes": {
+        "both_correct": 497,
+        "correct_only": 3
+      },
+      "geometry_label_cross": {
+        "geometry_pass_label_pass": 496,
+        "geometry_pass_label_fail": 1,
+        "geometry_fail_label_pass": 3
+      }
+    },
+    "tuned_image_test": {
+      "exact_pair_outcomes": {
+        "both_correct": 192,
+        "correct_only": 39,
+        "student_only": 27,
+        "neither_correct": 242
+      },
+      "geometry_label_cross": {
+        "geometry_pass_label_pass": 192,
+        "geometry_fail_label_pass": 236,
+        "geometry_fail_label_fail": 72
+      },
+      "both_nets_correct_by_label": {
+        "correct": [20, 66],
+        "reflection_instead_of_rotation": [23, 59],
+        "rotation_instead_of_reflection": [35, 65],
+        "wrong_rotation_angle": [50, 76],
+        "wrong_reflection_line": [33, 57],
+        "wrong_translation": [11, 66],
+        "opposite_translation": [15, 47],
+        "completely_wrong": [5, 64]
+      },
+      "largest_label_confusion": {
+        "true_label": "opposite_translation",
+        "predicted_label": "wrong_translation",
+        "count": 25,
+        "total_label_errors": 72
+      }
+    },
+    "tuned_image_ood": {
+      "exact_pair_outcomes": {
+        "both_correct": 338,
+        "correct_only": 74,
+        "student_only": 9,
+        "neither_correct": 79
+      },
+      "geometry_label_cross": {
+        "geometry_pass_label_pass": 338,
+        "geometry_fail_label_pass": 88,
+        "geometry_fail_label_fail": 74
+      },
+      "both_nets_correct_by_label": {
+        "correct": [100, 111],
+        "rotation_instead_of_reflection": [102, 134],
+        "wrong_reflection_line": [117, 129],
+        "completely_wrong": [19, 126]
+      }
+    }
+  }
+}

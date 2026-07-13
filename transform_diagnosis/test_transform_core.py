@@ -151,6 +151,30 @@ def test_parse_reworded_rotation_equal_matrix():
     assert tc.parse_transform("rotate 90 degrees clockwise") == tc.rotate(270, "ccw")
 
 
+def test_parse_accepts_equivalent_phrasings():
+    # 180 rotation: direction is irrelevant, so it may be omitted, with or without an
+    # "about/around the origin" tail.
+    assert tc.parse_transform("rotate 180 degrees about the origin") == tc.rotate(180)
+    assert tc.parse_transform("rotate 180 degrees around the origin") == tc.rotate(180)
+    assert tc.parse_transform("rotate 180 degrees about the point (0,0)") == tc.rotate(180)
+    # A stated direction with a trailing "about the origin" still parses.
+    assert tc.parse_transform("rotate 90 degrees clockwise about the origin") == tc.rotate(90, "cw")
+    # Translations: optional counting noun and the "move" synonym.
+    assert tc.parse_transform("translate 3 units up") == tc.translate(0, 3)
+    assert tc.parse_transform("translate 3 up") == tc.translate(0, 3)
+    assert tc.parse_transform("translate 2 squares left") == tc.translate(-2, 0)
+    assert tc.parse_transform("move 3 left") == tc.translate(-3, 0)
+
+
+def test_parse_rejects_ambiguous_and_nonsense():
+    # A 90/270 rotation with NO direction is genuinely ambiguous -> must not silently
+    # default (that would let a wrong handedness pass).
+    with pytest.raises(ValueError):
+        tc.parse_transform("rotate 90 degrees about the origin")
+    with pytest.raises(ValueError):
+        tc.parse_transform("rotate 270 degrees")
+
+
 # --------------------------------------------------------------------------------------
 # grade
 # --------------------------------------------------------------------------------------

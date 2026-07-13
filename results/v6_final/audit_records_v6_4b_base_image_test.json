@@ -1,0 +1,332 @@
+{
+  "n": 500,
+  "metrics": {
+    "parse_ok": {
+      "hits": 500,
+      "n": 500,
+      "rate": 1.0,
+      "wilson_95": [
+        0.9923756595384479,
+        1.0
+      ]
+    },
+    "correct_net_ok": {
+      "hits": 0,
+      "n": 500,
+      "rate": 0.0,
+      "wilson_95": [
+        4.336808689942018e-19,
+        0.007624340461552241
+      ]
+    },
+    "student_net_ok": {
+      "hits": 0,
+      "n": 500,
+      "rate": 0.0,
+      "wilson_95": [
+        4.336808689942018e-19,
+        0.007624340461552241
+      ]
+    },
+    "both_nets_ok": {
+      "hits": 0,
+      "n": 500,
+      "rate": 0.0,
+      "wilson_95": [
+        4.336808689942018e-19,
+        0.007624340461552241
+      ]
+    },
+    "label_ok": {
+      "hits": 59,
+      "n": 500,
+      "rate": 0.118,
+      "wilson_95": [
+        0.09259300825150649,
+        0.14923198786111944
+      ]
+    },
+    "derived_label_ok": {
+      "hits": 58,
+      "n": 500,
+      "rate": 0.116,
+      "wilson_95": [
+        0.09081365651103794,
+        0.1470418369634342
+      ]
+    }
+  },
+  "evaluator_disagreement_rows": 0,
+  "sample_failures": [
+    {
+      "id": 20893,
+      "split": "test",
+      "parse_ok": true,
+      "correct_net_ok": false,
+      "student_net_ok": false,
+      "both_nets_ok": false,
+      "label_ok": false,
+      "derived_label": "wrong_rotation_angle",
+      "derived_label_ok": false,
+      "predicted": {
+        "correct_net": {
+          "linear": "rot_180",
+          "tx": 0,
+          "ty": 0
+        },
+        "student_net": {
+          "linear": "rot_ccw_90",
+          "tx": 0,
+          "ty": 0
+        },
+        "label": "rotation_instead_of_reflection",
+        "hint": "Check if the orientation of the green image matches the red image under rotation or reflection."
+      },
+      "true_label": "reflection_instead_of_rotation",
+      "stored_metric_disagreements": {}
+    },
+    {
+      "id": 23775,
+      "split": "test",
+      "parse_ok": true,
+      "correct_net_ok": false,
+      "student_net_ok": false,
+      "both_nets_ok": false,
+      "label_ok": false,
+      "derived_label": "correct",
+      "derived_label_ok": false,
+      "predicted": {
+        "correct_net": {
+          "linear": "rot_ccw_90",
+          "tx": 3,
+          "ty": 4
+        },
+        "student_net": {
+          "linear": "rot_ccw_90",
+          "tx": 3,
+          "ty": 4
+        },
+        "label": "correct",
+        "hint": "Check if the green image matches the red image under the specified rotation and translation."
+      },
+      "true_label": "wrong_rotation_angle",
+      "stored_metric_disagreements": {}
+    },
+    {
+      "id": 18934,
+      "split": "test",
+      "parse_ok": true,
+      "correct_net_ok": false,
+      "student_net_ok": false,
+      "both_nets_ok": false,
+      "label_ok": false,
+      "derived_label": "wrong_rotation_angle",
+      "derived_label_ok": false,
+      "predicted": {
+        "correct_net": {
+          "linear": "rot_180",
+          "tx": 0,
+          "ty": 0
+        },
+        "student_net": {
+          "linear": "rot_ccw_90",
+          "tx": 0,
+          "ty": 0
+        },
+        "label": "wrong_rotation_angle",
+        "hint": "Check the orientation of the vertices in the student's image compared to the original."
+      },
+      "true_label": "correct",
+      "stored_metric_disagreements": {}
+    },
+    {
+      "id": 5352,
+      "split": "test",
+      "parse_ok": true,
+      "correct_net_ok": false,
+      "student_net_ok": false,
+      "both_nets_ok": false,
+      "label_ok": true,
+      "derived_label": "wrong_rotation_angle",
+      "derived_label_ok": true,
+      "predicted": {
+        "correct_net": {
+          "linear": "rot_180",
+          "tx": 0,
+          "ty": 0
+        },
+        "student_net": {
+          "linear": "rot_ccw_90",
+          "tx": 0,
+          "ty": 0
+        },
+        "label": "wrong_rotation_angle",
+        "hint": "Check the orientation of the vertices in the green image relative to the red image."
+      },
+      "true_label": "wrong_rotation_angle",
+      "stored_metric_disagreements": {}
+    },
+    {
+      "id": 8547,
+      "split": "test",
+      "parse_ok": true,
+      "correct_net_ok": false,
+      "student_net_ok": false,
+      "both_nets_ok": false,
+      "label_ok": false,
+      "derived_label": "wrong_rotation_angle",
+      "derived_label_ok": false,
+      "predicted": {
+        "correct_net": {
+          "linear": "rot_180",
+          "tx": 0,
+          "ty": 0
+        },
+        "student_net": {
+          "linear": "rot_ccw_90",
+          "tx": 0,
+          "ty": 0
+        },
+        "label": "wrong_rotation_angle",
+        "hint": "Check the orientation of the vertices in the green and blue polygons to determine the correct rotation angle."
+      },
+      "true_label": "correct",
+      "stored_metric_disagreements": {}
+    },
+    {
+      "id": 23193,
+      "split": "test",
+      "parse_ok": true,
+      "correct_net_ok": false,
+      "student_net_ok": false,
+      "both_nets_ok": false,
+      "label_ok": true,
+      "derived_label": "wrong_rotation_angle",
+      "derived_label_ok": true,
+      "predicted": {
+        "correct_net": {
+          "linear": "rot_180",
+          "tx": 0,
+          "ty": 0
+        },
+        "student_net": {
+          "linear": "rot_ccw_90",
+          "tx": 0,
+          "ty": 0
+        },
+        "label": "wrong_rotation_angle",
+        "hint": "Check the orientation and position of corresponding vertices between red and green, then compare with blue."
+      },
+      "true_label": "wrong_rotation_angle",
+      "stored_metric_disagreements": {}
+    },
+    {
+      "id": 4816,
+      "split": "test",
+      "parse_ok": true,
+      "correct_net_ok": false,
+      "student_net_ok": false,
+      "both_nets_ok": false,
+      "label_ok": false,
+      "derived_label": "wrong_rotation_angle",
+      "derived_label_ok": false,
+      "predicted": {
+        "correct_net": {
+          "linear": "rot_180",
+          "tx": 0,
+          "ty": 0
+        },
+        "student_net": {
+          "linear": "rot_ccw_90",
+          "tx": 0,
+          "ty": 0
+        },
+        "label": "wrong_rotation_angle",
+        "hint": "Check the orientation of the vertices in the green and blue images relative to the red image."
+      },
+      "true_label": "completely_wrong",
+      "stored_metric_disagreements": {}
+    },
+    {
+      "id": 5670,
+      "split": "test",
+      "parse_ok": true,
+      "correct_net_ok": false,
+      "student_net_ok": false,
+      "both_nets_ok": false,
+      "label_ok": false,
+      "derived_label": "correct",
+      "derived_label_ok": false,
+      "predicted": {
+        "correct_net": {
+          "linear": "rot_ccw_90",
+          "tx": 0,
+          "ty": 0
+        },
+        "student_net": {
+          "linear": "rot_ccw_90",
+          "tx": 0,
+          "ty": 0
+        },
+        "label": "correct",
+        "hint": "Check if the green image matches the red image under the specified rotation and translation."
+      },
+      "true_label": "wrong_reflection_line",
+      "stored_metric_disagreements": {}
+    },
+    {
+      "id": 8175,
+      "split": "test",
+      "parse_ok": true,
+      "correct_net_ok": false,
+      "student_net_ok": false,
+      "both_nets_ok": false,
+      "label_ok": false,
+      "derived_label": "wrong_rotation_angle",
+      "derived_label_ok": false,
+      "predicted": {
+        "correct_net": {
+          "linear": "rot_180",
+          "tx": 0,
+          "ty": 0
+        },
+        "student_net": {
+          "linear": "rot_ccw_90",
+          "tx": 0,
+          "ty": 0
+        },
+        "label": "wrong_rotation_angle",
+        "hint": "Check the orientation and position of corresponding vertices to determine the correct rotation angle."
+      },
+      "true_label": "correct",
+      "stored_metric_disagreements": {}
+    },
+    {
+      "id": 13416,
+      "split": "test",
+      "parse_ok": true,
+      "correct_net_ok": false,
+      "student_net_ok": false,
+      "both_nets_ok": false,
+      "label_ok": false,
+      "derived_label": "correct",
+      "derived_label_ok": false,
+      "predicted": {
+        "correct_net": {
+          "linear": "rot_ccw_90",
+          "tx": 3,
+          "ty": 2
+        },
+        "student_net": {
+          "linear": "rot_ccw_90",
+          "tx": 3,
+          "ty": 2
+        },
+        "label": "correct",
+        "hint": "Check if the green image matches the red image under the specified rotation and translation."
+      },
+      "true_label": "wrong_rotation_angle",
+      "stored_metric_disagreements": {}
+    }
+  ]
+}
