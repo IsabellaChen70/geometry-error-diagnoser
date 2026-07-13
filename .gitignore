@@ -57,3 +57,12 @@ id_ecdsa
 id_ecdsa_*
 id_ed25519
 id_ed25519_*
+
+_quarantine/
+manual_check/
+dataset_sample.zip
+dataset_sample_v6.zip
+records_probe_coords*
+results_probe_coords*
+results/overnight/verify/
+OVERNIGHT_CURSOR_PROMPT.md
