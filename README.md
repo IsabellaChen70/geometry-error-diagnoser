@@ -193,19 +193,23 @@ On image-only, no difference was statistically detected for correct-map or
 both-map recovery (not proof of equivalence); Opus was stronger on student-map.
 On image+coordinates both models hit the geometry ceiling at n=50.
 
-**vs GPT-4o** (golden set, zero-shot, direct output):
+**vs GPT-4o** (golden set, zero-shot) — direct output and with chain-of-thought (CoT):
 
-| Modality | n | Metric | Qwen3-VL-4B (final) | GPT-4o |
-| --- | --- | --- | --- | --- |
-| image | 160 | **both maps** | **33.75%** | **0.0%** |
-| image+coords | 160 | **both maps** | **98.75%** | **0.6%** |
-| image+coords | 160 | direct label | 99.4% | 30.6% |
+| Modality | n | Metric | Qwen3-VL-4B (final) | GPT-4o (direct) | GPT-4o (CoT) |
+| --- | --- | --- | --- | --- | --- |
+| image | 160 | **both maps** | **33.75%** | **0.0%** | **0.6%** |
+| image+coords | 160 | **both maps** | **98.75%** | **0.6%** | **1.2%** |
+| image+coords | 160 | correct map | 100% | 2.5% | 13.1% |
+| image+coords | 160 | direct label | 99.4% | 30.6% | 26.2% |
 
-GPT-4o's outputs parsed 100% — valid format, wrong geometry. Reading: the 4B
-fine-tune is **tied with Opus 4.8 on exact geometry** at a fraction of the size,
-and **dominates GPT-4o**. The large direct-label lead reflects task-specific
-training on this taxonomy, not general frontier superiority — lead with the
-geometry.
+GPT-4o's outputs parsed 100% — valid format, wrong geometry. Even with
+chain-of-thought, GPT-4o recovers **both** maps on only 1.2% of coords cases and
+0.6% image-only; reasoning significantly raised single correct-map accuracy
+(2.5%→13.1%, McNemar p≈5e-4) but not both-map recovery (0.6%→1.2%, n.s.).
+Reading: the 4B fine-tune is **tied with Opus 4.8 on exact geometry** at a
+fraction of the size, and **dominates GPT-4o even when GPT is allowed to
+reason**. The large direct-label lead reflects task-specific training on this
+taxonomy, not general frontier superiority — lead with the geometry.
 
 The authoritative fair-frontier prediction and audit files remain under
 `/home/ikchen` on ORCD and were not copied into this repository, so the local
