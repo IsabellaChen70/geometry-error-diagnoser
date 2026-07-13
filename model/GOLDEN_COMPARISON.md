@@ -322,20 +322,20 @@ python confidence_intervals.py \
 
 ---
 
-## 5. Expected-results table (fill in the numbers)
+## 5. Results table (n=160, golden set)
 
-Map each result file to a cell and read the metric off the Wilson output from §4a. The two
-`both_nets` columns are the headline (exact two-map geometry); `label_acc` and `hint` are
-secondary and carry the caveats below.
+Exact two-map geometry (`both_nets`) is the headline; `label_acc` and `hint` are secondary
+and carry the caveats below. Rates read off the §4a Wilson output; 95% CIs live in
+`results/v6_golden/*.json`. (sonnet/gemini gateway routes could not be scored in budget.)
 
 | model / arm | image `both_nets` | image+coords `both_nets` | label_acc (image+coords) | hint (image+coords) | source files (image / image+coords) |
 |---|---|---|---|---|---|
-| base    |  |  |  |  | `results_v6_4b_image_base_golden.json` / `results_v6_4b_image_coords_base_golden.json` |
-| tuned   |  |  |  |  | `results_v6_4b_image_tuned_golden.json` / `results_v6_4b_image_coords_tuned_golden.json` |
-| hintfix |  |  |  |  | `results_v6_4b_image_hintfix_golden.json` / `results_v6_4b_image_coords_hintfix_golden.json` |
-| gpt     |  |  |  |  | `results_frontier_gpt_image_golden.json` / `results_frontier_gpt_image_coords_golden.json` |
-| sonnet  |  |  |  |  | `results_frontier_sonnet_image_golden.json` / `results_frontier_sonnet_image_coords_golden.json` |
-| gemini  |  |  |  |  | `results_frontier_gemini_image_golden.json` / `results_frontier_gemini_image_coords_golden.json` |
+| base    | 0.0% | 0.0% | 25.6% | 44.4% | `results_v6_4b_image_base_golden.json` / `results_v6_4b_image_coords_base_golden.json` |
+| tuned   | 36.2% | 98.75% | 99.4% | 96.2% | `results_v6_4b_image_tuned_golden.json` / `results_v6_4b_image_coords_tuned_golden.json` |
+| hintfix | 33.75% | 98.75% | 99.4% | 100.0% | `results_v6_4b_image_hintfix_golden.json` / `results_v6_4b_image_coords_hintfix_golden.json` |
+| gpt-4o  | 0.0% | 0.6% | 30.6% | 67.5% | `results_frontier_gpt_image_golden.json` / `results_frontier_gpt_image_coords_golden.json` |
+| sonnet  | — | — | — | — | not scored — gateway returned empty completions |
+| gemini  | — | — | — | — | not scored — gateway ~1 min/call, low parse |
 
 Metric keys per cell: `both_nets` = `both_nets_match_rate`; `label_acc` = `label_accuracy`;
 `hint` = `hint_match_rate` (family-relevant + no coordinate leak). Add a `hint_exact_match_rate`
