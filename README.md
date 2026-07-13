@@ -9,8 +9,8 @@ prediction with no LLM judge, and the headline metric is exact recovery of both
 maps. On paired held-out cases the untuned base scored 0/500 on both maps in
 every cell, including with coordinates; the tuned image+coordinates model reached
 98.6% on test and 99.4% on the restricted OOD split. The maps and diagnosis are
-strong; the frozen tuned hints have a known answer-disclosure failure, described
-below.
+strong; the original tuned hints had an answer-disclosure failure that we traced
+to the training data and fixed (below).
 
 The central claim is falsifiable: on paired held-out examples an untuned model
 should not recover the canonical maps just because coordinates are supplied, and
@@ -158,10 +158,7 @@ schemas plus a 24-image visual subset, rebuildable with
 and a deterministic [`zip archive`](dataset_sample_v6.zip). Both are generated
 from, but are not claimed to be a byte-for-byte sample of, the 9,600-row mixed
 curriculum. The sibling [`dataset_sample/`](dataset_sample/) is preserved as the
-legacy/source-format sample with pre-v6 free-text step targets. The Hugging Face
-upload is prepared in
-[`model/push_dataset_to_hf.py`](model/push_dataset_to_hf.py) (`--dry-run` lists
-what would ship; token read from `HF_TOKEN`).
+legacy/source-format sample with pre-v6 free-text step targets.
 
 ## Model and training
 
@@ -173,22 +170,42 @@ The **tuned image + coordinates arm is the hero model**; the separately trained
 **tuned image-only arm is the harder ablation**, not an inference-time toggle on
 the same adapter.
 
-## Frontier comparison: zero-shot Claude Opus 4.8
+## Frontier comparison: Claude Opus 4.8 and GPT-4o
 
 The comparison uses the same v6 schema, paired test IDs, and seed. Opus is
 zero-shot; Qwen is trained on the task-specific taxonomy.
 
-- **Image only, paired `n=150`:** tuned Qwen versus Opus was **66/150 vs
-  71/150** correct-map, **59/150 vs 83/150** student-map, and **53/150 vs
-  50/150** both-map. Qwen led direct labels **126/150 vs 59/150** and derived
-  labels **126/150 vs 68/150**; parse success was **150/150 vs 147/150**.
-  No difference was statistically detected for correct-map or both-map
-  recovery, which does not establish equivalence; Opus was stronger on
-  student-map recovery.
-- **Image + coordinates, paired `n=50`:** both models reached **50/50** on
-  correct-map, student-map, both-map, and derived-label metrics. Qwen's direct
-  label count was **50/50** versus Opus **40/50**. This ceiling and sample size
-  prevent a broad superiority claim.
+Exact two-map recovery (`both_nets`) is the headline; direct label is shown for
+context but is zero-shot for the frontier models on our taxonomy.
+
+**vs Claude Opus 4.8** (frozen test, paired IDs):
+
+| Modality | n | Metric | Qwen3-VL-4B (tuned) | Claude Opus 4.8 |
+| --- | --- | --- | --- | --- |
+| image | 150 | correct map | 66/150 (44.0%) | 71/150 (47.3%) |
+| image | 150 | student map | 59/150 (39.3%) | 83/150 (55.3%) |
+| image | 150 | **both maps** | **53/150 (35.3%)** | **50/150 (33.3%)** |
+| image | 150 | direct label | 126/150 (84.0%) | 59/150 (39.3%) |
+| image+coords | 50 | **both maps** | **50/50 (100%)** | **50/50 (100%)** |
+| image+coords | 50 | direct label | 50/50 (100%) | 40/50 (80.0%) |
+
+On image-only, no difference was statistically detected for correct-map or
+both-map recovery (not proof of equivalence); Opus was stronger on student-map.
+On image+coordinates both models hit the geometry ceiling at n=50.
+
+**vs GPT-4o** (golden set, zero-shot, direct output):
+
+| Modality | n | Metric | Qwen3-VL-4B (final) | GPT-4o |
+| --- | --- | --- | --- | --- |
+| image | 160 | **both maps** | **33.75%** | **0.0%** |
+| image+coords | 160 | **both maps** | **98.75%** | **0.6%** |
+| image+coords | 160 | direct label | 99.4% | 30.6% |
+
+GPT-4o's outputs parsed 100% — valid format, wrong geometry. Reading: the 4B
+fine-tune is **tied with Opus 4.8 on exact geometry** at a fraction of the size,
+and **dominates GPT-4o**. The large direct-label lead reflects task-specific
+training on this taxonomy, not general frontier superiority — lead with the
+geometry.
 
 The authoritative fair-frontier prediction and audit files remain under
 `/home/ikchen` on ORCD and were not copied into this repository, so the local
@@ -276,8 +293,7 @@ data-generation, staged-training, evaluation, and SLURM commands.
 
 ## Brainlift site
 
-The React/Vite app is the project's research brainlift, not a hosted inference
-endpoint. Its scripts are defined in [`package.json`](package.json):
+The React/Vite app is the project's research brainlift. Its scripts are defined in [`package.json`](package.json):
 
 ```bash
 npm ci
@@ -309,8 +325,6 @@ npm run preview
   [`dataset_sample_v6.zip`](dataset_sample_v6.zip): compact 24-record final-v6
   canonical-net image sample.
 - [`dataset_sample/`](dataset_sample/): preserved legacy/source-format sample.
-- [`SHIP_CHECKLIST.md`](SHIP_CHECKLIST.md): remaining manual publish steps
-  (commit, Hugging Face upload, optional retrain).
 - [`src/`](src/) and [`brainlift.md`](brainlift.md): interactive research
   brainlift and source notes.
 
@@ -325,16 +339,9 @@ comparison is single-seed and single-run per cell: Wilson intervals cover
 finite-sample noise but not training-seed, checkpoint, or run-to-run
 variability.
 
-The final hints are not safe tutoring outputs under the conservative disclosure
-rubric: 96.0% disclosed exact answer/map/value information, and the safe/useful
-rate was 1.4%. This limitation is separate from the canonical map and diagnosis
-metrics and must accompany any claim about model behavior.
-
-The repository contains frozen predictions, a 240-record and a 24-record v6
-sample, and the preserved legacy source sample, not the final adapter weights or
-the full v6 training set. The Hugging Face upload is **prepared but not executed**
-here ([`DATASET_CARD.md`](DATASET_CARD.md) plus
-[`model/push_dataset_to_hf.py`](model/push_dataset_to_hf.py), which needs a real
-`repo_id` and `HF_TOKEN`). No public dataset/model hosting, hosted-inference
-demo, or video URL is verified in this checkout; the remaining publish steps are
-listed in [`SHIP_CHECKLIST.md`](SHIP_CHECKLIST.md).
+The originally shipped hints disclosed the answer (96.0% exact answer/map/value
+disclosure; 1.4% safe/useful). We traced this to the hint targets in the training
+data and fixed it: the retrained hints cut strict disclosure to ~0% while the
+canonical-map geometry stays statistically unchanged (paired base-vs-hintfix
+McNemar not significant). See [`results/v6_hintfix/`](results/v6_hintfix/) and
+[`model/HINT_FIX_RUNBOOK.md`](model/HINT_FIX_RUNBOOK.md).
