@@ -13,6 +13,7 @@ export default function Sidebar({ meta, questions, active }: Props) {
 
   const items = [
     { id: "purpose", n: "", label: "Purpose" },
+    { id: "demo", n: "", label: "See it work" },
     { id: "scope", n: "", label: "Scope" },
     { id: "spov", n: "", label: "Key claim" },
     { id: "insights", n: "", label: "Insights" },

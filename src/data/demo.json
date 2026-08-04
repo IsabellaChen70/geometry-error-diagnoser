@@ -1,0 +1,233 @@
+[
+  {
+    "id": 2,
+    "label": "correct",
+    "image": "000003.png",
+    "numVertices": 6,
+    "original": [
+      [
+        0,
+        5
+      ],
+      [
+        -5,
+        1
+      ],
+      [
+        -3,
+        -2
+      ],
+      [
+        -1,
+        -3
+      ],
+      [
+        2,
+        -3
+      ],
+      [
+        4,
+        1
+      ]
+    ],
+    "correctTransform": [
+      "translate 1 down",
+      "reflect across line y = -x"
+    ],
+    "studentTransform": [
+      "translate 1 down",
+      "reflect across line y = -x"
+    ],
+    "correctNet": {
+      "linear": "reflect_y_eq_neg_x",
+      "tx": 1,
+      "ty": 0
+    },
+    "studentNet": {
+      "linear": "reflect_y_eq_neg_x",
+      "tx": 1,
+      "ty": 0
+    },
+    "hint": "Correct. Both steps are right: first translate 1 down, then reflect across line y = -x. You applied each move in the right order."
+  },
+  {
+    "id": 0,
+    "label": "wrong_translation",
+    "image": "000000.png",
+    "numVertices": 5,
+    "original": [
+      [
+        -4,
+        6
+      ],
+      [
+        -6,
+        2
+      ],
+      [
+        -1,
+        -4
+      ],
+      [
+        3,
+        -1
+      ],
+      [
+        0,
+        1
+      ]
+    ],
+    "correctTransform": [
+      "translate 1 down",
+      "rotate 180 degrees counterclockwise"
+    ],
+    "studentTransform": [
+      "translate by (1, 4)",
+      "rotate 180 degrees counterclockwise"
+    ],
+    "correctNet": {
+      "linear": "rot_180",
+      "tx": 0,
+      "ty": 1
+    },
+    "studentNet": {
+      "linear": "rot_180",
+      "tx": -1,
+      "ty": -4
+    },
+    "hint": "Check the translation: it should be translate 1 down, not translate by (1, 4)."
+  },
+  {
+    "id": 1,
+    "label": "reflection_instead_of_rotation",
+    "image": "000002.png",
+    "numVertices": 4,
+    "original": [
+      [
+        4,
+        3
+      ],
+      [
+        -1,
+        3
+      ],
+      [
+        -2,
+        -2
+      ],
+      [
+        0,
+        -3
+      ]
+    ],
+    "correctTransform": [
+      "rotate 90 degrees counterclockwise",
+      "translate by (2, -6)"
+    ],
+    "studentTransform": [
+      "reflect across y axis",
+      "translate by (2, -6)"
+    ],
+    "correctNet": {
+      "linear": "rot_ccw_90",
+      "tx": 2,
+      "ty": -6
+    },
+    "studentNet": {
+      "linear": "reflect_y_axis",
+      "tx": 2,
+      "ty": -6
+    },
+    "hint": "You reflected where a rotation was required. The step should have been rotate 90 degrees counterclockwise, not reflect across y axis."
+  },
+  {
+    "id": 4,
+    "label": "wrong_rotation_angle",
+    "image": "000005.png",
+    "numVertices": 4,
+    "original": [
+      [
+        -1,
+        -3
+      ],
+      [
+        5,
+        1
+      ],
+      [
+        -2,
+        5
+      ],
+      [
+        -3,
+        0
+      ]
+    ],
+    "correctTransform": [
+      "rotate 270 degrees clockwise",
+      "translate 4 up"
+    ],
+    "studentTransform": [
+      "rotate 180 degrees counterclockwise",
+      "translate 4 up"
+    ],
+    "correctNet": {
+      "linear": "rot_ccw_90",
+      "tx": 0,
+      "ty": 4
+    },
+    "studentNet": {
+      "linear": "rot_180",
+      "tx": 0,
+      "ty": 4
+    },
+    "hint": "Check the angle: the task used rotate 90 degrees counterclockwise, but you used rotate 180 degrees counterclockwise."
+  },
+  {
+    "id": 8,
+    "label": "completely_wrong",
+    "image": "000012.png",
+    "numVertices": 5,
+    "original": [
+      [
+        4,
+        1
+      ],
+      [
+        0,
+        2
+      ],
+      [
+        -2,
+        1
+      ],
+      [
+        -4,
+        -2
+      ],
+      [
+        0,
+        -3
+      ]
+    ],
+    "correctTransform": [
+      "reflect across line y = x",
+      "translate by (8, 6)"
+    ],
+    "studentTransform": [
+      "rotate 270 degrees counterclockwise",
+      "translate by (5, 4)"
+    ],
+    "correctNet": {
+      "linear": "reflect_y_eq_x",
+      "tx": 8,
+      "ty": 6
+    },
+    "studentNet": {
+      "linear": "rot_ccw_270",
+      "tx": 5,
+      "ty": 4
+    },
+    "hint": "Your whole answer is off: the correct net map is a reflection (reflect across line y = x) with translation (8, 6), but yours is a rotation (rotate 270 degrees counterclockwise) with translation (5, 4). Both the transformation and the translation are wrong."
+  }
+]
