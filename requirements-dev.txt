@@ -1,0 +1,12 @@
+# Development and CI dependencies.
+#
+# This is a standalone, GPU-free set: it is everything needed to run
+#   pytest transform_diagnosis/ -q
+#   pytest model/ -q
+# and the no-GPU reproduction paths in the README. The full training/eval
+# runtime (torch, transformers, trl, unsloth, and the API clients) lives in
+# requirements.txt and is not required for the tests.
+
+pytest==8.4.1
+pillow==12.3.0
+matplotlib==3.10.6

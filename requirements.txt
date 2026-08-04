@@ -1,0 +1,25 @@
+# Runtime dependencies for the geometry transformation error diagnoser.
+# Pinned for reproducibility. Grouped by what actually needs each package.
+#
+# The geometry oracle, dataset generator, scorer, and offline rescoring run on
+# CPU with only the first group. The GPU group is imported lazily inside the
+# training and evaluation entry points, so it is not needed to run the tests
+# (see requirements-dev.txt) or the no-GPU reproduction paths in the README.
+
+# --- CPU: diagram rendering and image I/O ---
+pillow==12.3.0
+matplotlib==3.10.6
+
+# --- Frontier-model comparison (lazily imported by model/eval_frontier*.py and
+#     model/probe_coords.py; only needed to reproduce the Opus/GPT-4o rows) ---
+openai==2.30.0
+anthropic==0.116.0
+
+# --- Dataset publishing (model/push_dataset_to_hf.py) ---
+huggingface_hub==1.26.0
+
+# --- GPU training and adapter evaluation (ORCD/cluster only) ---
+torch==2.13.0
+transformers==5.14.1
+trl==1.9.2
+unsloth==2026.8.3
