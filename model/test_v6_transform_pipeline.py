@@ -7,6 +7,11 @@ import random
 
 import pytest
 
+# These cover GPU/API-free plumbing, but they import the train/eval entry points,
+# which pull in the model runtime (torch/unsloth) at import time. Skip the module
+# when that runtime is absent (e.g. GPU-free CI) instead of erroring on collection.
+pytest.importorskip("torch")
+
 from model import eval_frontier_gateway as gateway
 from model import eval_transform
 from model import eval_tuned_coords
