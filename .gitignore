@@ -67,4 +67,7 @@ results_probe_coords*
 # Scratch site build produced during overnight verification; the 12 rescored
 # evidence files in results/overnight/verify/ are intentionally tracked.
 results/overnight/verify/brainlift_build/
-OVERNIGHT_CURSOR_PROMPT.md
+
+# Local scratch workspace (moved out of the repo root): ad-hoc scripts,
+# overnight prompts, and manual inspection notes.
+scratch/
