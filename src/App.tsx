@@ -16,19 +16,24 @@ export default function App() {
   const { meta, purpose, scope, spov, insights, knowledgeTree, collapseChart, experts, links } = brainlift
 
   return (
-    <div className="layout">
-      <Sidebar meta={meta} questions={knowledgeTree.questions} active={active} />
-      <main className="main">
-        <div className="main-inner">
-          <Masthead meta={meta} purpose={purpose} />
-          <Scope scope={scope} />
-          <Spov spov={spov} />
-          <Insights insights={insights} />
-          <KnowledgeTree tree={knowledgeTree} chart={collapseChart} />
-          <Experts experts={experts} />
-          <SiteFooter meta={meta} links={links} />
-        </div>
-      </main>
-    </div>
+    <>
+      <a className="skip-link" href="#main-content">
+        Skip to content
+      </a>
+      <div className="layout">
+        <Sidebar meta={meta} questions={knowledgeTree.questions} active={active} />
+        <main className="main" id="main-content" tabIndex={-1}>
+          <div className="main-inner">
+            <Masthead meta={meta} purpose={purpose} />
+            <Scope scope={scope} />
+            <Spov spov={spov} />
+            <Insights insights={insights} />
+            <KnowledgeTree tree={knowledgeTree} chart={collapseChart} />
+            <Experts experts={experts} />
+            <SiteFooter meta={meta} links={links} />
+          </div>
+        </main>
+      </div>
+    </>
   )
 }
