@@ -1,22 +1,31 @@
 # Geometry Transformation Error Diagnoser
 
+**A fine-tuned Qwen3-VL-4B recovers both net affine maps on 98.6% of held-out
+test diagrams (99.4% on the restricted OOD split); the untuned base scored 0/500
+on both maps in every cell, including when given exact coordinates.**
+
+<p align="center">
+  <img src="dataset_sample_v6/images/000000.png" width="440"
+       alt="Coordinate-grid diagram: a RED original polygon with numbered vertices, the GREEN dashed correct image, and the BLUE student image." />
+</p>
+
+<p align="center"><em>The RED original polygon, the GREEN correct image, and the
+BLUE student image, with numbered vertices for correspondence. The model recovers
+the RED&rarr;GREEN and RED&rarr;BLUE net affine maps and names the student's
+error.</em></p>
+
 A task-specific Qwen3-VL-4B system that diagnoses student mistakes in composed
-rigid transformations. Each coordinate-grid diagram shows a RED original polygon,
-the GREEN dashed correct image, and the BLUE student image. The model recovers
-the two observable net affine maps, RED to GREEN and RED to BLUE, and returns a
-strict JSON diagnosis with a hint. A deterministic geometry oracle scores every
-prediction with no LLM judge, and the headline metric is exact recovery of both
-maps. On paired held-out cases the untuned base scored 0/500 on both maps in
-every cell, including with coordinates; the tuned image+coordinates model reached
-98.6% on test and 99.4% on the restricted OOD split. The maps and diagnosis are
+rigid transformations. The model recovers the two observable net affine maps,
+RED to GREEN and RED to BLUE, and returns a strict JSON diagnosis with a hint. A
+deterministic geometry oracle scores every prediction with no LLM judge, and the
+headline metric is exact recovery of both maps. The maps and diagnosis are
 strong; the original tuned hints had an answer-disclosure failure that we traced
 to the training data and fixed (below).
 
-The central claim is falsifiable: on paired held-out examples an untuned model
-should not recover the canonical maps just because coordinates are supplied, and
-training on canonical net targets should produce a large paired gain. It fails if
-the base coordinate arm solves the maps, or if the trained arm does not reproduce
-that gain.
+<p align="center">
+  <img src="docs/base_vs_tuned.png" width="560"
+       alt="Bar chart of exact two-map recovery on the paired test split: the untuned base scores 0.0% and the fine-tuned image-plus-coordinates model scores 98.6%." />
+</p>
 
 ## Headline results (base vs tuned)
 
@@ -49,6 +58,12 @@ paired base→tuned deltas:
 [`FINAL_RESULTS_SUMMARY.json`](results/v6_final/FINAL_RESULTS_SUMMARY.json). The
 raw frozen predictions, aggregates, and eight independent audits live in
 [`results/v6_final/`](results/v6_final/).
+
+The central claim is falsifiable: on paired held-out examples an untuned model
+should not recover the canonical maps just because coordinates are supplied, and
+training on canonical net targets should produce a large paired gain. It fails if
+the base coordinate arm solves the maps, or if the trained arm does not reproduce
+that gain.
 
 ### Error analysis (our own model)
 
@@ -154,8 +169,8 @@ Three samples ship in the repo. The larger [`dataset_public/`](dataset_public/)
 holds **240 label-balanced records** (30 per label) in the v6 raw and text chat
 schemas plus a 24-image visual subset, rebuildable with
 [`model/build_public_sample.py`](model/build_public_sample.py). The compact
-[`dataset_sample_v6/`](dataset_sample_v6/) holds 24 records with one image each
-and a deterministic [`zip archive`](dataset_sample_v6.zip). Both are generated
+[`dataset_sample_v6/`](dataset_sample_v6/) holds 24 records with one image each.
+Both are generated
 from, but are not claimed to be a byte-for-byte sample of, the 9,600-row mixed
 curriculum. The sibling [`dataset_sample/`](dataset_sample/) is preserved as the
 legacy/source-format sample with pre-v6 free-text step targets.
@@ -207,9 +222,10 @@ chain-of-thought, GPT-4o recovers **both** maps on only 1.2% of coords cases and
 0.6% image-only; reasoning significantly raised single correct-map accuracy
 (2.5%→13.1%, McNemar p≈5e-4) but not both-map recovery (0.6%→1.2%, n.s.).
 Reading: the 4B fine-tune is **tied with Opus 4.8 on exact geometry** at a
-fraction of the size, and **dominates GPT-4o even when GPT is allowed to
-reason**. The large direct-label lead reflects task-specific training on this
-taxonomy, not general frontier superiority — lead with the geometry.
+fraction of the size, and **recovers both maps on 98.75% of image+coordinate
+cases versus 1.2% for GPT-4o with chain-of-thought** (0.6% without). The large
+direct-label lead reflects task-specific training on this taxonomy, not general
+frontier superiority; lead with the geometry.
 
 The authoritative fair-frontier prediction and audit files remain under
 `/home/ikchen` on ORCD and were not copied into this repository, so the local
@@ -325,8 +341,7 @@ npm run preview
   labels, splits, verification, and record-count reconciliation).
 - [`dataset_public/`](dataset_public/): larger 240-record label-balanced v6
   sample, built by [`model/build_public_sample.py`](model/build_public_sample.py).
-- [`dataset_sample_v6/`](dataset_sample_v6/) and
-  [`dataset_sample_v6.zip`](dataset_sample_v6.zip): compact 24-record final-v6
+- [`dataset_sample_v6/`](dataset_sample_v6/): compact 24-record final-v6
   canonical-net image sample.
 - [`dataset_sample/`](dataset_sample/): preserved legacy/source-format sample.
 - [`src/`](src/) and [`brainlift.md`](brainlift.md): interactive research

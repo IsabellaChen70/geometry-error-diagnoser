@@ -4,8 +4,7 @@
 > 24-record train/source sample. Its chat targets use the pre-v6
 > `correct_transform` free-text, two-step schema. Reviewers looking for the
 > final `v6.net-affine.1` canonical-net schema should use
-> [`dataset_sample_v6/`](../dataset_sample_v6/) or
-> [`dataset_sample_v6.zip`](../dataset_sample_v6.zip).
+> [`dataset_sample_v6/`](../dataset_sample_v6/).
 
 A 24-record sample (3 per label × 8 labels) drawn from the training split of a
 programmatically generated, math-verified dataset for fine-tuning a vision model to

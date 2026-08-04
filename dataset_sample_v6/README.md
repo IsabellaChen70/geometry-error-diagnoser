@@ -4,8 +4,7 @@ This is a reviewer-sized sample of the final `v6.net-affine.1` data and chat
 schemas. It contains 24 balanced training/source examples: three examples for
 each of the eight diagnosis labels.
 
-Use this directory, or the deterministic
-[`dataset_sample_v6.zip`](../dataset_sample_v6.zip), to inspect the final v6
+Use this directory to inspect the final v6
 format. The sibling [`dataset_sample/`](../dataset_sample/) is intentionally
 preserved as the legacy/source-format sample.
 
