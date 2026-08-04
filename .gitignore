@@ -64,5 +64,7 @@ dataset_sample.zip
 dataset_sample_v6.zip
 records_probe_coords*
 results_probe_coords*
-results/overnight/verify/
+# Scratch site build produced during overnight verification; the 12 rescored
+# evidence files in results/overnight/verify/ are intentionally tracked.
+results/overnight/verify/brainlift_build/
 OVERNIGHT_CURSOR_PROMPT.md
