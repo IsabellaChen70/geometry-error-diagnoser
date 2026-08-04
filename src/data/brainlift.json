@@ -1,7 +1,7 @@
 {
   "meta": {
-    "kind": "Brainlift",
-    "title": "Geometric transformations",
+    "kind": "Research write-up",
+    "title": "Geometry error diagnoser",
     "owner": "Isabella Chen",
     "ownerRole": "Primary Owner",
     "standard": "Common Core 8.G",
@@ -64,7 +64,7 @@
     }
   ],
   "knowledgeTree": {
-    "label": "DOK 2",
+    "label": "Evidence",
     "questions": [
       {
         "n": "1",

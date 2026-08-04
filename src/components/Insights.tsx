@@ -6,7 +6,6 @@ export default function Insights({ insights }: { insights: Insight[] }) {
     <section id="insights" className="insights" aria-labelledby="insights-h">
       <div className="section-head">
         <h2 id="insights-h" className="section-title">Insights</h2>
-        <span className="section-label mono">DOK 3</span>
       </div>
       <ol className="insight-list">
         {insights.map((insight) => (

@@ -14,7 +14,7 @@ export default function Sidebar({ meta, questions, active }: Props) {
   const items = [
     { id: "purpose", n: "", label: "Purpose" },
     { id: "scope", n: "", label: "Scope" },
-    { id: "spov", n: "", label: "Spiky POV" },
+    { id: "spov", n: "", label: "Key claim" },
     { id: "insights", n: "", label: "Insights" },
     ...questions.map((q) => ({ id: q.id, n: q.n.padStart(2, "0"), label: q.title })),
     { id: "experts", n: "", label: "Experts" },

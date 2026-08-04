@@ -5,8 +5,7 @@ export default function Spov({ spov }: { spov: SpovData }) {
   return (
     <section id="spov" className="spov" aria-labelledby="spov-h">
       <div className="section-head">
-        <h2 id="spov-h" className="section-title">Spiky POV</h2>
-        <span className="section-label mono">DOK 4</span>
+        <h2 id="spov-h" className="section-title">Key claim</h2>
       </div>
 
       <div className="spov-claim">
@@ -16,7 +15,7 @@ export default function Spov({ spov }: { spov: SpovData }) {
 
       <div className="spov-parts">
         <div className="spov-part">
-          <p className="micro-label">Why this is spiky</p>
+          <p className="micro-label">Why it's non-obvious</p>
           <p className="spov-text">{renderInline(spov.whySpiky)}</p>
         </div>
 

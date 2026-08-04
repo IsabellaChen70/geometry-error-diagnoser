@@ -29,7 +29,7 @@ export default function SourceEntry({ source, panelId, open, onToggle }: Props) 
       </div>
 
       <div className="dok">
-        <p className="dok-label mono">DOK 1 · Facts</p>
+        <p className="dok-label mono">Facts</p>
         <ul className="facts">
           {source.facts.map((fact, i) =>
             fact.kind === "quote" ? (
@@ -53,7 +53,7 @@ export default function SourceEntry({ source, panelId, open, onToggle }: Props) 
           aria-controls={panelId}
           onClick={onToggle}
         >
-          <span className="dok-label mono">DOK 2 · Analysis</span>
+          <span className="dok-label mono">Analysis</span>
           <span className="chev" data-open={open} aria-hidden="true" />
         </button>
         <div id={panelId} className={open ? "dok-panel open" : "dok-panel"} aria-hidden={!open}>

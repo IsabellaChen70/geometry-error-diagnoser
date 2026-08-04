@@ -311,9 +311,9 @@ model evaluation run on ORCD; use
 [`model/V6_TRANSFORM_RUNBOOK.md`](model/V6_TRANSFORM_RUNBOOK.md) for the exact
 data-generation, staged-training, evaluation, and SLURM commands.
 
-## Brainlift site
+## Interactive research site
 
-The React/Vite app is the project's research brainlift. Its scripts are defined in [`package.json`](package.json):
+The React/Vite app is an interactive write-up of the research. Its scripts are defined in [`package.json`](package.json):
 
 ```bash
 npm ci
@@ -345,7 +345,7 @@ npm run preview
   canonical-net image sample.
 - [`dataset_sample/`](dataset_sample/): preserved legacy/source-format sample.
 - [`src/`](src/) and [`brainlift.md`](brainlift.md): interactive research
-  brainlift and source notes.
+  write-up and source notes.
 
 ## Limitations and publication status
 
